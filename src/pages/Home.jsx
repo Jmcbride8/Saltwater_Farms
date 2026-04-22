@@ -2,6 +2,7 @@ import Nav from '@/components/Nav';
 import Hero from '@/components/sections/Hero';
 import CrisisSection from '@/components/sections/CrisisSection';
 import InsightSection from '@/components/sections/InsightSection';
+import DripSection from '@/components/sections/DripSection';
 import HowItWorksSection from '@/components/sections/HowItWorksSection';
 import ProfitSection from '@/components/sections/ProfitSection';
 import GlobalSection from '@/components/sections/GlobalSection';
@@ -17,6 +18,7 @@ export default function Home() {
       <Hero />
       <CrisisSection />
       <InsightSection />
+      <DripSection />
       <HowItWorksSection />
       <ProfitSection />
       <GlobalSection />
