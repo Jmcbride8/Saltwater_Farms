@@ -68,7 +68,7 @@ export default function InsightSection() {
           <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-6">
             This Has Happened Before.
           </h2>
-          <p className="font-inter text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          <p className="font-inter text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
             A hidden, abundant resource — written off as worthless — unlocked to feed a starving world. 
             History is repeating itself.
           </p>
@@ -95,7 +95,7 @@ export default function InsightSection() {
                     <div className={`rounded-tl-2xl rounded-bl-2xl border ${ch.color} ${ch.bg} p-8 md:text-right flex flex-col justify-center`}>
                       <p className={`font-inter text-xs font-semibold tracking-[0.2em] uppercase ${ch.accent} mb-2`}>{ch.year} — {ch.crisis}</p>
                       <h3 className="font-playfair text-2xl font-bold text-foreground mb-4 leading-snug">{ch.headline}</h3>
-                      <p className="font-inter text-sm text-muted-foreground leading-relaxed">{ch.body}</p>
+                      <p className="font-inter text-sm text-slate-500 leading-relaxed">{ch.body}</p>
                     </div>
                     {/* Image */}
                     <div className="hidden md:block relative">
@@ -128,10 +128,10 @@ export default function InsightSection() {
                       <h3 className="font-playfair text-2xl font-bold text-foreground mb-4 leading-snug">{ch.headline}</h3>
                       {ch.quote ? (
                         <blockquote className="border-l-4 border-teal pl-4">
-                          <p className="font-inter text-sm italic text-muted-foreground leading-relaxed">{ch.body}</p>
+                          <p className="font-inter text-sm italic text-slate-500 leading-relaxed">{ch.body}</p>
                         </blockquote>
                       ) : (
-                        <p className="font-inter text-sm text-muted-foreground leading-relaxed">{ch.body}</p>
+                        <p className="font-inter text-sm text-slate-500 leading-relaxed">{ch.body}</p>
                       )}
                     </div>
                   </>
@@ -153,8 +153,8 @@ export default function InsightSection() {
           <div className="px-10 md:px-14 pt-12 pb-8 text-center border-b border-white/10">
             <p className="font-inter text-xs font-semibold tracking-[0.2em] uppercase text-teal mb-3">The Pattern</p>
             <h3 className="font-playfair text-3xl md:text-4xl font-bold leading-snug max-w-2xl mx-auto">
-              History is repeating itself.<br />
-              <span className="text-teal">Same catalyst. Different resource.</span>
+              Can we repeat history?<br />
+              <span className="text-teal">We think so.</span>
             </h3>
           </div>
 
@@ -247,7 +247,7 @@ export default function InsightSection() {
               className="bg-white rounded-xl p-6 border border-border text-center"
             >
               <div className={`font-playfair text-4xl font-bold mb-2 ${s.accent}`}>{s.value}</div>
-              <p className="font-inter text-sm text-muted-foreground leading-snug">{s.label}</p>
+              <p className="font-inter text-sm text-slate-500 leading-snug">{s.label}</p>
             </motion.div>
           ))}
         </div>
