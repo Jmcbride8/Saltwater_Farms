@@ -32,13 +32,13 @@ export default function Nav() {
           <div className="w-8 h-8 rounded-full bg-teal flex items-center justify-center">
             <Droplets className="w-4 h-4 text-white" />
           </div>
-          <span className="font-playfair font-600 text-lg tracking-tight text-foreground">Saltwater Farms</span>
+          <span className={`font-playfair font-600 text-lg tracking-tight transition-colors duration-300 ${scrolled ? 'text-foreground' : 'text-white'}`}>Saltwater Farms</span>
         </button>
 
         <div className="hidden md:flex items-center gap-8">
           {links.map(l => (
             <button key={l.href} onClick={() => handleNav(l.href)}
-              className="text-sm font-inter text-muted-foreground hover:text-foreground transition-colors">
+              className={`text-sm font-inter font-medium transition-colors duration-300 ${scrolled ? 'text-muted-foreground hover:text-foreground' : 'text-white/90 hover:text-white'}`}>
               {l.label}
             </button>
           ))}
