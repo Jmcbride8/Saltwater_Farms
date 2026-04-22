@@ -104,21 +104,24 @@ export default function InsightSection() {
                 precious, scarce surface freshwater — at world-changing scale.
               </p>
             </div>
-            <div className="space-y-4">
+            <div className="space-y-3">
               {[
-                { then: 'Atmospheric nitrogen', now: 'Underground brine' },
-                { then: 'Inaccessible to crops', now: 'Written off as worthless' },
-                { then: 'Chemical fixation process', now: 'Evaporative cooling walls' },
-                { then: 'Solved the nitrogen crisis', now: 'Solves the water crisis' },
+                { then: 'Atmospheric N₂', now: 'Underground brine', label: 'The resource' },
+                { then: 'Chemical fixation', now: 'Evaporative cooling', label: 'The process' },
+                { then: 'Nitrogen scarcity', now: 'Water scarcity', label: 'The crisis solved' },
               ].map((row, i) => (
-                <div key={i} className="grid grid-cols-2 gap-3">
-                  <div className="bg-muted rounded-lg p-4 text-center">
-                    <p className="text-xs font-inter text-muted-foreground mb-1 uppercase tracking-wide">1909: Haber-Bosch</p>
+                <div key={i} className="flex items-center gap-2">
+                  <div className="flex-1 bg-muted rounded-lg px-4 py-3 text-right">
+                    <p className="font-inter text-xs text-muted-foreground mb-0.5">1909</p>
                     <p className="font-inter text-sm text-foreground font-medium">{row.then}</p>
                   </div>
-                  <div className="bg-teal-light rounded-lg p-4 text-center">
-                    <p className="text-xs font-inter text-teal mb-1 uppercase tracking-wide">Today: Saltwater Farms</p>
-                    <p className="font-inter text-sm text-foreground font-medium">{row.now}</p>
+                  <div className="flex flex-col items-center shrink-0 px-1">
+                    <span className="text-muted-foreground text-lg">→</span>
+                    <p className="font-inter text-[10px] text-muted-foreground uppercase tracking-wide text-center leading-tight mt-0.5">{row.label}</p>
+                  </div>
+                  <div className="flex-1 bg-teal text-white rounded-lg px-4 py-3">
+                    <p className="font-inter text-xs text-white/60 mb-0.5">Today</p>
+                    <p className="font-inter text-sm font-semibold">{row.now}</p>
                   </div>
                 </div>
               ))}
