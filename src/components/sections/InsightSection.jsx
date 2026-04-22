@@ -141,69 +141,91 @@ export default function InsightSection() {
           </div>
         </div>
 
-        {/* The pivot — "Now it's water" */}
+        {/* The pivot — parallel analogy */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="bg-foreground text-white rounded-2xl p-10 md:p-14 grid md:grid-cols-2 gap-10 items-center"
+          className="bg-foreground text-white rounded-2xl overflow-hidden"
         >
-          <div>
-            <p className="font-inter text-xs font-semibold tracking-[0.2em] uppercase text-teal mb-4">Now It's Water</p>
-            <h3 className="font-playfair text-3xl md:text-4xl font-bold mb-5 leading-snug">
-              The Southwest sits on an ocean of useless brine.
+          {/* Header */}
+          <div className="px-10 md:px-14 pt-12 pb-8 text-center border-b border-white/10">
+            <p className="font-inter text-xs font-semibold tracking-[0.2em] uppercase text-teal mb-3">The Pattern</p>
+            <h3 className="font-playfair text-3xl md:text-4xl font-bold leading-snug max-w-2xl mx-auto">
+              History is repeating itself.<br />
+              <span className="text-teal">Same catalyst. Different resource.</span>
             </h3>
-            <p className="font-inter text-white/70 leading-relaxed mb-5">
-              Deep saline aquifers run under the entire desert Southwest — salty water so concentrated it's 
-              been written off for centuries. No crop can drink it. No city will pipe it. Zero market value.
-            </p>
-            <p className="font-inter text-white/70 leading-relaxed">
-              Saltwater Farms doesn't try to purify it. We <em className="text-white not-italic font-medium">evaporate</em> it — 
-              using the desert's own heat and wind to cool farm air by 20–40°F. 
-              The brine does the work. The freshwater is saved.
-            </p>
           </div>
-          <div className="space-y-4">
-            {[
-              {
-                resource: 'Atmospheric N₂',
-                label: '1909 — Haber-Bosch',
-                tag: 'Written off as inaccessible',
-                result: 'Fed half the world',
-                imageAlt: 'Industrial gas facility',
-              },
-              {
-                resource: 'Underground brine',
-                label: 'Today — Saltwater Farms',
-                tag: 'Written off as worthless',
-                result: 'Saves the water supply',
-                imageAlt: 'Desert landscape with underground water',
-              },
-            ].map((row, i) => (
-              <div key={i} className="rounded-xl overflow-hidden border border-white/10 flex h-28">
-                <div className="w-36 shrink-0 relative">
-                  <AdminImageCard
-                    src={panelImgs[i]}
-                    alt={row.imageAlt}
-                    onImageChange={(url) => updatePanelImg(i, url)}
-                    className="w-full h-full"
-                    imgClassName="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black/30 pointer-events-none" />
-                </div>
-                <div className={`flex-1 p-4 flex flex-col justify-center ${i === 1 ? 'bg-teal' : 'bg-white/10'}`}>
-                  <p className="font-inter text-xs text-white/60 mb-1">{row.label}</p>
-                  <p className="font-playfair text-base font-bold text-white mb-2">{row.resource}</p>
-                  <div className="flex items-center gap-2">
-                    <span className="font-inter text-xs text-white/50 line-through">{row.tag}</span>
-                    <span className="text-white/30">→</span>
-                    <span className={`font-inter text-xs font-semibold ${i === 1 ? 'text-white' : 'text-teal'}`}>{row.result}</span>
-                  </div>
-                </div>
+
+          {/* Two-column comparison */}
+          <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-white/10">
+            {/* Left — Haber */}
+            <div className="p-10 md:p-12 flex flex-col">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="font-inter text-xs font-semibold tracking-widest uppercase text-white/40">1909</span>
+                <span className="h-px flex-1 bg-white/10" />
+                <span className="font-inter text-xs font-semibold tracking-widest uppercase text-white/40">Haber-Bosch</span>
               </div>
-            ))}
-            <p className="font-inter text-xs text-white/40 text-center pt-1">
+              <AdminImageCard
+                src={panelImgs[0]}
+                alt="Industrial gas facility"
+                onImageChange={(url) => updatePanelImg(0, url)}
+                className="rounded-xl overflow-hidden h-44 mb-6"
+                imgClassName="w-full h-full object-cover"
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
+              </AdminImageCard>
+              <p className="font-inter text-xs font-medium uppercase tracking-widest text-white/40 mb-1">The abundant but useless resource</p>
+              <p className="font-playfair text-2xl font-bold text-white mb-3">Atmospheric Nitrogen</p>
+              <p className="font-inter text-sm text-white/60 leading-relaxed mb-5">
+                78% of the air we breathe — yet crops couldn't absorb it. Written off as inaccessible. Every farmer on earth was limited by it.
+              </p>
+              <div className="mt-auto pt-5 border-t border-white/10">
+                <p className="font-inter text-xs text-white/40 mb-1">The catalyst</p>
+                <p className="font-inter text-sm font-medium text-white">A chemical process to fix N₂ into ammonia</p>
+              </div>
+              <div className="mt-4 pt-4 border-t border-white/10">
+                <p className="font-inter text-xs text-white/40 mb-1">The result</p>
+                <p className="font-playfair text-lg font-bold text-teal">Fed half the world</p>
+              </div>
+            </div>
+
+            {/* Right — Saltwater Farms */}
+            <div className="p-10 md:p-12 flex flex-col">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="font-inter text-xs font-semibold tracking-widest uppercase text-teal/70">Today</span>
+                <span className="h-px flex-1 bg-white/10" />
+                <span className="font-inter text-xs font-semibold tracking-widest uppercase text-teal/70">Saltwater Farms</span>
+              </div>
+              <AdminImageCard
+                src={panelImgs[1]}
+                alt="Desert landscape with saline aquifer"
+                onImageChange={(url) => updatePanelImg(1, url)}
+                className="rounded-xl overflow-hidden h-44 mb-6"
+                imgClassName="w-full h-full object-cover"
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
+              </AdminImageCard>
+              <p className="font-inter text-xs font-medium uppercase tracking-widest text-white/40 mb-1">The abundant but useless resource</p>
+              <p className="font-playfair text-2xl font-bold text-white mb-3">Underground Brine</p>
+              <p className="font-inter text-sm text-white/60 leading-relaxed mb-5">
+                Vast saline aquifers run under the entire desert Southwest — too salty for crops or cities. Written off for centuries. Zero market value.
+              </p>
+              <div className="mt-auto pt-5 border-t border-white/10">
+                <p className="font-inter text-xs text-white/40 mb-1">The catalyst</p>
+                <p className="font-inter text-sm font-medium text-white">Evaporate it through desert wind to cool farms by 20–40°F</p>
+              </div>
+              <div className="mt-4 pt-4 border-t border-white/10">
+                <p className="font-inter text-xs text-white/40 mb-1">The result</p>
+                <p className="font-playfair text-lg font-bold text-teal">Saves the water supply</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Footer */}
+          <div className="px-10 md:px-14 py-6 border-t border-white/10 text-center">
+            <p className="font-inter text-sm text-white/40 italic">
               Same pattern. Different century. Same scale of impact.
             </p>
           </div>
