@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import AdminImageCard from '@/components/AdminImageCard';
+import { usePersistedImages } from '@/hooks/usePersistedImages';
 
 const chapters = [
   {
@@ -38,6 +40,18 @@ const chapters = [
 ];
 
 export default function InsightSection() {
+  const [chapterImgs, updateChapterImg] = usePersistedImages(
+    'insight-chapter-images',
+    chapters.map(c => c.image)
+  );
+  const [panelImgs, updatePanelImg] = usePersistedImages(
+    'insight-panel-images',
+    [
+      'https://images.unsplash.com/photo-1581093577421-f561a654a353?w=600&q=80',
+      'https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=600&q=80',
+    ]
+  );
+
   return (
     <section id="insight" className="py-28 bg-muted overflow-hidden">
       <div className="max-w-6xl mx-auto px-6">
@@ -86,9 +100,13 @@ export default function InsightSection() {
                     {/* Image */}
                     <div className="hidden md:block relative">
                       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-white border-2 border-teal z-10" />
-                      <div className="rounded-tr-2xl rounded-br-2xl overflow-hidden h-full min-h-[220px]">
-                        <img src={ch.image} alt={ch.imageAlt} className="w-full h-full object-cover" />
-                      </div>
+                      <AdminImageCard
+                        src={chapterImgs[i]}
+                        alt={ch.imageAlt}
+                        onImageChange={(url) => updateChapterImg(i, url)}
+                        className="rounded-tr-2xl rounded-br-2xl overflow-hidden h-full min-h-[220px]"
+                        imgClassName="w-full h-full object-cover"
+                      />
                     </div>
                   </>
                 ) : (
@@ -96,9 +114,13 @@ export default function InsightSection() {
                     {/* Image */}
                     <div className="hidden md:block relative">
                       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-white border-2 border-teal z-10 translate-x-1/2" />
-                      <div className="rounded-tl-2xl rounded-bl-2xl overflow-hidden h-full min-h-[220px]">
-                        <img src={ch.image} alt={ch.imageAlt} className="w-full h-full object-cover" />
-                      </div>
+                      <AdminImageCard
+                        src={chapterImgs[i]}
+                        alt={ch.imageAlt}
+                        onImageChange={(url) => updateChapterImg(i, url)}
+                        className="rounded-tl-2xl rounded-bl-2xl overflow-hidden h-full min-h-[220px]"
+                        imgClassName="w-full h-full object-cover"
+                      />
                     </div>
                     {/* Text blurb */}
                     <div className={`rounded-tr-2xl rounded-br-2xl border ${ch.color} ${ch.bg} p-8 flex flex-col justify-center`}>
@@ -149,7 +171,6 @@ export default function InsightSection() {
                 label: '1909 — Haber-Bosch',
                 tag: 'Written off as inaccessible',
                 result: 'Fed half the world',
-                image: 'https://images.unsplash.com/photo-1581093577421-f561a654a353?w=600&q=80',
                 imageAlt: 'Industrial gas facility',
               },
               {
@@ -157,14 +178,19 @@ export default function InsightSection() {
                 label: 'Today — Saltwater Farms',
                 tag: 'Written off as worthless',
                 result: 'Saves the water supply',
-                image: 'https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=600&q=80',
                 imageAlt: 'Desert landscape with underground water',
               },
             ].map((row, i) => (
               <div key={i} className="rounded-xl overflow-hidden border border-white/10 flex h-28">
                 <div className="w-36 shrink-0 relative">
-                  <img src={row.image} alt={row.imageAlt} className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-black/30" />
+                  <AdminImageCard
+                    src={panelImgs[i]}
+                    alt={row.imageAlt}
+                    onImageChange={(url) => updatePanelImg(i, url)}
+                    className="w-full h-full"
+                    imgClassName="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/30 pointer-events-none" />
                 </div>
                 <div className={`flex-1 p-4 flex flex-col justify-center ${i === 1 ? 'bg-teal' : 'bg-white/10'}`}>
                   <p className="font-inter text-xs text-white/60 mb-1">{row.label}</p>
