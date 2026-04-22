@@ -56,6 +56,35 @@ export default function HowItWorksSection() {
           </p>
         </motion.div>
 
+        {/* Visual schematic callout */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="bg-muted rounded-2xl p-8 mb-14 flex flex-col md:flex-row items-center gap-6 text-center md:text-left"
+        >
+          <div className="flex-1">
+            <div className="inline-flex items-center gap-3 bg-crisis/10 border border-crisis/20 rounded-xl px-6 py-4">
+              <span className="font-playfair text-3xl font-bold text-crisis">120°F</span>
+              <span className="font-inter text-muted-foreground text-sm">Dry desert air in</span>
+            </div>
+          </div>
+          <div className="flex flex-col items-center gap-1 px-4">
+            <div className="w-12 h-12 rounded-full bg-teal-light flex items-center justify-center">
+              <span className="text-xl">→</span>
+            </div>
+            <p className="font-inter text-xs text-muted-foreground font-medium">Soaked cellulose<br/>evaporator panel</p>
+            <p className="font-inter text-xs text-teal font-medium">Brackish water / Brine</p>
+          </div>
+          <div className="flex-1 flex justify-center md:justify-end">
+            <div className="inline-flex items-center gap-3 bg-teal-light border border-teal/20 rounded-xl px-6 py-4">
+              <span className="font-playfair text-3xl font-bold text-teal">85°F</span>
+              <span className="font-inter text-muted-foreground text-sm">Moist, cool air out</span>
+            </div>
+          </div>
+        </motion.div>
+
         {/* Steps */}
         <div className="relative">
           <div className="hidden md:block absolute left-8 top-0 bottom-0 w-px bg-border" />

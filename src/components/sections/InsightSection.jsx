@@ -81,19 +81,27 @@ export default function InsightSection() {
               <h3 className="font-playfair text-3xl font-bold text-foreground mb-5">
                 Like Haber-Bosch Did for Fertilizer
               </h3>
-              <p className="font-inter text-muted-foreground leading-relaxed mb-5">
-                In 1909, nitrogen was abundant in the atmosphere but inaccessible to crops. 
-                The Haber-Bosch process unlocked it — and single-handedly enabled the food supply 
-                that feeds half the world today.
+              <p className="font-inter text-muted-foreground leading-relaxed mb-4">
+                By 1900, mankind faced starvation as nitrogen scarcity capped food production. Empires strip-mined 
+                the world's islands for guano. Fritz Haber's discovery of a catalyst to convert natural gas into 
+                ammonia — industrialized at scale by Carl Bosch at a small company called BASF — 
+                changed everything.
               </p>
-              <p className="font-inter text-muted-foreground leading-relaxed mb-5">
-                Water is abundant underground in the desert — locked in saline aquifers that have been 
-                written off as worthless. <strong className="text-foreground">Saltwater Farms unlocks it</strong> — not 
-                by purifying it, but by using it directly to cool the air and shield crops from desert heat.
+              <blockquote className="border-l-4 border-teal pl-4 mb-4">
+                <p className="font-inter text-sm italic text-muted-foreground">
+                  "A third of annual global food production uses ammonia from the Haber–Bosch process, 
+                  and that food supports nearly half the world's population."
+                </p>
+                <cite className="font-inter text-xs text-teal mt-1 block">— Oxford Scientists</cite>
+              </blockquote>
+              <p className="font-inter text-muted-foreground leading-relaxed mb-4">
+                Water is abundant underground in the desert — locked in saline aquifers written off as worthless. 
+                <strong className="text-foreground"> Saltwater Farms unlocks it</strong> — not by purifying it, 
+                but by using it to cool the air and shield crops from desert heat.
               </p>
               <p className="font-inter text-foreground font-medium leading-relaxed">
                 The brine becomes a catalyst. Worthless underground salt water traded for 
-                precious, scarce surface freshwater — at scale.
+                precious, scarce surface freshwater — at world-changing scale.
               </p>
             </div>
             <div className="space-y-4">

@@ -82,6 +82,28 @@ export default function GlobalSection() {
           </p>
         </motion.div>
 
+        {/* Dead seas targets */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="bg-foreground text-white rounded-2xl p-8 mb-12"
+        >
+          <h3 className="font-playfair text-2xl font-bold mb-3">Farm Dead Seas & Deserts Worldwide</h3>
+          <p className="font-inter text-white/70 text-sm leading-relaxed mb-6 max-w-2xl">
+            Every evaporating salt body on Earth is a potential brine source. Every adjacent desert is a potential farm. 
+            These locations share a common trait: abundant saline water, desperate freshwater scarcity.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            {['Salton Sea, CA', 'Great Salt Lake, UT', 'The Dead Sea, Jordan', 'Lake Eyre, Australia', 'Chott el Djerid, Tunisia', 'Qattara Depression, Egypt'].map(loc => (
+              <span key={loc} className="font-inter text-xs font-medium px-3 py-1.5 rounded-full bg-white/10 text-white/80">
+                {loc}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {regions.map((region, i) => (
             <motion.div
