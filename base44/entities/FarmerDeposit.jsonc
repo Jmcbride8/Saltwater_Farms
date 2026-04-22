@@ -1,0 +1,79 @@
+{
+  "name": "FarmerDeposit",
+  "type": "object",
+  "properties": {
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "farm_name": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string",
+      "enum": [
+        "Imperial Valley, CA",
+        "Yuma, AZ",
+        "Phoenix, AZ",
+        "Tucson, AZ",
+        "Coachella Valley, CA",
+        "Other Arizona",
+        "Other California",
+        "Other"
+      ]
+    },
+    "farm_acres": {
+      "type": "string",
+      "enum": [
+        "Under 50 acres",
+        "50\u2013200 acres",
+        "200\u2013500 acres",
+        "500\u20131,000 acres",
+        "Over 1,000 acres"
+      ]
+    },
+    "primary_crops": {
+      "type": "string"
+    },
+    "interest_level": {
+      "type": "string",
+      "enum": [
+        "Just exploring",
+        "Seriously interested",
+        "Ready to pilot"
+      ]
+    },
+    "deposit_amount": {
+      "type": "number",
+      "default": 500
+    },
+    "notes": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "confirmed",
+        "refunded"
+      ],
+      "default": "pending"
+    }
+  },
+  "required": [
+    "first_name",
+    "last_name",
+    "email",
+    "location",
+    "farm_acres"
+  ]
+}
