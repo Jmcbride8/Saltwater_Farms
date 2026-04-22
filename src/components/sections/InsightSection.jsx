@@ -6,8 +6,8 @@ const chapters = [
     crisis: 'Global Starvation',
     headline: 'The world was running out of food.',
     body: 'By 1900, every continent faced the same ceiling: not enough nitrogen to grow enough food. Farmers exhausted soil. Empires strip-mined Pacific islands for seabird guano. Malthus seemed right — population would outgrow the planet\'s ability to feed it.',
-    stat: '1B+',
-    statLabel: 'people at risk of starvation',
+    image: 'https://images.unsplash.com/photo-1504711331083-9c895941bf81?w=600&q=80',
+    imageAlt: 'Barren cracked farmland',
     color: 'border-crisis/40',
     accent: 'text-crisis',
     bg: 'bg-crisis/5',
@@ -17,8 +17,8 @@ const chapters = [
     crisis: 'The Breakthrough',
     headline: 'Fritz Haber found nitrogen in thin air.',
     body: 'Atmospheric nitrogen makes up 78% of the air we breathe — but crops can\'t absorb it. Haber discovered a catalyst to fix it into ammonia. Carl Bosch scaled it at a company called BASF. An invisible, abundant, "worthless" gas became the foundation of modern agriculture.',
-    stat: '78%',
-    statLabel: 'of air is nitrogen — all of it inaccessible to plants',
+    image: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&q=80',
+    imageAlt: 'Industrial chemistry laboratory',
     color: 'border-teal/40',
     accent: 'text-teal',
     bg: 'bg-teal-light/60',
@@ -28,8 +28,8 @@ const chapters = [
     crisis: 'The Result',
     headline: 'Half the world eats because of that one discovery.',
     body: '"A third of annual global food production uses ammonia from the Haber–Bosch process, and that food supports nearly half the world\'s population." The locked-up became unlocked. The worthless became essential.',
-    stat: '50%',
-    statLabel: 'of humanity fed by a single chemistry breakthrough',
+    image: 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=600&q=80',
+    imageAlt: 'Abundant green farmland from above',
     color: 'border-teal/40',
     accent: 'text-teal',
     bg: 'bg-teal-light/60',
@@ -86,18 +86,16 @@ export default function InsightSection() {
                     {/* Center dot */}
                     <div className="hidden md:flex items-center justify-start pl-0 relative">
                       <div className="absolute -left-6 w-4 h-4 rounded-full bg-white border-2 border-teal z-10" />
-                      <div className={`ml-6 rounded-xl p-6 border border-border bg-white w-full`}>
-                        <div className={`font-playfair text-4xl font-bold ${ch.accent} mb-1`}>{ch.stat}</div>
-                        <p className="font-inter text-xs text-muted-foreground">{ch.statLabel}</p>
+                      <div className="ml-6 rounded-xl overflow-hidden border border-border w-full h-48">
+                        <img src={ch.image} alt={ch.imageAlt} className="w-full h-full object-cover" />
                       </div>
                     </div>
                   </>
                 ) : (
                   <>
                     <div className="hidden md:flex items-center justify-end pr-0 relative">
-                      <div className={`mr-6 rounded-xl p-6 border border-border bg-white w-full`}>
-                        <div className={`font-playfair text-4xl font-bold ${ch.accent} mb-1`}>{ch.stat}</div>
-                        <p className="font-inter text-xs text-muted-foreground">{ch.statLabel}</p>
+                      <div className="mr-6 rounded-xl overflow-hidden border border-border w-full h-48">
+                        <img src={ch.image} alt={ch.imageAlt} className="w-full h-full object-cover" />
                       </div>
                       <div className="absolute -right-6 w-4 h-4 rounded-full bg-white border-2 border-teal z-10" />
                     </div>
@@ -144,29 +142,40 @@ export default function InsightSection() {
           </div>
           <div className="space-y-4">
             {[
-              { resource: 'Atmospheric N₂', worthless: 'Can\'t feed crops', unlocked: 'Haber-Bosch', icon: '⚗️' },
-              { resource: 'Underground brine', worthless: 'Can\'t irrigate', unlocked: 'Saltwater Farms', icon: '🌊' },
+              {
+                resource: 'Atmospheric N₂',
+                label: '1909 — Haber-Bosch',
+                tag: 'Written off as inaccessible',
+                result: 'Fed half the world',
+                image: 'https://images.unsplash.com/photo-1581093577421-f561a654a353?w=600&q=80',
+                imageAlt: 'Industrial gas facility',
+              },
+              {
+                resource: 'Underground brine',
+                label: 'Today — Saltwater Farms',
+                tag: 'Written off as worthless',
+                result: 'Saves the water supply',
+                image: 'https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=600&q=80',
+                imageAlt: 'Desert landscape with underground water',
+              },
             ].map((row, i) => (
-              <div key={i} className={`rounded-xl p-5 ${i === 1 ? 'bg-teal' : 'bg-white/10'}`}>
-                <div className="flex items-start gap-4">
-                  <span className="text-2xl">{row.icon}</span>
-                  <div className="flex-1">
-                    <p className={`font-inter text-xs font-semibold uppercase tracking-wide mb-1 ${i === 1 ? 'text-white/60' : 'text-white/50'}`}>The Resource</p>
-                    <p className="font-playfair text-lg font-bold text-white mb-2">{row.resource}</p>
-                    <div className="flex items-center gap-3">
-                      <span className={`font-inter text-xs px-2 py-0.5 rounded ${i === 1 ? 'bg-white/20 text-white/70' : 'bg-white/10 text-white/50'}`}>
-                        ✗ {row.worthless}
-                      </span>
-                      <span className="text-white/30 text-xs">→</span>
-                      <span className={`font-inter text-xs px-2 py-0.5 rounded font-semibold ${i === 1 ? 'bg-white text-teal' : 'bg-teal text-white'}`}>
-                        ✓ {row.unlocked}
-                      </span>
-                    </div>
+              <div key={i} className="rounded-xl overflow-hidden border border-white/10 flex h-28">
+                <div className="w-36 shrink-0 relative">
+                  <img src={row.image} alt={row.imageAlt} className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-black/30" />
+                </div>
+                <div className={`flex-1 p-4 flex flex-col justify-center ${i === 1 ? 'bg-teal' : 'bg-white/10'}`}>
+                  <p className="font-inter text-xs text-white/60 mb-1">{row.label}</p>
+                  <p className="font-playfair text-base font-bold text-white mb-2">{row.resource}</p>
+                  <div className="flex items-center gap-2">
+                    <span className="font-inter text-xs text-white/50 line-through">{row.tag}</span>
+                    <span className="text-white/30">→</span>
+                    <span className={`font-inter text-xs font-semibold ${i === 1 ? 'text-white' : 'text-teal'}`}>{row.result}</span>
                   </div>
                 </div>
               </div>
             ))}
-            <p className="font-inter text-xs text-white/40 text-center pt-2">
+            <p className="font-inter text-xs text-white/40 text-center pt-1">
               Same pattern. Different century. Same scale of impact.
             </p>
           </div>
