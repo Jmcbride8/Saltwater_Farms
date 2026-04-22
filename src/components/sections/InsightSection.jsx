@@ -73,33 +73,35 @@ export default function InsightSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15, duration: 0.7 }}
-                className={`md:grid md:grid-cols-2 md:gap-12 items-center ${i % 2 === 1 ? '' : ''}`}
+                className="md:grid md:grid-cols-2 md:gap-0 items-stretch"
               >
-                {/* Left column — alternates */}
                 {i % 2 === 0 ? (
                   <>
-                    <div className={`rounded-2xl border ${ch.color} ${ch.bg} p-8 md:text-right`}>
+                    {/* Text blurb */}
+                    <div className={`rounded-tl-2xl rounded-bl-2xl border ${ch.color} ${ch.bg} p-8 md:text-right flex flex-col justify-center`}>
                       <p className={`font-inter text-xs font-semibold tracking-[0.2em] uppercase ${ch.accent} mb-2`}>{ch.year} — {ch.crisis}</p>
                       <h3 className="font-playfair text-2xl font-bold text-foreground mb-4 leading-snug">{ch.headline}</h3>
                       <p className="font-inter text-sm text-muted-foreground leading-relaxed">{ch.body}</p>
                     </div>
-                    {/* Center dot */}
-                    <div className="hidden md:flex items-center justify-start pl-0 relative">
-                      <div className="absolute -left-6 w-4 h-4 rounded-full bg-white border-2 border-teal z-10" />
-                      <div className="ml-6 rounded-xl overflow-hidden border border-border w-full h-48">
+                    {/* Image */}
+                    <div className="hidden md:block relative">
+                      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-white border-2 border-teal z-10" />
+                      <div className="rounded-tr-2xl rounded-br-2xl overflow-hidden h-full min-h-[220px]">
                         <img src={ch.image} alt={ch.imageAlt} className="w-full h-full object-cover" />
                       </div>
                     </div>
                   </>
                 ) : (
                   <>
-                    <div className="hidden md:flex items-center justify-end pr-0 relative">
-                      <div className="mr-6 rounded-xl overflow-hidden border border-border w-full h-48">
+                    {/* Image */}
+                    <div className="hidden md:block relative">
+                      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-white border-2 border-teal z-10 translate-x-1/2" />
+                      <div className="rounded-tl-2xl rounded-bl-2xl overflow-hidden h-full min-h-[220px]">
                         <img src={ch.image} alt={ch.imageAlt} className="w-full h-full object-cover" />
                       </div>
-                      <div className="absolute -right-6 w-4 h-4 rounded-full bg-white border-2 border-teal z-10" />
                     </div>
-                    <div className={`rounded-2xl border ${ch.color} ${ch.bg} p-8`}>
+                    {/* Text blurb */}
+                    <div className={`rounded-tr-2xl rounded-br-2xl border ${ch.color} ${ch.bg} p-8 flex flex-col justify-center`}>
                       <p className={`font-inter text-xs font-semibold tracking-[0.2em] uppercase ${ch.accent} mb-2`}>{ch.year} — {ch.crisis}</p>
                       <h3 className="font-playfair text-2xl font-bold text-foreground mb-4 leading-snug">{ch.headline}</h3>
                       {ch.quote ? (
