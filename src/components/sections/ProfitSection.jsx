@@ -72,8 +72,8 @@ export default function ProfitSection() {
           transition={{ duration: 0.7 }}
           className="bg-white border border-border rounded-2xl p-10 md:p-14 text-center shadow-sm"
         >
-          <h3 className="font-playfair text-3xl font-bold text-foreground mb-2">The Flywheel</h3>
-          <p className="font-inter text-muted-foreground mb-10 text-sm">Each rotation compounds the last</p>
+          <h3 className="font-playfair text-3xl font-bold text-foreground mb-2">The Economic Flywheel</h3>
+          <p className="font-inter text-muted-foreground mb-10 text-sm">Solving scarcity for profit</p>
           <Flywheel />
         </motion.div>
       </div>
