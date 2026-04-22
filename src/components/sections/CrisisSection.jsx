@@ -1,7 +1,8 @@
 import { motion, useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import CrisisNews from '@/components/sections/CrisisNews';
 import AdminImageCard from '@/components/AdminImageCard';
+import { usePersistedImages } from '@/hooks/usePersistedImages';
 
 const stats = [
   { value: '1,083', unit: 'ft', label: 'Lake Mead water level in 2022', note: 'vs. 1,229 ft full pool', crisis: true },
@@ -65,9 +66,7 @@ function StatCard({ value, unit, label, note, crisis, i }) {
 export default function CrisisSection() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-100px' });
-  const [cardImgs, setCardImgs] = useState(defaultCards.map(c => c.img));
-
-  const updateImg = (i, url) => setCardImgs(prev => prev.map((v, idx) => idx === i ? url : v));
+  const [cardImgs, updateImg] = usePersistedImages('crisis-card-images', defaultCards.map(c => c.img));
 
   return (
     <section id="crisis" className="py-28 bg-white">

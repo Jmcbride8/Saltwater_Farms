@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { Globe } from 'lucide-react';
+import AdminImageCard from '@/components/AdminImageCard';
+import { usePersistedImages } from '@/hooks/usePersistedImages';
 
 const regions = [
   {
@@ -59,6 +61,8 @@ const priorityColors = {
 };
 
 export default function GlobalSection() {
+  const [regionImgs, updateImg] = usePersistedImages('global-region-images', regions.map(r => r.image));
+
   return (
     <section id="global" className="py-28 bg-muted">
       <div className="max-w-6xl mx-auto px-6">
@@ -114,14 +118,19 @@ export default function GlobalSection() {
               transition={{ delay: i * 0.08, duration: 0.6 }}
               className="bg-white rounded-xl overflow-hidden border border-border hover:shadow-md transition-shadow"
             >
-              <div className="relative h-40 overflow-hidden">
-                <img src={region.image} alt={region.name} className="w-full h-full object-cover" />
-                <div className="absolute top-3 right-3">
+              <AdminImageCard
+                src={regionImgs[i]}
+                alt={region.name}
+                onImageChange={(url) => updateImg(i, url)}
+                className="relative h-40 overflow-hidden group"
+                imgClassName="w-full h-full object-cover"
+              >
+                <div className="absolute top-3 right-3 pointer-events-none">
                   <span className={`text-xs font-inter font-semibold px-3 py-1 rounded-full ${priorityColors[region.priority]}`}>
                     {region.priority}
                   </span>
                 </div>
-              </div>
+              </AdminImageCard>
               <div className="p-6">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="text-xl">{region.flag}</span>
