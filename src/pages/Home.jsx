@@ -17,10 +17,10 @@ export default function Home() {
       <Nav />
       <Hero />
       <CrisisSection />
-      <InsightSection />
       <DripSection />
       <HowItWorksSection />
       <ProfitSection />
+      <InsightSection />
       <GlobalSection />
       <FoundersSection />
       <RoadmapSection />
