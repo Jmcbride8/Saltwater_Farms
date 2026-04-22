@@ -7,8 +7,8 @@ export default function Hero() {
       {/* Background — dark, dramatic */}
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1800&q=80"
-          alt="Drought-stricken lake"
+          src="https://images.unsplash.com/photo-1504370805625-d32c54b16100?w=1800&q=80"
+          alt="Epic dust storm front"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
