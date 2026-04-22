@@ -56,33 +56,19 @@ export default function HowItWorksSection() {
           </p>
         </motion.div>
 
-        {/* Visual schematic callout */}
+        {/* Visual schematic image */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-muted rounded-2xl p-8 mb-14 flex flex-col md:flex-row items-center gap-6 text-center md:text-left"
+          className="mb-14 rounded-2xl overflow-hidden border border-border shadow-sm"
         >
-          <div className="flex-1">
-            <div className="inline-flex items-center gap-3 bg-crisis/10 border border-crisis/20 rounded-xl px-6 py-4">
-              <span className="font-playfair text-3xl font-bold text-crisis">120°F</span>
-              <span className="font-inter text-muted-foreground text-sm">Dry desert air in</span>
-            </div>
-          </div>
-          <div className="flex flex-col items-center gap-1 px-4">
-            <div className="w-12 h-12 rounded-full bg-teal-light flex items-center justify-center">
-              <span className="text-xl">→</span>
-            </div>
-            <p className="font-inter text-xs text-muted-foreground font-medium">Soaked cellulose<br/>evaporator panel</p>
-            <p className="font-inter text-xs text-teal font-medium">Brackish water / Brine</p>
-          </div>
-          <div className="flex-1 flex justify-center md:justify-end">
-            <div className="inline-flex items-center gap-3 bg-teal-light border border-teal/20 rounded-xl px-6 py-4">
-              <span className="font-playfair text-3xl font-bold text-teal">85°F</span>
-              <span className="font-inter text-muted-foreground text-sm">Moist, cool air out</span>
-            </div>
-          </div>
+          <img
+            src="https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/5cd844788_image.png"
+            alt="Saltwater Farms evaporative cooling wall diagram"
+            className="w-full h-auto object-cover"
+          />
         </motion.div>
 
         {/* Steps */}
