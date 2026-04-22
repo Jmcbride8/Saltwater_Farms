@@ -21,7 +21,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: 'easeOut' }}
         >
-          <p className="text-xs font-inter font-semibold tracking-[0.25em] uppercase text-teal mb-6">
+          <p className="text-xs font-inter font-semibold tracking-[0.25em] uppercase text-white/90 mb-6">
             Scientists warn of a second Dust Bowl
           </p>
 
@@ -30,7 +30,7 @@ export default function Hero() {
             <span className="text-teal">We Built the Fix.</span>
           </h1>
 
-          <p className="font-inter text-lg md:text-xl text-white/60 font-light leading-relaxed max-w-xl mx-auto mb-12">
+          <p className="font-inter text-lg md:text-xl text-white/85 font-light leading-relaxed max-w-xl mx-auto mb-12">
             Evaporative cooling walls fed by worthless underground brine — 
             cutting farm water demand by up to 80%.
           </p>
@@ -44,7 +44,7 @@ export default function Hero() {
             </button>
             <button
               onClick={() => document.querySelector('#presale')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-10 py-4 border border-white/30 text-white font-inter font-semibold rounded-sm hover:bg-white/10 transition-all text-sm tracking-wide uppercase"
+              className="px-10 py-4 border border-white/50 text-white font-inter font-semibold rounded-sm hover:bg-white/10 transition-all text-sm tracking-wide uppercase"
             >
               Join the Solution →
             </button>
@@ -56,7 +56,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 0.5 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/60"
       >
         <span className="text-xs font-inter tracking-widest uppercase">Scroll</span>
         <ArrowDown className="w-4 h-4 animate-bounce" />
