@@ -116,7 +116,7 @@ export default function HowItWorksSection() {
           {[
             { metric: '40–80%', label: 'Freshwater savings', sub: 'Per irrigated acre' },
             { metric: '20–40°F', label: 'Air temperature reduction', sub: 'Downwind microclimate' },
-            { metric: '3–4×', label: 'More growing seasons', sub: 'High-value leafy crops' },
+            { metric: '+1 Month', label: 'Extended cool crop window', sub: 'High-value leafy crops' },
           ].map((item, i) => (
             <div key={i} className="bg-teal text-white rounded-xl p-7 text-center">
               <div className="font-playfair text-4xl font-bold mb-1">{item.metric}</div>
