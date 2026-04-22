@@ -10,10 +10,10 @@ export default function CrisisNews() {
   const fetchArticles = async () => {
     setLoading(true);
     const result = await base44.integrations.Core.InvokeLLM({
-      prompt: `Find 5 recent, real news articles about the Colorado River water crisis, Lake Mead drought, or Southwest water shortage from 2023–2025. 
-      For each article, provide the real title, publication name, a 1–2 sentence summary of the key finding or headline fact, the approximate date, and the real URL if you know it (otherwise omit the url field).
+      prompt: `Today's date is ${new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}. Find 5 real news articles published in the last 6 months about the Colorado River water crisis, Lake Mead drought, or Southwest water shortage. 
+      For each article, provide the real title, publication name, a 1–2 sentence summary of the key finding or headline fact, the approximate publication date (month and year), and the real URL if you know it (otherwise omit the url field).
       Focus on the most urgent and alarming recent developments — cutbacks, record lows, policy fights, agriculture impacts.
-      Return only real articles you are confident exist.`,
+      Only include articles published after ${new Date(Date.now() - 180 * 24 * 60 * 60 * 1000).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}. Return only real articles you are confident exist.`,
       add_context_from_internet: true,
       response_json_schema: {
         type: 'object',
