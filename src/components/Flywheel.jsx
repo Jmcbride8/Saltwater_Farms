@@ -2,11 +2,11 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
 const steps = [
-  { label: 'Build Farms',     sub: 'Deploy cooling walls',       color: '#2563eb' },
-  { label: 'Save Water',      sub: '40–80% freshwater saved',    color: '#16a34a' },
-  { label: 'Sell Water',      sub: 'Rights at ~99% margin',      color: '#0891b2' },
-  { label: 'Generate Profit', sub: 'Compounding returns',        color: '#7c3aed' },
-  { label: 'Scale',           sub: 'More farms, more impact',    color: '#d97706' },
+  { label: 'Build Farms',     sub: 'Deploy cooling walls'      },
+  { label: 'Save Water',      sub: '40–80% freshwater saved'   },
+  { label: 'Sell Water',      sub: 'Rights at ~99% margin'     },
+  { label: 'Generate Profit', sub: 'Compounding returns'       },
+  { label: 'Scale',           sub: 'More farms, more impact'   },
 ];
 
 const N = steps.length;
@@ -16,6 +16,7 @@ const CY = SIZE / 2;
 const RING_R = 155;
 const RING_W = 52;
 const GAP_DEG = 4;
+const COLOR = '#1d6fa4'; // teal brand color
 
 function deg2rad(d) { return (d * Math.PI) / 180; }
 
@@ -30,7 +31,7 @@ function arcPath(cx, cy, r, startDeg, endDeg) {
   return `M ${x1} ${y1} A ${r} ${r} 0 ${large} 1 ${x2} ${y2}`;
 }
 
-function arrowHead(cx, cy, r, angleDeg, color) {
+function arrowHead(cx, cy, r, angleDeg) {
   const rad = deg2rad(angleDeg - 90);
   const tipX = cx + r * Math.cos(rad);
   const tipY = cy + r * Math.sin(rad);
@@ -57,27 +58,60 @@ export default function Flywheel() {
           {steps.map((step, i) => {
             const startDeg = sliceDeg * i + GAP_DEG / 2;
             const endDeg   = sliceDeg * (i + 1) - GAP_DEG / 2;
+            const midDeg   = (startDeg + endDeg) / 2;
+            // number badge position — just outside the ring
+            const badgeR   = RING_R + RING_W / 2 + 2;
+            const bx = CX + badgeR * Math.cos(deg2rad(midDeg - 90));
+            const by = CY + badgeR * Math.sin(deg2rad(midDeg - 90));
+            // opacity steps: first is full, last slightly lighter to show progression
+            const opacity = 0.55 + (i / (N - 1)) * 0.45;
 
             return (
               <g key={i}>
                 <motion.path
                   d={arcPath(CX, CY, RING_R, startDeg, endDeg)}
                   fill="none"
-                  stroke={step.color}
+                  stroke={COLOR}
                   strokeWidth={RING_W}
                   strokeLinecap="butt"
+                  style={{ opacity }}
                   initial={{ pathLength: 0, opacity: 0 }}
-                  animate={inView ? { pathLength: 1, opacity: 1 } : {}}
+                  animate={inView ? { pathLength: 1, opacity } : {}}
                   transition={{ duration: 0.55, delay: i * 0.13, ease: 'easeOut' }}
                 />
                 {/* Arrowhead */}
                 <motion.path
                   d={arrowHead(CX, CY, RING_R, endDeg + 2.5)}
-                  fill={step.color}
+                  fill={COLOR}
+                  style={{ opacity }}
                   initial={{ opacity: 0 }}
-                  animate={inView ? { opacity: 1 } : {}}
+                  animate={inView ? { opacity } : {}}
                   transition={{ delay: 0.7 + i * 0.13 }}
                 />
+                {/* Number badge on the arc */}
+                <motion.circle
+                  cx={bx} cy={by} r={13}
+                  fill="white"
+                  stroke={COLOR}
+                  strokeWidth="1.5"
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={inView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ delay: 0.65 + i * 0.13, type: 'spring', stiffness: 200 }}
+                  style={{ transformOrigin: `${bx}px ${by}px` }}
+                />
+                <motion.text
+                  x={bx} y={by + 4.5}
+                  textAnchor="middle"
+                  fill={COLOR}
+                  fontSize="11"
+                  fontFamily="Inter, sans-serif"
+                  fontWeight="700"
+                  initial={{ opacity: 0 }}
+                  animate={inView ? { opacity: 1 } : {}}
+                  transition={{ delay: 0.75 + i * 0.13 }}
+                >
+                  {i + 1}
+                </motion.text>
               </g>
             );
           })}
@@ -87,11 +121,11 @@ export default function Flywheel() {
           <circle cx={CX} cy={CY} r={88} fill="none" stroke="#e2e8f0" strokeWidth="1.5" />
           <text x={CX} y={CY - 14} textAnchor="middle" fill="#0f172a" fontSize="16" fontFamily="Playfair Display, serif" fontWeight="700">Saltwater</text>
           <text x={CX} y={CY + 7}  textAnchor="middle" fill="#0f172a" fontSize="16" fontFamily="Playfair Display, serif" fontWeight="700">Farms</text>
-          <text x={CX} y={CY + 27} textAnchor="middle" fill="#94a3b8"  fontSize="10" fontFamily="Inter, sans-serif" letterSpacing="1">∞ flywheel</text>
+          <text x={CX} y={CY + 27} textAnchor="middle" fill="#94a3b8" fontSize="10" fontFamily="Inter, sans-serif" letterSpacing="1">∞ flywheel</text>
         </svg>
       </div>
 
-      {/* Legend */}
+      {/* Legend — numbers match the wheel */}
       <div className="flex flex-col gap-5">
         {steps.map((step, i) => (
           <motion.div
@@ -101,10 +135,9 @@ export default function Flywheel() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.35 + i * 0.1, duration: 0.5 }}
           >
-            {/* Number badge */}
             <div
-              className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-inter font-bold shrink-0 mt-0.5"
-              style={{ backgroundColor: step.color }}
+              className="w-7 h-7 rounded-full border-2 flex items-center justify-center text-xs font-inter font-bold shrink-0 mt-0.5"
+              style={{ borderColor: COLOR, color: COLOR, backgroundColor: 'white' }}
             >
               {i + 1}
             </div>
