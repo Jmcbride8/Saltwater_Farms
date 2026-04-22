@@ -43,10 +43,23 @@ export default function Hero() {
             We Built the Fix.
           </h2>
 
-          <p className="font-inter text-lg md:text-xl text-white/60 font-light leading-relaxed max-w-2xl mx-auto mb-12">
+          <p className="font-inter text-lg md:text-xl text-white/60 font-light leading-relaxed max-w-2xl mx-auto mb-4">
             Brine-fed evaporative cooling walls that slash freshwater demand by up to 80% —
             turning worthless underground saltwater into the Southwest's most valuable resource.
           </p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="inline-flex items-center gap-3 border border-white/15 bg-white/5 backdrop-blur-sm rounded-sm px-5 py-3 mb-12"
+          >
+            <span className="text-crisis text-lg">⚠</span>
+            <p className="font-inter text-sm text-white/70 leading-snug text-left">
+              <span className="text-white font-semibold">Scientists warn of a second Dust Bowl.</span>{' '}
+              The 1930s destroyed 100M acres and displaced 3.5M Americans. This time, 40M are at risk.
+            </p>
+          </motion.div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
