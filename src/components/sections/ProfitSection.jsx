@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import Flywheel from '@/components/Flywheel';
 
 const streams = [
   {
@@ -71,17 +72,9 @@ export default function ProfitSection() {
           transition={{ duration: 0.7 }}
           className="bg-foreground text-white rounded-2xl p-10 md:p-14 text-center"
         >
-          <h3 className="font-playfair text-3xl font-bold mb-4">The Flywheel</h3>
-          <p className="font-inter text-white/70 max-w-2xl mx-auto mb-8 text-lg leading-relaxed">
-            Build farms → Save water → Sell water → Generate profit → Build more farms
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 text-sm font-inter">
-            {['Build Farms', '→', 'Save Water', '→', 'Sell Water', '→', 'Generate Profit', '→', 'Scale'].map((item, i) => (
-              <span key={i} className={item === '→' ? 'text-teal text-xl' : 'px-4 py-2 rounded-full bg-white/10 text-white'}>
-                {item}
-              </span>
-            ))}
-          </div>
+          <h3 className="font-playfair text-3xl font-bold mb-2">The Flywheel</h3>
+          <p className="font-inter text-white/50 mb-10 text-sm">Each rotation compounds the last</p>
+          <Flywheel />
         </motion.div>
       </div>
     </section>
