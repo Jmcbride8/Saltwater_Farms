@@ -73,67 +73,6 @@ export default function DripSection() {
         </div>
 
         {/* Head-to-head comparison */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="bg-foreground text-white rounded-2xl overflow-hidden mb-10"
-        >
-          <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10">
-            {/* Label column */}
-            <div className="p-8 flex flex-col justify-center">
-              <p className="font-inter text-xs font-semibold tracking-[0.2em] uppercase text-white/50 mb-3">The Key Difference</p>
-              <h3 className="font-playfair text-2xl font-bold text-white leading-tight">
-                Different Levers. Different Outcomes.
-              </h3>
-              <p className="font-inter text-sm text-white/60 mt-3 leading-relaxed">
-                Drip solves delivery waste. The Wall solves evaporation. They're not competing — they're attacking different parts of the water loss equation.
-              </p>
-            </div>
-
-            {/* Drip column */}
-            <div className="p-8">
-              <p className="font-inter text-xs font-semibold tracking-[0.2em] uppercase text-white/40 mb-5">Drip Irrigation</p>
-              <div className="space-y-4">
-                {[
-                  { label: 'Upfront Cost', value: '$1,500 – $3,000 / acre' },
-                  { label: 'Water Savings', value: '20–50% (vs. flood)' },
-                  { label: 'Water Loss Attacked', value: 'Runoff + deep percolation' },
-                  { label: 'Works on Alfalfa?', value: 'No — emitters clog' },
-                  { label: 'IID Canal Compatible?', value: 'No — needs on-farm reservoir' },
-                  { label: 'Adoption Rate', value: '<5% of valley acres' },
-                ].map((row, i) => (
-                  <div key={i}>
-                    <p className="font-inter text-xs text-white/40 mb-0.5">{row.label}</p>
-                    <p className="font-inter text-sm text-white/80 font-medium">{row.value}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Wall column */}
-            <div className="p-8 bg-teal/20">
-              <p className="font-inter text-xs font-semibold tracking-[0.2em] uppercase text-teal mb-5">Saltwater Wall</p>
-              <div className="space-y-4">
-                {[
-                  { label: 'Upfront Cost', value: '$8,000 – $13,000 / acre' },
-                  { label: 'Water Savings', value: '50–80%+ overall' },
-                  { label: 'Water Loss Attacked', value: 'Evaporation + transpiration' },
-                  { label: 'Works on Alfalfa?', value: 'Yes — no emitters' },
-                  { label: 'IID Canal Compatible?', value: 'Yes — passive, no demand control' },
-                  { label: 'Complementary with Drip?', value: 'Yes — stack both for max savings' },
-                ].map((row, i) => (
-                  <div key={i}>
-                    <p className="font-inter text-xs text-white/40 mb-0.5">{row.label}</p>
-                    <p className="font-inter text-sm text-white font-semibold">{row.value}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
         {/* Bottom callout */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
