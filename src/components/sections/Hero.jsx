@@ -7,7 +7,7 @@ export default function Hero() {
       {/* Background — dark, dramatic */}
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1504370805625-d32c54b16100?w=1800&q=80"
+          src="https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/b81605987_image.png"
           alt="Epic dust storm front"
           className="w-full h-full object-cover"
         />
