@@ -43,14 +43,6 @@ export default function CrisisNews() {
     fetchArticles();
   }, []);
 
-  const tagColors = {
-    Agriculture: 'bg-amber-100 text-amber-700',
-    'Water Rights': 'bg-blue-100 text-blue-700',
-    Policy: 'bg-purple-100 text-purple-700',
-    Infrastructure: 'bg-slate-100 text-slate-600',
-    Climate: 'bg-crisis/10 text-crisis',
-  };
-
   return (
     <div className="mt-20 pt-16 border-t border-border">
       <div className="flex items-center justify-between mb-8">
@@ -91,33 +83,29 @@ export default function CrisisNews() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.08, duration: 0.5 }}
-              className="rounded-xl border border-border bg-white p-6 flex flex-col hover:shadow-md transition-shadow"
+              className="rounded-xl border border-border bg-white p-6 flex flex-col hover:shadow-md transition-shadow group"
             >
-              <div className="flex items-center justify-between mb-3">
-                <span className={`text-xs font-inter font-semibold px-2.5 py-1 rounded-full ${tagColors[article.tag] || 'bg-muted text-muted-foreground'}`}>
-                  {article.tag}
-                </span>
+              <div className="flex items-center gap-2 mb-3">
+                <span className="font-inter text-xs font-semibold text-teal uppercase tracking-wide">{article.publication}</span>
+                <span className="text-muted-foreground/40">·</span>
                 <span className="text-xs font-inter text-muted-foreground">{article.date}</span>
               </div>
-              <h4 className="font-playfair text-base font-bold text-foreground mb-2 leading-snug flex-1">
+              <h4 className="font-playfair text-lg font-bold text-foreground mb-2 leading-snug">
                 {article.title}
               </h4>
-              <p className="font-inter text-xs text-muted-foreground leading-relaxed mb-4">
+              <p className="font-inter text-sm text-muted-foreground leading-relaxed flex-1">
                 {article.summary}
               </p>
-              <div className="flex items-center justify-between mt-auto pt-3 border-t border-border">
-                <span className="font-inter text-xs font-medium text-teal">{article.publication}</span>
-                {article.url ? (
-                  <a
-                    href={article.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-xs font-inter text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    Read <ExternalLink className="w-3 h-3" />
-                  </a>
-                ) : null}
-              </div>
+              {article.url && (
+                <a
+                  href={article.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 mt-4 text-xs font-inter font-medium text-foreground hover:text-teal transition-colors"
+                >
+                  Read full article <ExternalLink className="w-3 h-3" />
+                </a>
+              )}
             </motion.div>
           ))}
         </div>
