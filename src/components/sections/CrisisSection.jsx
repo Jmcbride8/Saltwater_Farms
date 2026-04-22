@@ -1,7 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import CrisisNews from '@/components/sections/CrisisNews';
-import ColoradoRiverMap from '@/components/sections/ColoradoRiverMap';
 
 const stats = [
   { value: '1,083', unit: 'ft', label: 'Lake Mead water level in 2022', note: 'vs. 1,229 ft full pool', crisis: true },
@@ -129,7 +128,6 @@ export default function CrisisSection() {
           ))}
         </div>
 
-        <ColoradoRiverMap />
         <CrisisNews />
       </div>
     </section>
