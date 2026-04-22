@@ -2,20 +2,20 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
 const steps = [
-  { label: 'Build Farms',      sub: 'Deploy cooling walls',       color: '#3b82f6' },
-  { label: 'Save Water',       sub: '40–80% freshwater saved',    color: '#22c55e' },
-  { label: 'Sell Water',       sub: 'Rights at 99% margin',       color: '#06b6d4' },
-  { label: 'Generate Profit',  sub: 'Compounding returns',        color: '#a78bfa' },
-  { label: 'Scale',            sub: 'More farms, more impact',    color: '#f59e0b' },
+  { label: 'Build Farms',     sub: 'Deploy cooling walls',       color: '#2563eb' },
+  { label: 'Save Water',      sub: '40–80% freshwater saved',    color: '#16a34a' },
+  { label: 'Sell Water',      sub: 'Rights at ~99% margin',      color: '#0891b2' },
+  { label: 'Generate Profit', sub: 'Compounding returns',        color: '#7c3aed' },
+  { label: 'Scale',           sub: 'More farms, more impact',    color: '#d97706' },
 ];
 
 const N = steps.length;
-const SIZE = 500;
+const SIZE = 420;
 const CX = SIZE / 2;
 const CY = SIZE / 2;
-const RING_R = 140;
-const RING_W = 44;
-const GAP_DEG = 5;
+const RING_R = 155;
+const RING_W = 52;
+const GAP_DEG = 4;
 
 function deg2rad(d) { return (d * Math.PI) / 180; }
 
@@ -30,87 +30,87 @@ function arcPath(cx, cy, r, startDeg, endDeg) {
   return `M ${x1} ${y1} A ${r} ${r} 0 ${large} 1 ${x2} ${y2}`;
 }
 
-function arrowHead(cx, cy, r, angleDeg) {
+function arrowHead(cx, cy, r, angleDeg, color) {
   const rad = deg2rad(angleDeg - 90);
   const tipX = cx + r * Math.cos(rad);
   const tipY = cy + r * Math.sin(rad);
-  // perpendicular offset
-  const perpRad = rad + Math.PI / 2;
-  const size = 7;
-  const backRad = deg2rad(angleDeg - 90 - 12);
-  const bx = cx + (r - size * 0.8) * Math.cos(backRad);
-  const by = cy + (r - size * 0.8) * Math.sin(backRad);
-  const backRad2 = deg2rad(angleDeg - 90 + 12);
-  const bx2 = cx + (r - size * 0.8) * Math.cos(backRad2);
-  const by2 = cy + (r - size * 0.8) * Math.sin(backRad2);
-  return `M ${tipX} ${tipY} L ${bx} ${by} L ${bx2} ${by2} Z`;
+  const back1 = deg2rad(angleDeg - 90 - 11);
+  const back2 = deg2rad(angleDeg - 90 + 11);
+  const br = r - 9;
+  return `M ${tipX} ${tipY} L ${cx + br * Math.cos(back1)} ${cy + br * Math.sin(back1)} L ${cx + br * Math.cos(back2)} ${cy + br * Math.sin(back2)} Z`;
 }
 
 export default function Flywheel() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-80px' });
-
+  const inView = useInView(ref, { once: true, margin: '-60px' });
   const sliceDeg = 360 / N;
 
   return (
-    <div ref={ref} className="w-full flex flex-col md:flex-row items-center justify-center gap-10">
+    <div ref={ref} className="w-full flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16">
+
       {/* SVG wheel */}
-      <svg viewBox={`0 0 ${SIZE} ${SIZE}`} className="w-72 md:w-80 shrink-0">
-        {/* Subtle track */}
-        <circle cx={CX} cy={CY} r={RING_R} fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth={RING_W + 8} />
+      <div className="relative shrink-0">
+        <svg viewBox={`0 0 ${SIZE} ${SIZE}`} className="w-72 md:w-80 lg:w-96 drop-shadow-sm">
+          {/* Ghost track */}
+          <circle cx={CX} cy={CY} r={RING_R} fill="none" stroke="#f1f5f9" strokeWidth={RING_W + 10} />
 
-        {/* Arc segments */}
-        {steps.map((step, i) => {
-          const startDeg = sliceDeg * i + GAP_DEG / 2;
-          const endDeg   = sliceDeg * (i + 1) - GAP_DEG / 2;
-          const midDeg   = (startDeg + endDeg) / 2;
+          {steps.map((step, i) => {
+            const startDeg = sliceDeg * i + GAP_DEG / 2;
+            const endDeg   = sliceDeg * (i + 1) - GAP_DEG / 2;
 
-          return (
-            <g key={i}>
-              <motion.path
-                d={arcPath(CX, CY, RING_R, startDeg, endDeg)}
-                fill="none"
-                stroke={step.color}
-                strokeWidth={RING_W}
-                strokeLinecap="butt"
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={inView ? { pathLength: 1, opacity: 1 } : {}}
-                transition={{ duration: 0.5, delay: i * 0.12, ease: 'easeOut' }}
-              />
-              {/* Arrow tip at end of arc */}
-              <motion.path
-                d={arrowHead(CX, CY, RING_R, endDeg + 3)}
-                fill={step.color}
-                initial={{ opacity: 0 }}
-                animate={inView ? { opacity: 1 } : {}}
-                transition={{ delay: 0.6 + i * 0.12 }}
-              />
-            </g>
-          );
-        })}
+            return (
+              <g key={i}>
+                <motion.path
+                  d={arcPath(CX, CY, RING_R, startDeg, endDeg)}
+                  fill="none"
+                  stroke={step.color}
+                  strokeWidth={RING_W}
+                  strokeLinecap="butt"
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={inView ? { pathLength: 1, opacity: 1 } : {}}
+                  transition={{ duration: 0.55, delay: i * 0.13, ease: 'easeOut' }}
+                />
+                {/* Arrowhead */}
+                <motion.path
+                  d={arrowHead(CX, CY, RING_R, endDeg + 2.5)}
+                  fill={step.color}
+                  initial={{ opacity: 0 }}
+                  animate={inView ? { opacity: 1 } : {}}
+                  transition={{ delay: 0.7 + i * 0.13 }}
+                />
+              </g>
+            );
+          })}
 
-        {/* Center hub */}
-        <circle cx={CX} cy={CY} r={78} fill="#111827" />
-        <circle cx={CX} cy={CY} r={78} fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
-        <text x={CX} y={CY - 14} textAnchor="middle" fill="white" fontSize="15" fontFamily="Playfair Display, serif" fontWeight="bold">Saltwater</text>
-        <text x={CX} y={CY + 6}  textAnchor="middle" fill="white" fontSize="15" fontFamily="Playfair Display, serif" fontWeight="bold">Farms</text>
-        <text x={CX} y={CY + 26} textAnchor="middle" fill="rgba(255,255,255,0.35)" fontSize="10" fontFamily="Inter, sans-serif">∞ flywheel</text>
-      </svg>
+          {/* Center hub */}
+          <circle cx={CX} cy={CY} r={88} fill="white" />
+          <circle cx={CX} cy={CY} r={88} fill="none" stroke="#e2e8f0" strokeWidth="1.5" />
+          <text x={CX} y={CY - 14} textAnchor="middle" fill="#0f172a" fontSize="16" fontFamily="Playfair Display, serif" fontWeight="700">Saltwater</text>
+          <text x={CX} y={CY + 7}  textAnchor="middle" fill="#0f172a" fontSize="16" fontFamily="Playfair Display, serif" fontWeight="700">Farms</text>
+          <text x={CX} y={CY + 27} textAnchor="middle" fill="#94a3b8"  fontSize="10" fontFamily="Inter, sans-serif" letterSpacing="1">∞ flywheel</text>
+        </svg>
+      </div>
 
-      {/* Step list legend */}
-      <div className="flex flex-col gap-4 text-left">
+      {/* Legend */}
+      <div className="flex flex-col gap-5">
         {steps.map((step, i) => (
           <motion.div
             key={i}
-            className="flex items-start gap-3"
-            initial={{ opacity: 0, x: 20 }}
+            className="flex items-start gap-4"
+            initial={{ opacity: 0, x: 18 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: 0.4 + i * 0.1, duration: 0.5 }}
+            transition={{ delay: 0.35 + i * 0.1, duration: 0.5 }}
           >
-            <div className="w-3 h-3 rounded-full mt-1 shrink-0" style={{ backgroundColor: step.color }} />
+            {/* Number badge */}
+            <div
+              className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-inter font-bold shrink-0 mt-0.5"
+              style={{ backgroundColor: step.color }}
+            >
+              {i + 1}
+            </div>
             <div>
-              <p className="font-inter font-semibold text-white text-sm leading-tight">{step.label}</p>
-              <p className="font-inter text-white/45 text-xs mt-0.5">{step.sub}</p>
+              <p className="font-inter font-semibold text-foreground text-sm leading-tight">{step.label}</p>
+              <p className="font-inter text-muted-foreground text-xs mt-0.5">{step.sub}</p>
             </div>
           </motion.div>
         ))}
