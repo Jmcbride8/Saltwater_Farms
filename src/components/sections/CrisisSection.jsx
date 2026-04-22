@@ -1,12 +1,44 @@
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import CrisisNews from '@/components/sections/CrisisNews';
+import AdminImageCard from '@/components/AdminImageCard';
 
 const stats = [
   { value: '1,083', unit: 'ft', label: 'Lake Mead water level in 2022', note: 'vs. 1,229 ft full pool', crisis: true },
   { value: '40M', unit: '+', label: 'People depend on the Colorado River', note: 'across 7 states + Mexico', crisis: false },
   { value: '895 ft', unit: '', label: '"Dead Pool" threshold', note: 'No water flows past Hoover Dam', crisis: true },
   { value: '$1.5T', unit: '+', label: 'Economic output at risk', note: 'Agriculture, cities, industry', crisis: false },
+];
+
+const defaultCards = [
+  {
+    stat: '90%',
+    label: 'of U.S. winter vegetables',
+    title: 'Agriculture Collapses',
+    text: 'Imperial Valley, Yuma, and Phoenix-area farms — the nation\'s winter salad bowl — go dry. Supermarket shelves empty. Food prices spike nationwide.',
+    img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80',
+  },
+  {
+    stat: '40M+',
+    label: 'people cut off',
+    title: 'Cities Face Rationing',
+    text: 'Las Vegas, Phoenix, Los Angeles, San Diego, Tucson. Every major Southwest city draws from the Colorado. Mandatory cuts begin. Growth stops.',
+    img: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&q=80',
+  },
+  {
+    stat: '2,080',
+    label: 'megawatts gone dark',
+    title: 'Power Grid Disrupted',
+    text: 'Hoover Dam\'s hydroelectric output powers millions of homes across Nevada, Arizona, and California. Dead pool silences it permanently.',
+    img: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80',
+  },
+  {
+    stat: '100%',
+    label: 'of the delta, gone',
+    title: 'Ecosystems Erased',
+    text: 'The Colorado River Delta — once one of North America\'s richest wetlands — is already a ghost of itself. Dead pool makes it official.',
+    img: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&q=80',
+  },
 ];
 
 function StatCard({ value, unit, label, note, crisis, i }) {
@@ -33,6 +65,9 @@ function StatCard({ value, unit, label, note, crisis, i }) {
 export default function CrisisSection() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-100px' });
+  const [cardImgs, setCardImgs] = useState(defaultCards.map(c => c.img));
+
+  const updateImg = (i, url) => setCardImgs(prev => prev.map((v, idx) => idx === i ? url : v));
 
   return (
     <section id="crisis" className="py-28 bg-white">
@@ -74,56 +109,33 @@ export default function CrisisSection() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-4 mb-6">
-          {[
-            {
-              stat: '90%',
-              label: 'of U.S. winter vegetables',
-              title: 'Agriculture Collapses',
-              text: 'Imperial Valley, Yuma, and Phoenix-area farms — the nation\'s winter salad bowl — go dry. Supermarket shelves empty. Food prices spike nationwide.',
-              img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80',
-            },
-            {
-              stat: '40M+',
-              label: 'people cut off',
-              title: 'Cities Face Rationing',
-              text: 'Las Vegas, Phoenix, Los Angeles, San Diego, Tucson. Every major Southwest city draws from the Colorado. Mandatory cuts begin. Growth stops.',
-              img: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&q=80',
-            },
-            {
-              stat: '2,080',
-              label: 'megawatts gone dark',
-              title: 'Power Grid Disrupted',
-              text: 'Hoover Dam\'s hydroelectric output powers millions of homes across Nevada, Arizona, and California. Dead pool silences it permanently.',
-              img: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80',
-            },
-            {
-              stat: '100%',
-              label: 'of the delta, gone',
-              title: 'Ecosystems Erased',
-              text: 'The Colorado River Delta — once one of North America\'s richest wetlands — is already a ghost of itself. Dead pool makes it official.',
-              img: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&q=80',
-            },
-          ].map((item, i) => (
+          {defaultCards.map((item, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.6 }}
-              className="relative rounded-2xl overflow-hidden h-64 group"
             >
-              <img src={item.img} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/10" />
-              <div className="absolute inset-0 p-6 flex flex-col justify-between">
-                <div className="self-end text-right">
-                  <div className="font-playfair text-3xl font-bold text-white leading-none">{item.stat}</div>
-                  <div className="font-inter text-xs text-white/60 mt-1">{item.label}</div>
+              <AdminImageCard
+                src={cardImgs[i]}
+                alt={item.title}
+                onImageChange={(url) => updateImg(i, url)}
+                className="relative rounded-2xl overflow-hidden h-64 group"
+                imgClassName="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/10" />
+                <div className="absolute inset-0 p-6 flex flex-col justify-between pointer-events-none">
+                  <div className="self-end text-right">
+                    <div className="font-playfair text-3xl font-bold text-white leading-none">{item.stat}</div>
+                    <div className="font-inter text-xs text-white/60 mt-1">{item.label}</div>
+                  </div>
+                  <div>
+                    <h4 className="font-playfair text-xl font-bold text-white mb-1">{item.title}</h4>
+                    <p className="font-inter text-xs text-white/70 leading-relaxed">{item.text}</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-playfair text-xl font-bold text-white mb-1">{item.title}</h4>
-                  <p className="font-inter text-xs text-white/70 leading-relaxed">{item.text}</p>
-                </div>
-              </div>
+              </AdminImageCard>
             </motion.div>
           ))}
         </div>
