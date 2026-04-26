@@ -13,6 +13,7 @@ const stats = [
 
 const defaultCards = [
   {
+    id: 'agriculture-collapses',
     stat: '90%',
     label: 'of U.S. winter vegetables',
     title: 'Agriculture Collapses',
@@ -20,6 +21,7 @@ const defaultCards = [
     img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80',
   },
   {
+    id: 'cities-face-rationing',
     stat: '40M+',
     label: 'people cut off',
     title: 'Cities Face Rationing',
@@ -27,6 +29,7 @@ const defaultCards = [
     img: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&q=80',
   },
   {
+    id: 'power-grid-disrupted',
     stat: '2,080',
     label: 'megawatts gone dark',
     title: 'Power Grid Disrupted',
@@ -34,6 +37,7 @@ const defaultCards = [
     img: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80',
   },
   {
+    id: 'ecosystems-erased',
     stat: '100%',
     label: 'of the delta, gone',
     title: 'Ecosystems Erased',
@@ -66,7 +70,7 @@ function StatCard({ value, unit, label, note, crisis, i }) {
 export default function CrisisSection() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-100px' });
-  const [cardImgs, updateImg] = usePersistedImages('crisis-card-images', defaultCards.map(c => c.img));
+  const [cardImgs, updateImg] = usePersistedImages('crisis', defaultCards.map(c => c.img), defaultCards.map(c => c.id));
 
   return (
     <section id="crisis" className="py-28 bg-white">
