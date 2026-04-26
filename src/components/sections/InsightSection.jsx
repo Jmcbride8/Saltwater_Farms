@@ -100,7 +100,7 @@ export default function InsightSection() {
         >
           <p className="text-sm font-inter font-medium tracking-[0.2em] uppercase text-teal mb-4">The Precedent</p>
           <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-6">
-            This Has Happened Before.
+            History Unlocks the Impossible.
           </h2>
           <p className="font-inter text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
             A hidden, abundant resource — written off as worthless — unlocked to change the world.
