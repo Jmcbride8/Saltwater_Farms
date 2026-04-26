@@ -6,8 +6,8 @@ export default function Hero() {
     <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
         <img
-          src="https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/b81605987_image.png"
-          alt="Epic dust storm front"
+          src="https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/19fd21eb3_generated_image.png"
+          alt="Abundant irrigated farmland from above"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/55 to-black/80" />
@@ -22,31 +22,31 @@ export default function Hero() {
           transition={{ duration: 0.9, ease: 'easeOut' }}
         >
           <p className="text-xs font-inter font-semibold tracking-[0.25em] uppercase text-white/90 mb-6">
-            Scientists warn of a second Dust Bowl
+            Beyond conservation — a new paradigm
           </p>
 
           <h1 className="font-playfair text-6xl md:text-8xl font-bold text-white leading-[1.0] mb-8 tracking-tight">
-            The River Is Dying.<br />
-            <span className="text-teal">We Built the Fix.</span>
+            Unlocking<br />
+            <span className="text-teal">Abundance.</span>
           </h1>
 
           <p className="font-inter text-lg md:text-xl text-white/85 font-light leading-relaxed max-w-xl mx-auto mb-12">
-            Evaporative cooling walls fed by worthless underground brine — 
-            cutting farm water demand by up to 80%.
+            The Southwest doesn't have a scarcity problem — it has a locked-resource problem. 
+            Worthless underground brine, turned into water and profit.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
-              onClick={() => document.querySelector('#crisis')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.querySelector('#insight')?.scrollIntoView({ behavior: 'smooth' })}
               className="px-10 py-4 bg-teal text-white font-inter font-semibold rounded-sm hover:bg-teal/90 transition-all text-sm tracking-wide uppercase"
             >
-              See the Crisis
+              See How It Works
             </button>
             <button
               onClick={() => document.querySelector('#presale')?.scrollIntoView({ behavior: 'smooth' })}
               className="px-10 py-4 border border-white/50 text-white font-inter font-semibold rounded-sm hover:bg-white/10 transition-all text-sm tracking-wide uppercase"
             >
-              Join the Solution →
+              Join the Movement →
             </button>
           </div>
         </motion.div>
