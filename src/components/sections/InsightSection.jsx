@@ -5,6 +5,7 @@ import { usePersistedImages } from '@/hooks/usePersistedImages';
 const chapters = [
   // — Nitrogen arc —
   {
+    id: 'nitrogen-starvation',
     year: '1900',
     crisis: 'Global Starvation',
     headline: 'The world was running out of food.',
@@ -16,6 +17,7 @@ const chapters = [
     bg: 'bg-crisis/5',
   },
   {
+    id: 'nitrogen-breakthrough',
     year: '1909',
     crisis: 'The Breakthrough',
     headline: 'Fritz Haber found nitrogen in thin air.',
@@ -27,6 +29,7 @@ const chapters = [
     bg: 'bg-teal-light/60',
   },
   {
+    id: 'nitrogen-result',
     year: 'Result',
     crisis: 'Half the World Fed',
     headline: 'The worthless became essential.',
@@ -43,6 +46,7 @@ const chapters = [
   { divider: true },
   // — Water arc —
   {
+    id: 'water-crisis',
     year: 'Today',
     crisis: 'Water Crisis',
     headline: 'The Southwest is running out of water.',
@@ -54,6 +58,7 @@ const chapters = [
     bg: 'bg-crisis/5',
   },
   {
+    id: 'water-breakthrough',
     year: 'Today',
     crisis: 'The Breakthrough',
     headline: 'Underground brine — written off for centuries.',
@@ -65,6 +70,7 @@ const chapters = [
     bg: 'bg-teal-light/60',
   },
   {
+    id: 'water-result',
     year: 'Result',
     crisis: 'Water Supply Saved',
     headline: '40–80% less freshwater. For every farm that joins.',
@@ -81,9 +87,10 @@ const chapters = [
 
 // images array excludes divider entries
 const defaultImages = chapters.filter(c => !c.divider).map(c => c.image);
+const chapterIds = chapters.filter(c => !c.divider).map(c => c.id);
 
 export default function InsightSection() {
-  const [chapterImgs, updateChapterImg] = usePersistedImages('insight-chapter-images', defaultImages);
+  const [chapterImgs, updateChapterImg] = usePersistedImages('insight', defaultImages, chapterIds);
 
   // map back: index into non-divider chapters
   let imgIdx = -1;

@@ -1,0 +1,18 @@
+{
+  "name": "InsightCardImage",
+  "type": "object",
+  "properties": {
+    "cardId": {
+      "type": "string",
+      "description": "Unique identifier for the insight chapter card"
+    },
+    "imageUrl": {
+      "type": "string",
+      "description": "URL of the image associated with the chapter"
+    }
+  },
+  "required": [
+    "cardId",
+    "imageUrl"
+  ]
+}
