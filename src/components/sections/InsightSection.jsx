@@ -172,30 +172,34 @@ export default function InsightSection() {
                       </div>
                       <div className="hidden md:block relative">
                         <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-white border-2 border-teal z-10" />
-                        <AdminImageCard
-                          src={chapterImgs[localIdx]}
-                          alt={ch.imageAlt}
-                          onImageChange={(url) => updateChapterImg(localIdx, url)}
-                          className="rounded-tr-2xl rounded-br-2xl overflow-hidden h-full min-h-[220px]"
-                          imgClassName="w-full h-full object-cover"
-                        >
-                          {ch.darkBg && <div className="absolute inset-0 bg-slate-900/85 z-10 pointer-events-none" />}
-                        </AdminImageCard>
+                        {ch.darkBg ? (
+                          <div className="rounded-tr-2xl rounded-br-2xl h-full min-h-[220px] bg-slate-900" />
+                        ) : (
+                          <AdminImageCard
+                            src={chapterImgs[localIdx]}
+                            alt={ch.imageAlt}
+                            onImageChange={(url) => updateChapterImg(localIdx, url)}
+                            className="rounded-tr-2xl rounded-br-2xl overflow-hidden h-full min-h-[220px]"
+                            imgClassName="w-full h-full object-cover"
+                          />
+                        )}
                       </div>
                     </>
                   ) : (
                     <>
                       <div className="hidden md:block relative">
                         <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-4 h-4 rounded-full bg-white border-2 border-teal z-10" />
-                        <AdminImageCard
-                          src={chapterImgs[localIdx]}
-                          alt={ch.imageAlt}
-                          onImageChange={(url) => updateChapterImg(localIdx, url)}
-                          className="rounded-tl-2xl rounded-bl-2xl overflow-hidden h-full min-h-[220px]"
-                          imgClassName="w-full h-full object-cover"
-                        >
-                          {ch.darkBg && <div className="absolute inset-0 bg-slate-900/85 z-10 pointer-events-none" />}
-                        </AdminImageCard>
+                        {ch.darkBg ? (
+                          <div className="rounded-tl-2xl rounded-bl-2xl h-full min-h-[220px] bg-slate-900" />
+                        ) : (
+                          <AdminImageCard
+                            src={chapterImgs[localIdx]}
+                            alt={ch.imageAlt}
+                            onImageChange={(url) => updateChapterImg(localIdx, url)}
+                            className="rounded-tl-2xl rounded-bl-2xl overflow-hidden h-full min-h-[220px]"
+                            imgClassName="w-full h-full object-cover"
+                          />
+                        )}
                       </div>
                       <div className={`rounded-tr-2xl rounded-br-2xl border ${ch.color} ${ch.bg} p-8 flex flex-col justify-center`}>
                         <p className={`font-inter text-xs font-semibold tracking-[0.2em] uppercase ${ch.accent} mb-2`}>{ch.year} — {ch.crisis}</p>
