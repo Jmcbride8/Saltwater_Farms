@@ -6,8 +6,8 @@ export default function Hero() {
     <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
         <img
-          src="https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/57ff31f46_generated_image.png"
-          alt="Colorado River snaking through the desert"
+          src="https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/647cbaebf_Picture1.jpg"
+          alt="Lake Mead aerial view"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/55 to-black/80" />
