@@ -179,7 +179,7 @@ export default function InsightSection() {
                           className="rounded-tr-2xl rounded-br-2xl overflow-hidden h-full min-h-[220px]"
                           imgClassName="w-full h-full object-cover"
                         >
-                          {ch.darkBg && <div className="absolute inset-0 bg-slate-800/70 z-10 pointer-events-none" />}
+                          {ch.darkBg && <div className="absolute inset-0 bg-slate-900/85 z-10 pointer-events-none" />}
                         </AdminImageCard>
                       </div>
                     </>
@@ -194,7 +194,7 @@ export default function InsightSection() {
                           className="rounded-tl-2xl rounded-bl-2xl overflow-hidden h-full min-h-[220px]"
                           imgClassName="w-full h-full object-cover"
                         >
-                          {ch.darkBg && <div className="absolute inset-0 bg-slate-800/70 z-10 pointer-events-none" />}
+                          {ch.darkBg && <div className="absolute inset-0 bg-slate-900/85 z-10 pointer-events-none" />}
                         </AdminImageCard>
                       </div>
                       <div className={`rounded-tr-2xl rounded-br-2xl border ${ch.color} ${ch.bg} p-8 flex flex-col justify-center`}>
