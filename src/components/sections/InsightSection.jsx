@@ -42,8 +42,8 @@ const chapters = [
     quote: true,
     darkBg: true,
   },
-  // — divider —
-  { divider: true },
+  // — element divider —
+  { elementDivider: true },
   // — Water arc —
   {
     id: 'water-crisis',
@@ -124,26 +124,55 @@ export default function InsightSection() {
 
           <div className="space-y-10">
             {chapters.map((ch, i) => {
-              if (ch.divider) {
+              if (ch.elementDivider) {
                 return (
                   <motion.div
-                    key="divider"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
+                    key="element-divider"
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="relative flex items-center justify-center py-4"
+                    transition={{ duration: 0.7 }}
+                    className="py-10"
                   >
-                    <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-9 h-9 rounded-full bg-foreground border-4 border-muted z-10 flex items-center justify-center">
-                      <span className="text-white text-xs font-inter font-bold">↓</span>
-                    </div>
-                    <div className="w-full flex items-center gap-4 md:px-[52%]">
+                    {/* "Solved" label */}
+                    <div className="flex items-center gap-4 mb-8">
                       <div className="h-px flex-1 bg-border" />
-                      <span className="font-inter text-xs font-semibold tracking-[0.2em] uppercase text-muted-foreground whitespace-nowrap px-3 py-1.5 border border-border rounded-full bg-background">
-                        Same Pattern — Water Crisis
+                      <span className="font-inter text-xs font-semibold tracking-[0.2em] uppercase text-muted-foreground whitespace-nowrap px-4 py-1.5 border border-border rounded-full bg-background">
+                        Same Pattern — New Crisis
                       </span>
                       <div className="h-px flex-1 bg-border" />
                     </div>
+
+                    {/* Element cards side-by-side */}
+                    <div className="grid grid-cols-2 gap-4 max-w-xl mx-auto">
+                      {/* NH₃ — Solved */}
+                      <div className="relative rounded-2xl overflow-hidden shadow-md aspect-video">
+                        <img
+                          src="https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/ab7925960_Ammonia.png"
+                          alt="NH3 Ammonia — for hungry crops"
+                          className="w-full h-full object-cover"
+                        />
+                        <div className="absolute top-3 left-3">
+                          <span className="font-inter text-xs font-bold text-white/80 uppercase tracking-widest">Solved ✓</span>
+                        </div>
+                      </div>
+
+                      {/* H₂O — Next */}
+                      <div className="relative rounded-2xl overflow-hidden shadow-md aspect-video">
+                        <img
+                          src="https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/dd39e7aae_Water.png"
+                          alt="H2O Water — for thirsty crops"
+                          className="w-full h-full object-cover"
+                        />
+                        <div className="absolute top-3 left-3">
+                          <span className="font-inter text-xs font-bold text-white/80 uppercase tracking-widest">Next →</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <p className="font-inter text-sm text-center text-muted-foreground mt-5 max-w-sm mx-auto">
+                      Haber solved nitrogen in 1909. The water crisis is today's equivalent — waiting for its breakthrough.
+                    </p>
                   </motion.div>
                 );
               }
