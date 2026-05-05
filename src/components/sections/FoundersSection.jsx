@@ -91,10 +91,7 @@ function FounderCard({ person, isAdmin }) {
 
       {/* Info */}
       <div className="p-8">
-        <div className="flex items-start justify-between mb-4">
-          <span className="text-xs font-inter font-semibold text-teal uppercase tracking-widest bg-teal-light px-3 py-1 rounded-full">
-            {person.tag}
-          </span>
+        <div className="flex items-start justify-end mb-4">
           <span className="text-xs font-inter text-muted-foreground uppercase tracking-wide">{person.role}</span>
         </div>
         <h3 className="font-playfair text-2xl font-bold text-foreground mb-1">{person.name}</h3>
@@ -124,9 +121,7 @@ export default function FoundersSection() {
             A Modern Partnership
           </h2>
           <p className="font-inter text-lg text-muted-foreground max-w-2xl mx-auto">
-            Like Haber and Bosch — one the inventor, one the industrializer — 
-            Saltwater Farms pairs deep agricultural innovation with the business 
-            infrastructure to scale it globally.
+            Like Haber and Bosch — one the inventor, one the industrialist — we collaborated to combine deep agricultural innovation with the operational expertise to create a globally scalable enterprise.
           </p>
         </motion.div>
 
