@@ -17,12 +17,12 @@ function ElementCards() {
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 1.1, duration: 0.8 }}
-      className="flex gap-5 justify-center mt-14"
+      className="flex gap-3 sm:gap-5 justify-center mt-14 px-4"
     >
       {/* NH3 — Solved */}
       <div
-        className="relative rounded-3xl overflow-hidden shadow-2xl bg-[#22c55e] flex flex-col"
-        style={{ width: 200, height: 130 }}
+        className="relative rounded-3xl overflow-hidden shadow-2xl bg-[#22c55e] flex flex-col flex-shrink-0"
+        style={{ width: 160, height: 110 }}
       >
         <div className="flex items-center justify-between px-4 pt-3.5 pb-0">
           <span className="font-inter text-sm font-bold text-white/60">1</span>
@@ -39,8 +39,8 @@ function ElementCards() {
 
       {/* H2O — Solving now */}
       <div
-        className="relative rounded-3xl overflow-hidden shadow-2xl bg-[#0ea5e9] flex flex-col"
-        style={{ width: 200, height: 130 }}
+        className="relative rounded-3xl overflow-hidden shadow-2xl bg-[#0ea5e9] flex flex-col flex-shrink-0"
+        style={{ width: 160, height: 110 }}
       >
         <div className="flex items-center justify-between px-4 pt-3.5 pb-0">
           <span className="font-inter text-sm font-bold text-white/60">2</span>
@@ -92,10 +92,6 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: 'easeOut' }}
         >
-          <p className="text-xs font-inter font-semibold tracking-[0.3em] uppercase text-white/70 mb-8 border border-white/20 inline-block px-4 py-2 rounded-sm">
-            The Next Green Revolution
-          </p>
-
           <h1 className="font-playfair text-6xl md:text-8xl font-bold text-white leading-[0.95] mb-8 tracking-tight drop-shadow-2xl">
             The Green Revolution<br />
             <span className="text-white/90">2.0</span>
