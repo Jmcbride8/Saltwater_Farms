@@ -62,19 +62,14 @@ export default function BeforeAfterSlider({
         draggable={false}
       />
 
-      {/* After image — always full size, clipped by overflow-hidden wrapper */}
-      <div
-        className="absolute inset-0 overflow-hidden"
-        style={{ width: `${position}%` }}
-      >
-        <img
-          src={afterSrc}
-          alt={afterLabel}
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ width: containerRef.current ? `${containerRef.current.offsetWidth}px` : '100vw' }}
-          draggable={false}
-        />
-      </div>
+      {/* After image — full size, clipped via clipPath so it never moves */}
+      <img
+        src={afterSrc}
+        alt={afterLabel}
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
+        draggable={false}
+      />
 
       {/* Divider line */}
       <div
