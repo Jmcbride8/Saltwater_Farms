@@ -6,11 +6,12 @@ export default function Hero() {
     <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
         <img
-          src="https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/a544aed0f_ChatGPTImageMay5202602_19_07PM.png"
+          src="https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/a5410601f_ChatGPTImageMay5202602_21_40PM.png"
           alt="Lake Mead aerial view"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/95" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30" />
       </div>
 
       <div className="absolute top-0 left-0 right-0 h-1 bg-teal z-20" />
@@ -21,11 +22,11 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: 'easeOut' }}
         >
-          <p className="text-xs font-inter font-semibold tracking-[0.25em] uppercase text-white/90 mb-6">
+          <p className="text-xs font-inter font-semibold tracking-[0.3em] uppercase text-white/70 mb-8 border border-white/20 inline-block px-4 py-2 rounded-sm">
             Beyond conservation — a new paradigm
           </p>
 
-          <h1 className="font-playfair text-6xl md:text-8xl font-bold text-white leading-[1.0] mb-8 tracking-tight">
+          <h1 className="font-playfair text-7xl md:text-9xl font-bold text-white leading-[0.95] mb-8 tracking-tight drop-shadow-2xl">
             Unlocking<br />
             <span className="text-white">Abundance.</span>
           </h1>
