@@ -86,8 +86,8 @@ const chapters = [
 ];
 
 // images array excludes divider entries
-const defaultImages = chapters.filter(c => !c.divider).map(c => c.image);
-const chapterIds = chapters.filter(c => !c.divider).map(c => c.id);
+const defaultImages = chapters.filter(c => !c.elementDivider).map(c => c.image);
+const chapterIds = chapters.filter(c => !c.elementDivider).map(c => c.id);
 
 export default function InsightSection() {
   const [chapterImgs, updateChapterImg] = usePersistedImages('insight', defaultImages, chapterIds);
