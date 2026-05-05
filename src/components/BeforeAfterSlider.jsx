@@ -88,14 +88,22 @@ export default function BeforeAfterSlider({
         <ChevronsLeftRight className="w-5 h-5 text-slate-600" />
       </div>
 
-      {/* Labels */}
-      <div className="absolute bottom-3 left-4 z-10 pointer-events-none">
-        <span className="font-inter text-xs font-semibold tracking-widest uppercase px-2.5 py-1 rounded bg-black/60 text-white">
+      {/* After label — visible only within the revealed "after" region */}
+      <div
+        className="absolute bottom-3 left-4 z-10 pointer-events-none overflow-hidden"
+        style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
+      >
+        <span className="font-inter text-xs font-semibold tracking-widest uppercase px-2.5 py-1 rounded bg-black/60 text-white whitespace-nowrap">
           {afterLabel}
         </span>
       </div>
-      <div className="absolute bottom-3 right-4 z-10 pointer-events-none">
-        <span className="font-inter text-xs font-semibold tracking-widest uppercase px-2.5 py-1 rounded bg-black/60 text-white">
+
+      {/* Before label — visible only within the "before" region */}
+      <div
+        className="absolute bottom-3 right-4 z-10 pointer-events-none overflow-hidden"
+        style={{ clipPath: `inset(0 0 0 ${position}%)` }}
+      >
+        <span className="font-inter text-xs font-semibold tracking-widest uppercase px-2.5 py-1 rounded bg-black/60 text-white whitespace-nowrap">
           {beforeLabel}
         </span>
       </div>

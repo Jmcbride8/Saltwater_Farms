@@ -140,18 +140,27 @@ export default function RegionalTransformationSection() {
               Cooler surface temperatures reduce the heat island effect that drives water evaporation across the entire 
               basin. Crops require less irrigation. Soil retains moisture longer. The microclimate begins to self-reinforce.
             </p>
-            <div className="grid grid-cols-2 gap-4 mt-6">
-              {[
-                { value: '20–40°F', label: 'air temp reduction per farm' },
-                { value: '60%+', label: 'evaporation reduction downwind' },
-                { value: '3–5×', label: 'effect multiplier at valley scale' },
-                { value: '12 mo', label: 'extended growing season potential' },
-              ].map((s, i) => (
-                <div key={i} className="bg-white rounded-xl p-4 border border-border text-center">
-                  <div className="font-playfair text-2xl font-bold text-teal mb-1">{s.value}</div>
-                  <p className="font-inter text-xs text-slate-500">{s.label}</p>
-                </div>
-              ))}
+            <div className="mt-6 bg-white rounded-2xl border border-teal/20 p-6">
+              <p className="font-inter text-xs font-semibold tracking-[0.2em] uppercase text-teal mb-3">Discovery — Oman Field Trials</p>
+              <p className="font-inter text-sm text-foreground font-medium leading-relaxed mb-3">
+                Nobody planted the grass. It just appeared.
+              </p>
+              <p className="font-inter text-sm text-muted-foreground leading-relaxed mb-3">
+                During early trials in Oman, the team noticed something unplanned: wild grasses and low vegetation 
+                began spontaneously sprouting in the surrounding desert — soil that had seen no rain, no irrigation, 
+                and no human intervention.
+              </p>
+              <p className="font-inter text-sm text-muted-foreground leading-relaxed mb-3">
+                The moisture thrown off by the evaporative system was quietly changing the local microclimate. 
+                Humidity levels rose enough to sustain germination. The desert, given just a fraction more moisture 
+                in the air, responded with an explosion of growth.
+              </p>
+              <blockquote className="border-l-4 border-teal pl-4 mt-4">
+                <p className="font-inter text-sm italic text-slate-500 leading-relaxed">
+                  "At scale across a valley, these effects don't add — they multiply. A region written off as 
+                  permanently arid becomes a candidate for genuine agricultural restoration."
+                </p>
+              </blockquote>
             </div>
           </motion.div>
 
