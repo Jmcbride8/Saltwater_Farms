@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Pencil, Loader2 } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 import { useAuth } from '@/lib/AuthContext';
+import BeforeAfterSlider from '@/components/BeforeAfterSlider';
 
 // ── Generic admin-uploadable image block ──────────────────────────────────────
 function UploadableImage({ imageKey, defaultSrc, alt, className = '', imgClassName = '' }) {
@@ -160,15 +161,15 @@ export default function RegionalTransformationSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <UploadableImage
-              imageKey="oasis-effect"
-              defaultSrc="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
-              alt="Oasis effect aerial view"
-              className="rounded-2xl overflow-hidden shadow-lg"
-              imgClassName="w-full h-80 object-cover"
+            <BeforeAfterSlider
+              beforeSrc="https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/27cd7cb44_ChatGPTImageMay5202603_13_41PM.png"
+              afterSrc="https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/4021d489f_ChatGPTImageMay5202603_15_02PM.png"
+              beforeLabel="Before"
+              afterLabel="After"
+              className="rounded-2xl overflow-hidden shadow-lg h-80"
             />
             <p className="font-inter text-xs text-slate-400 mt-3 text-center">
-              Persistent cool air mass forming over irrigated desert valley
+              Drag to compare — before &amp; after evaporative brine cooling
             </p>
           </motion.div>
         </div>
