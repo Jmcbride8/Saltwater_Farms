@@ -1,61 +1,70 @@
 import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 
+function Dot({ delay }) {
+  return (
+    <motion.span
+      animate={{ opacity: [0.2, 1, 0.2] }}
+      transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut', delay }}
+      className="w-1.5 h-1.5 rounded-full bg-white inline-block"
+    />
+  );
+}
+
 function ElementCards() {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 1.0, duration: 0.7 }}
-      className="flex gap-3 justify-center mt-10"
+      transition={{ delay: 1.1, duration: 0.8 }}
+      className="flex gap-5 justify-center mt-14"
     >
       {/* NH3 — Solved */}
-      <div className="relative w-36 rounded-2xl overflow-hidden shadow-xl bg-[#22c55e]" style={{ aspectRatio: '1.6/1' }}>
-        <div className="absolute top-2.5 left-3 text-white/70 font-inter text-xs font-bold">1</div>
-        <div className="absolute top-2.5 right-3 text-white font-inter text-[10px] font-bold uppercase tracking-widest">Solved ✓</div>
-        <div className="flex flex-col items-center justify-center h-full pb-2 pt-4">
-          <div className="font-playfair text-4xl font-bold text-white leading-none">
-            NH<sub className="text-2xl">3</sub>
+      <div
+        className="relative rounded-3xl overflow-hidden shadow-2xl bg-[#22c55e] flex flex-col"
+        style={{ width: 200, height: 130 }}
+      >
+        <div className="flex items-center justify-between px-4 pt-3.5 pb-0">
+          <span className="font-inter text-sm font-bold text-white/60">1</span>
+          <span className="font-inter text-[11px] font-bold uppercase tracking-[0.15em] text-white">Solved ✓</span>
+        </div>
+        <div className="flex flex-col items-center justify-center flex-1 pb-3">
+          <div className="font-playfair text-5xl font-bold text-white leading-none">
+            NH<sub className="text-3xl align-sub">3</sub>
           </div>
-          <div className="font-inter text-xs font-semibold text-white mt-1.5">Ammonia</div>
-          <div className="font-inter text-[10px] text-white/70">for hungry crops</div>
+          <div className="font-inter text-sm font-semibold text-white mt-2">Ammonia</div>
+          <div className="font-inter text-[11px] text-white/70">for hungry crops</div>
         </div>
       </div>
 
       {/* H2O — Solving now */}
-      <div className="relative w-36 rounded-2xl overflow-hidden shadow-xl bg-[#38bdf8]" style={{ aspectRatio: '1.6/1' }}>
-        <div className="absolute top-2.5 left-3 text-white/70 font-inter text-xs font-bold">2</div>
-        {/* Pulsing "loading" indicator */}
-        <div className="absolute top-2.5 right-3 flex items-center gap-1">
-          <motion.span
-            animate={{ opacity: [1, 0.3, 1] }}
-            transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
-            className="font-inter text-[10px] font-bold uppercase tracking-widest text-white"
-          >
-            Solving now
-          </motion.span>
-          <motion.span
-            animate={{ opacity: [1, 0, 1] }}
-            transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut', delay: 0 }}
-            className="w-1 h-1 rounded-full bg-white inline-block"
-          />
-          <motion.span
-            animate={{ opacity: [1, 0, 1] }}
-            transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut', delay: 0.25 }}
-            className="w-1 h-1 rounded-full bg-white inline-block"
-          />
-          <motion.span
-            animate={{ opacity: [1, 0, 1] }}
-            transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-            className="w-1 h-1 rounded-full bg-white inline-block"
-          />
-        </div>
-        <div className="flex flex-col items-center justify-center h-full pb-2 pt-4">
-          <div className="font-playfair text-4xl font-bold text-white leading-none">
-            H<sub className="text-2xl">2</sub>O
+      <div
+        className="relative rounded-3xl overflow-hidden shadow-2xl bg-[#0ea5e9] flex flex-col"
+        style={{ width: 200, height: 130 }}
+      >
+        <div className="flex items-center justify-between px-4 pt-3.5 pb-0">
+          <span className="font-inter text-sm font-bold text-white/60">2</span>
+          <div className="flex items-center gap-1.5">
+            <motion.span
+              animate={{ opacity: [1, 0.4, 1] }}
+              transition={{ duration: 1.3, repeat: Infinity, ease: 'easeInOut' }}
+              className="font-inter text-[11px] font-bold uppercase tracking-[0.15em] text-white"
+            >
+              Solving now
+            </motion.span>
+            <div className="flex gap-0.5 items-center">
+              <Dot delay={0} />
+              <Dot delay={0.2} />
+              <Dot delay={0.4} />
+            </div>
           </div>
-          <div className="font-inter text-xs font-semibold text-white mt-1.5">Water</div>
-          <div className="font-inter text-[10px] text-white/70">for thirsty crops</div>
+        </div>
+        <div className="flex flex-col items-center justify-center flex-1 pb-3">
+          <div className="font-playfair text-5xl font-bold text-white leading-none">
+            H<sub className="text-3xl align-sub">2</sub>O
+          </div>
+          <div className="font-inter text-sm font-semibold text-white mt-2">Water</div>
+          <div className="font-inter text-[11px] text-white/70">for thirsty crops</div>
         </div>
       </div>
     </motion.div>
@@ -71,7 +80,7 @@ export default function Hero() {
           alt="Lake Mead aerial view"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/95" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/65 to-black/95" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30" />
       </div>
 
@@ -84,17 +93,19 @@ export default function Hero() {
           transition={{ duration: 0.9, ease: 'easeOut' }}
         >
           <p className="text-xs font-inter font-semibold tracking-[0.3em] uppercase text-white/70 mb-8 border border-white/20 inline-block px-4 py-2 rounded-sm">
-            Beyond conservation — a new paradigm
+            The Next Green Revolution
           </p>
 
-          <h1 className="font-playfair text-7xl md:text-9xl font-bold text-white leading-[0.95] mb-8 tracking-tight drop-shadow-2xl">
-            Unlocking<br />
-            <span className="text-white">Abundance.</span>
+          <h1 className="font-playfair text-6xl md:text-8xl font-bold text-white leading-[0.95] mb-6 tracking-tight drop-shadow-2xl">
+            Water is Locked<br />
+            <span className="text-white">in the Desert.</span><br />
+            <span className="italic text-white/80">We're unlocking it.</span>
           </h1>
 
-          <p className="font-inter text-lg md:text-xl text-white/85 font-light leading-relaxed max-w-xl mx-auto mb-12">
-            The Southwest doesn't have a scarcity problem — it has a locked-resource problem. 
-            Worthless underground brine, turned into water and profit.
+          <p className="font-inter text-lg md:text-xl text-white/80 font-light leading-relaxed max-w-2xl mx-auto mb-10">
+            A century ago, the world faced mass starvation — until Fritz Haber literally turned air into fertilizer.
+            Today, the arid Southwest faces collapse. We're doing it again: turning worthless underground brine
+            into water, cooling, and abundance.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -119,7 +130,7 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 0.5 }}
+        transition={{ delay: 1.8, duration: 0.5 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/60"
       >
         <span className="text-xs font-inter tracking-widest uppercase">Scroll</span>
