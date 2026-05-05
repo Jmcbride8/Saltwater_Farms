@@ -181,7 +181,7 @@ export default function InsightSection() {
               const localIdx = imgIdx;
               // Alternate layout: even = text-left / image-right, odd = image-left / text-right
               // But divider resets nothing — we count actual chapter rows
-              const row = chapters.slice(0, i).filter(c => !c.divider).length;
+              const row = chapters.slice(0, i).filter(c => !c.elementDivider).length;
               const isEven = row % 2 === 0;
 
               return (
