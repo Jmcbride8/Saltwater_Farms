@@ -132,36 +132,25 @@ export default function RegionalTransformationSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <p className="font-inter text-muted-foreground leading-relaxed mb-5">
+            <p className="font-inter text-muted-foreground leading-relaxed mb-4">
               A single brine evaporation wall cools a farm. But when dozens of farms across a valley adopt the system, 
-              something larger emerges: a persistent cool, moist air mass — an engineered oasis.
+              something larger emerges: a persistent cool, moist air mass — an engineered oasis. Cooler surface 
+              temperatures reduce the heat island effect, crops require less irrigation, soil retains moisture longer, 
+              and the microclimate begins to self-reinforce.
             </p>
-            <p className="font-inter text-muted-foreground leading-relaxed mb-5">
-              Cooler surface temperatures reduce the heat island effect that drives water evaporation across the entire 
-              basin. Crops require less irrigation. Soil retains moisture longer. The microclimate begins to self-reinforce.
+            <p className="font-inter text-muted-foreground leading-relaxed mb-4">
+              During early trials in Oman, nobody planted the grass — <em>it just appeared.</em> Wild grasses and low 
+              vegetation began spontaneously sprouting in surrounding desert soil that had seen no rain, no irrigation, 
+              and no human intervention. The moisture thrown off by the evaporative system was quietly changing the 
+              local microclimate. Humidity levels rose enough to sustain germination. The desert, given just a fraction 
+              more moisture in the air, responded with an explosion of growth.
             </p>
-            <div className="mt-6 bg-white rounded-2xl border border-teal/20 p-6">
-              <p className="font-inter text-xs font-semibold tracking-[0.2em] uppercase text-teal mb-3">Discovery — Oman Field Trials</p>
-              <p className="font-inter text-sm text-foreground font-medium leading-relaxed mb-3">
-                Nobody planted the grass. It just appeared.
+            <blockquote className="border-l-4 border-teal pl-5 mt-2">
+              <p className="font-inter text-sm italic text-slate-500 leading-relaxed">
+                "At scale across a valley, these effects don't add — they multiply. A region written off as 
+                permanently arid becomes a candidate for genuine agricultural restoration."
               </p>
-              <p className="font-inter text-sm text-muted-foreground leading-relaxed mb-3">
-                During early trials in Oman, the team noticed something unplanned: wild grasses and low vegetation 
-                began spontaneously sprouting in the surrounding desert — soil that had seen no rain, no irrigation, 
-                and no human intervention.
-              </p>
-              <p className="font-inter text-sm text-muted-foreground leading-relaxed mb-3">
-                The moisture thrown off by the evaporative system was quietly changing the local microclimate. 
-                Humidity levels rose enough to sustain germination. The desert, given just a fraction more moisture 
-                in the air, responded with an explosion of growth.
-              </p>
-              <blockquote className="border-l-4 border-teal pl-4 mt-4">
-                <p className="font-inter text-sm italic text-slate-500 leading-relaxed">
-                  "At scale across a valley, these effects don't add — they multiply. A region written off as 
-                  permanently arid becomes a candidate for genuine agricultural restoration."
-                </p>
-              </blockquote>
-            </div>
+            </blockquote>
           </motion.div>
 
           <motion.div
