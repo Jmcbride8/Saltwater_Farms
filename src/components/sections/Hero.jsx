@@ -1,6 +1,67 @@
 import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 
+function ElementCards() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 1.0, duration: 0.7 }}
+      className="flex gap-3 justify-center mt-10"
+    >
+      {/* NH3 — Solved */}
+      <div className="relative w-36 rounded-2xl overflow-hidden shadow-xl bg-[#22c55e]" style={{ aspectRatio: '1.6/1' }}>
+        <div className="absolute top-2.5 left-3 text-white/70 font-inter text-xs font-bold">1</div>
+        <div className="absolute top-2.5 right-3 text-white font-inter text-[10px] font-bold uppercase tracking-widest">Solved ✓</div>
+        <div className="flex flex-col items-center justify-center h-full pb-2 pt-4">
+          <div className="font-playfair text-4xl font-bold text-white leading-none">
+            NH<sub className="text-2xl">3</sub>
+          </div>
+          <div className="font-inter text-xs font-semibold text-white mt-1.5">Ammonia</div>
+          <div className="font-inter text-[10px] text-white/70">for hungry crops</div>
+        </div>
+      </div>
+
+      {/* H2O — Solving now */}
+      <div className="relative w-36 rounded-2xl overflow-hidden shadow-xl bg-[#38bdf8]" style={{ aspectRatio: '1.6/1' }}>
+        <div className="absolute top-2.5 left-3 text-white/70 font-inter text-xs font-bold">2</div>
+        {/* Pulsing "loading" indicator */}
+        <div className="absolute top-2.5 right-3 flex items-center gap-1">
+          <motion.span
+            animate={{ opacity: [1, 0.3, 1] }}
+            transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
+            className="font-inter text-[10px] font-bold uppercase tracking-widest text-white"
+          >
+            Solving now
+          </motion.span>
+          <motion.span
+            animate={{ opacity: [1, 0, 1] }}
+            transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut', delay: 0 }}
+            className="w-1 h-1 rounded-full bg-white inline-block"
+          />
+          <motion.span
+            animate={{ opacity: [1, 0, 1] }}
+            transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut', delay: 0.25 }}
+            className="w-1 h-1 rounded-full bg-white inline-block"
+          />
+          <motion.span
+            animate={{ opacity: [1, 0, 1] }}
+            transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+            className="w-1 h-1 rounded-full bg-white inline-block"
+          />
+        </div>
+        <div className="flex flex-col items-center justify-center h-full pb-2 pt-4">
+          <div className="font-playfair text-4xl font-bold text-white leading-none">
+            H<sub className="text-2xl">2</sub>O
+          </div>
+          <div className="font-inter text-xs font-semibold text-white mt-1.5">Water</div>
+          <div className="font-inter text-[10px] text-white/70">for thirsty crops</div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
 export default function Hero() {
   return (
     <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
@@ -50,6 +111,8 @@ export default function Hero() {
               Join the Movement →
             </button>
           </div>
+
+          <ElementCards />
         </motion.div>
       </div>
 

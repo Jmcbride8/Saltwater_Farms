@@ -20,7 +20,7 @@ const chapters = [
     id: 'nitrogen-breakthrough',
     year: '1909',
     crisis: 'The Breakthrough',
-    headline: 'Fritz Haber found nitrogen in thin air.',
+    headline: 'Fritz Haber literally turned air into fertilizer.',
     body: 'Atmospheric nitrogen makes up 78% of the air we breathe — but crops can\'t absorb it. Haber discovered a catalyst to fix it into ammonia. Carl Bosch scaled it at BASF. An invisible, "worthless" gas became the foundation of modern agriculture.',
     image: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&q=80',
     imageAlt: 'Industrial chemistry laboratory',
