@@ -5,6 +5,7 @@ import InsightSection from '@/components/sections/InsightSection';
 import DripSection from '@/components/sections/DripSection';
 import HowItWorksSection from '@/components/sections/HowItWorksSection';
 import ProfitSection from '@/components/sections/ProfitSection';
+import RegionalTransformationSection from '@/components/sections/RegionalTransformationSection';
 import GlobalSection from '@/components/sections/GlobalSection';
 import FoundersSection from '@/components/sections/FoundersSection';
 import RoadmapSection from '@/components/sections/RoadmapSection';
@@ -20,6 +21,7 @@ export default function Home() {
       <DripSection />
       <HowItWorksSection />
       <ProfitSection />
+      <RegionalTransformationSection />
       <InsightSection />
       <GlobalSection />
       <FoundersSection />
