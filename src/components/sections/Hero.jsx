@@ -22,32 +22,30 @@ function ElementCards() {
       {/* NH3 — Solved */}
       <div
         className="relative rounded-2xl overflow-hidden shadow-xl bg-[#22c55e] flex flex-col flex-shrink-0"
-        style={{ width: 140, height: 95 }}
+        style={{ width: 160, height: 120 }}
       >
-        <div className="flex items-center justify-between px-3 pt-2.5 pb-0">
-          <span className="font-inter text-xs font-bold text-white/70">1</span>
-          <span className="font-inter text-[9px] font-bold uppercase tracking-widest text-white whitespace-nowrap">Solved ✓</span>
+        <div className="flex items-center justify-center px-3 pt-3">
+          <span className="font-inter text-[10px] font-bold uppercase tracking-widest text-white">Solved ✓</span>
         </div>
-        <div className="flex flex-col items-center justify-center flex-1 pb-2">
-          <div className="font-playfair text-4xl font-bold text-white leading-none">
-            NH<sub className="text-xl">3</sub>
+        <div className="flex flex-col items-center justify-center flex-1 pb-3">
+          <div className="font-playfair text-5xl font-bold text-white leading-none">
+            NH<sub className="text-2xl">3</sub>
           </div>
-          <div className="font-inter text-xs font-semibold text-white mt-1">Ammonia</div>
+          <div className="font-inter text-sm font-semibold text-white mt-2">Ammonia</div>
         </div>
       </div>
 
       {/* H2O — Solving now */}
       <div
         className="relative rounded-2xl overflow-hidden shadow-xl bg-[#0ea5e9] flex flex-col flex-shrink-0"
-        style={{ width: 140, height: 95 }}
+        style={{ width: 160, height: 120 }}
       >
-        <div className="flex items-center justify-between px-3 pt-2.5 pb-0 gap-1">
-          <span className="font-inter text-xs font-bold text-white/70">2</span>
-          <div className="flex items-center gap-1">
+        <div className="flex items-center justify-center px-3 pt-3 gap-1">
+          <div className="flex items-center gap-1.5">
             <motion.span
               animate={{ opacity: [1, 0.4, 1] }}
               transition={{ duration: 1.3, repeat: Infinity, ease: 'easeInOut' }}
-              className="font-inter text-[9px] font-bold uppercase tracking-widest text-white whitespace-nowrap"
+              className="font-inter text-[10px] font-bold uppercase tracking-widest text-white whitespace-nowrap"
             >
               Solving
             </motion.span>
@@ -58,11 +56,11 @@ function ElementCards() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center flex-1 pb-2">
-          <div className="font-playfair text-4xl font-bold text-white leading-none">
-            H<sub className="text-xl">2</sub>O
+        <div className="flex flex-col items-center justify-center flex-1 pb-3">
+          <div className="font-playfair text-5xl font-bold text-white leading-none">
+            H<sub className="text-2xl">2</sub>O
           </div>
-          <div className="font-inter text-xs font-semibold text-white mt-1">Water</div>
+          <div className="font-inter text-sm font-semibold text-white mt-2">Water</div>
         </div>
       </div>
     </motion.div>
