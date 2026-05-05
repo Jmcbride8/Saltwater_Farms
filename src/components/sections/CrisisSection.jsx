@@ -111,6 +111,74 @@ export default function CrisisSection() {
           </h3>
         </motion.div>
 
+        {/* Hoover Dam Then/Now */}
+        <div className="mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="mb-8"
+          >
+            <p className="font-inter text-sm font-medium tracking-[0.2em] uppercase text-crisis mb-3">The Visual Record</p>
+            <h3 className="font-playfair text-3xl font-bold text-foreground mb-6">
+              Hoover Dam: Then vs. Now
+            </h3>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-12">
+            <motion.div
+              initial={{ opacity: 0, x: -24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="relative rounded-2xl overflow-hidden"
+            >
+              <AdminImageCard
+                src="https://images.unsplash.com/photo-1577720643272-265ef5a79f3b?w=800&q=80"
+                alt="Hoover Dam at full capacity"
+                onImageChange={(url) => {
+                  const img = cardImgs[cardImgs.length];
+                  updateImg(cardImgs.length, url);
+                }}
+                className="relative rounded-2xl overflow-hidden h-80 group"
+                imgClassName="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <h4 className="font-playfair text-2xl font-bold text-white">1994–2010</h4>
+                  <p className="font-inter text-sm text-white/80 mt-2">Lake Mead at full capacity. Water spills over the spillway.</p>
+                </div>
+              </AdminImageCard>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="relative rounded-2xl overflow-hidden"
+            >
+              <AdminImageCard
+                src="https://images.unsplash.com/photo-1606070945920-f3cda9f69e5a?w=800&q=80"
+                alt="Hoover Dam near dead pool"
+                onImageChange={(url) => {
+                  updateImg(cardImgs.length, url);
+                }}
+                className="relative rounded-2xl overflow-hidden h-80 group"
+                imgClassName="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <h4 className="font-playfair text-2xl font-bold text-white text-crisis">2023–2024</h4>
+                  <p className="font-inter text-sm text-white/80 mt-2">Lake Mead declining. The white "bathtub ring" shows where water once stood.</p>
+                </div>
+              </AdminImageCard>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Downstream Cascade */}
         <div className="grid md:grid-cols-2 gap-4 mb-6">
           {defaultCards.map((item, i) => (
             <motion.div
