@@ -6,7 +6,7 @@ export default function Hero() {
     <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
         <img
-          src="https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/647cbaebf_Picture1.jpg"
+          src="https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/a544aed0f_ChatGPTImageMay5202602_19_07PM.png"
           alt="Lake Mead aerial view"
           className="w-full h-full object-cover"
         />
