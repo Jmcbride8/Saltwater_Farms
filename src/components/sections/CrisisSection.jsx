@@ -99,7 +99,8 @@ export default function CrisisSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+        <div className="grid grid-cols-2 gap-4 mb-16">
+          {/* KPI Cards */}
           {stats.map((s, i) => <StatCard key={i} {...s} i={i} />)}
           
           {/* Then */}
@@ -107,14 +108,13 @@ export default function CrisisSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: defaultCards.length * 0.1, duration: 0.6 }}
-            className="lg:col-span-2 md:col-span-1"
+            transition={{ delay: stats.length * 0.1, duration: 0.6 }}
           >
             <AdminImageCard
               src={cardImgs[defaultCards.length]}
               alt="Hoover Dam at full capacity"
               onImageChange={(url) => updateImg(defaultCards.length, url)}
-              className="relative rounded-lg overflow-hidden h-40 group"
+              className="relative rounded-lg overflow-hidden h-48 group"
               imgClassName="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             >
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent" />
@@ -130,14 +130,13 @@ export default function CrisisSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: (defaultCards.length + 1) * 0.1, duration: 0.6 }}
-            className="lg:col-span-2 md:col-span-1"
+            transition={{ delay: (stats.length + 1) * 0.1, duration: 0.6 }}
           >
             <AdminImageCard
               src={cardImgs[defaultCards.length + 1]}
               alt="Hoover Dam near dead pool"
               onImageChange={(url) => updateImg(defaultCards.length + 1, url)}
-              className="relative rounded-lg overflow-hidden h-40 group"
+              className="relative rounded-lg overflow-hidden h-48 group"
               imgClassName="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             >
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent" />
