@@ -10,7 +10,7 @@ export default function Hero() {
           alt="Lake Mead aerial view"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/55 to-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/90" />
       </div>
 
       <div className="absolute top-0 left-0 right-0 h-1 bg-teal z-20" />
