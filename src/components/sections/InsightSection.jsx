@@ -32,8 +32,8 @@ const chapters = [
     id: 'nitrogen-result',
     year: 'Result',
     crisis: 'Half the World Fed',
-    headline: 'The worthless became essential.',
-    body: '"A third of annual global food production uses ammonia from the Haber–Bosch process, and that food supports nearly half the world\'s population." The locked-up became unlocked.',
+    headline: '6 billion people fed. An empire built.',
+    body: 'Haber–Bosch now underpins a third of all global food production — feeding over 6 billion people who could not otherwise exist. BASF became one of the most dominant chemical companies on earth, powering the German economy to this day. One "worthless" molecule. Infinite leverage.',
     image: 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=600&q=80',
     imageAlt: 'Abundant green farmland from above',
     color: 'border-teal/40',
@@ -212,20 +212,20 @@ export default function InsightSection() {
                             src={chapterImgs[localIdx]}
                             alt={ch.imageAlt}
                             onImageChange={(url) => updateChapterImg(localIdx, url)}
-                            className="rounded-tr-2xl rounded-br-2xl overflow-hidden h-full min-h-[220px]"
-                            imgClassName="w-full h-full object-cover"
-                          />
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <div className="hidden md:block relative">
-                        <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-4 h-4 rounded-full bg-white border-2 border-teal z-10" />
-                          <AdminImageCard
-                            src={chapterImgs[localIdx]}
-                            alt={ch.imageAlt}
-                            onImageChange={(url) => updateChapterImg(localIdx, url)}
-                            className="rounded-tl-2xl rounded-bl-2xl overflow-hidden h-full min-h-[220px]"
+                            className="rounded-tr-2xl rounded-br-2xl overflow-hidden h-full min-h-[280px]"
+                                                     imgClassName="w-full h-full object-cover"
+                                                   />
+                                               </div>
+                                             </>
+                                           ) : (
+                                             <>
+                                               <div className="hidden md:block relative">
+                                                 <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-4 h-4 rounded-full bg-white border-2 border-teal z-10" />
+                                                   <AdminImageCard
+                                                     src={chapterImgs[localIdx]}
+                                                     alt={ch.imageAlt}
+                                                     onImageChange={(url) => updateChapterImg(localIdx, url)}
+                                                     className="rounded-tl-2xl rounded-bl-2xl overflow-hidden h-full min-h-[280px]"
                             imgClassName="w-full h-full object-cover"
                           />
                       </div>
