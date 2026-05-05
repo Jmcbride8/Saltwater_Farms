@@ -125,10 +125,9 @@ export default function CrisisSection() {
                 alt={item.title}
                 onImageChange={(url) => updateImg(i, url)}
                 className="relative rounded-2xl overflow-hidden h-64 group"
-                imgClassName="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                imgClassName="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale"
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/10" />
-                <div className="absolute inset-0 bg-crisis/20" />
                 <div className="absolute inset-0 p-6 flex flex-col justify-between pointer-events-none">
                   <div className="self-end text-right">
                     <div className="font-playfair text-3xl font-bold text-white leading-none">{item.stat}</div>
