@@ -5,6 +5,7 @@ import { usePersistedImages } from '@/hooks/usePersistedImages';
 
 const regions = [
   {
+    id: 'imperial-valley-ca',
     name: 'Imperial Valley & Coachella, CA',
     flag: '🇺🇸',
     context: 'Supplies 90% of U.S. winter vegetables. Facing mandatory Colorado River cutbacks of 20–40%.',
@@ -13,6 +14,7 @@ const regions = [
     image: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80',
   },
   {
+    id: 'arizona-yuma-phoenix',
     name: 'Arizona: Yuma & Phoenix Basin',
     flag: '🇺🇸',
     context: 'Arizona faces the steepest Colorado River cuts. Yuma grows 90% of U.S. leafy greens in winter.',
@@ -21,6 +23,7 @@ const regions = [
     image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
   },
   {
+    id: 'jordan-river-valley',
     name: 'Jordan River Valley',
     flag: '🇯🇴',
     context: 'One of the world\'s most water-stressed regions. The Dead Sea is shrinking by 1 meter per year.',
@@ -29,6 +32,7 @@ const regions = [
     image: 'https://images.unsplash.com/photo-1466220549276-aef9ce186540?w=600&q=80',
   },
   {
+    id: 'australian-outback',
     name: 'Australian Outback',
     flag: '🇦🇺',
     context: 'Massive saline aquifer systems underlie much of inland Australia. Extreme heat limits agriculture.',
@@ -37,6 +41,7 @@ const regions = [
     image: 'https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=600&q=80',
   },
   {
+    id: 'sahara-north-africa',
     name: 'Sahara & North Africa',
     flag: '🌍',
     context: 'The Nubian Sandstone Aquifer holds one of the world\'s largest fossil water reserves — mostly saline.',
@@ -45,6 +50,7 @@ const regions = [
     image: 'https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=600&q=80',
   },
   {
+    id: 'atacama-chile-peru',
     name: 'Atacama & Coastal Chile/Peru',
     flag: '🇨🇱',
     context: 'Driest non-polar desert on Earth. Proximity to the Pacific creates unique evaporative dynamics.',
@@ -61,7 +67,7 @@ const priorityColors = {
 };
 
 export default function GlobalSection() {
-  const [regionImgs, updateImg] = usePersistedImages('global-region-images', regions.map(r => r.image));
+  const [regionImgs, updateImg] = usePersistedImages('global', regions.map(r => r.image), regions.map(r => r.id));
 
   return (
     <section id="global" className="py-28 bg-muted">

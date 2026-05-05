@@ -1,34 +1,45 @@
 import { useState, useEffect } from 'react';
 import { base44 } from '@/api/base44Client';
 
+// Maps section key to the correct entity
+const ENTITY_MAP = {
+  crisis: base44.entities.CrisisCardImage,
+  insight: base44.entities.InsightCardImage,
+  global: base44.entities.GlobalRegionImage,
+};
+
 /**
- * Persists images to the database via CrisisCardImage entity.
- * key: section key (e.g. 'crisis')
+ * Persists images to the database.
+ * key: section key — 'crisis' | 'insight' | 'global'
  * defaults: array of default image URLs
- * cardIds: array of card IDs corresponding to the defaults
+ * cardIds: array of unique card IDs corresponding to the defaults
  */
 export function usePersistedImages(key, defaults, cardIds = []) {
   const [images, setImages] = useState(defaults);
   const [loading, setLoading] = useState(true);
 
-  // Load images from database on mount
+  const entity = ENTITY_MAP[key];
+
   useEffect(() => {
+    if (!entity) {
+      setLoading(false);
+      return;
+    }
+
     const loadImages = async () => {
       try {
-        const records = await base44.entities.CrisisCardImage.list();
+        const records = await entity.list();
         const imageMap = {};
         records.forEach(r => {
           imageMap[r.cardId] = r.imageUrl;
         });
-        
-        // Merge stored images with defaults
+
         const merged = defaults.map((def, i) => {
           const cardId = cardIds[i];
-          return imageMap[cardId] || def;
+          return (cardId && imageMap[cardId]) ? imageMap[cardId] : def;
         });
         setImages(merged);
-      } catch (error) {
-        // Fallback to defaults on error
+      } catch {
         setImages(defaults);
       } finally {
         setLoading(false);
@@ -39,9 +50,11 @@ export function usePersistedImages(key, defaults, cardIds = []) {
   }, [key]);
 
   const updateImage = async (index, url) => {
+    if (!entity) return;
     const cardId = cardIds[index];
     if (!cardId) return;
 
+    // Optimistic UI update
     setImages(prev => {
       const next = [...prev];
       next[index] = url;
@@ -49,14 +62,11 @@ export function usePersistedImages(key, defaults, cardIds = []) {
     });
 
     try {
-      // Check if record exists
-      const existing = await base44.entities.CrisisCardImage.filter({ cardId });
+      const existing = await entity.filter({ cardId });
       if (existing.length > 0) {
-        // Update existing
-        await base44.entities.CrisisCardImage.update(existing[0].id, { imageUrl: url });
+        await entity.update(existing[0].id, { imageUrl: url });
       } else {
-        // Create new
-        await base44.entities.CrisisCardImage.create({ cardId, imageUrl: url });
+        await entity.create({ cardId, imageUrl: url });
       }
     } catch (error) {
       console.error('Failed to save image:', error);
