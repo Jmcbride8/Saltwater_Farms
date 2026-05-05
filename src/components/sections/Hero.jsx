@@ -17,40 +17,39 @@ function ElementCards() {
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 1.1, duration: 0.8 }}
-      className="flex gap-3 sm:gap-5 justify-center mt-14 px-4"
+      className="flex gap-3 justify-center mt-14 w-full overflow-x-hidden"
     >
       {/* NH3 — Solved */}
       <div
-        className="relative rounded-3xl overflow-hidden shadow-2xl bg-[#22c55e] flex flex-col flex-shrink-0"
-        style={{ width: 160, height: 110 }}
+        className="relative rounded-2xl overflow-hidden shadow-xl bg-[#22c55e] flex flex-col flex-shrink-0"
+        style={{ width: 140, height: 95 }}
       >
-        <div className="flex items-center justify-between px-4 pt-3.5 pb-0">
-          <span className="font-inter text-sm font-bold text-white/60">1</span>
-          <span className="font-inter text-[11px] font-bold uppercase tracking-[0.15em] text-white">Solved ✓</span>
+        <div className="flex items-center justify-between px-3 pt-2.5 pb-0">
+          <span className="font-inter text-xs font-bold text-white/70">1</span>
+          <span className="font-inter text-[9px] font-bold uppercase tracking-widest text-white whitespace-nowrap">Solved ✓</span>
         </div>
-        <div className="flex flex-col items-center justify-center flex-1 pb-3">
-          <div className="font-playfair text-5xl font-bold text-white leading-none">
-            NH<sub className="text-3xl align-sub">3</sub>
+        <div className="flex flex-col items-center justify-center flex-1 pb-2">
+          <div className="font-playfair text-4xl font-bold text-white leading-none">
+            NH<sub className="text-xl">3</sub>
           </div>
-          <div className="font-inter text-sm font-semibold text-white mt-2">Ammonia</div>
-          <div className="font-inter text-[11px] text-white/70">for hungry crops</div>
+          <div className="font-inter text-xs font-semibold text-white mt-1">Ammonia</div>
         </div>
       </div>
 
       {/* H2O — Solving now */}
       <div
-        className="relative rounded-3xl overflow-hidden shadow-2xl bg-[#0ea5e9] flex flex-col flex-shrink-0"
-        style={{ width: 160, height: 110 }}
+        className="relative rounded-2xl overflow-hidden shadow-xl bg-[#0ea5e9] flex flex-col flex-shrink-0"
+        style={{ width: 140, height: 95 }}
       >
-        <div className="flex items-center justify-between px-4 pt-3.5 pb-0">
-          <span className="font-inter text-sm font-bold text-white/60">2</span>
-          <div className="flex items-center gap-1.5">
+        <div className="flex items-center justify-between px-3 pt-2.5 pb-0 gap-1">
+          <span className="font-inter text-xs font-bold text-white/70">2</span>
+          <div className="flex items-center gap-1">
             <motion.span
               animate={{ opacity: [1, 0.4, 1] }}
               transition={{ duration: 1.3, repeat: Infinity, ease: 'easeInOut' }}
-              className="font-inter text-[11px] font-bold uppercase tracking-[0.15em] text-white"
+              className="font-inter text-[9px] font-bold uppercase tracking-widest text-white whitespace-nowrap"
             >
-              Solving now
+              Solving
             </motion.span>
             <div className="flex gap-0.5 items-center">
               <Dot delay={0} />
@@ -59,12 +58,11 @@ function ElementCards() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center flex-1 pb-3">
-          <div className="font-playfair text-5xl font-bold text-white leading-none">
-            H<sub className="text-3xl align-sub">2</sub>O
+        <div className="flex flex-col items-center justify-center flex-1 pb-2">
+          <div className="font-playfair text-4xl font-bold text-white leading-none">
+            H<sub className="text-xl">2</sub>O
           </div>
-          <div className="font-inter text-sm font-semibold text-white mt-2">Water</div>
-          <div className="font-inter text-[11px] text-white/70">for thirsty crops</div>
+          <div className="font-inter text-xs font-semibold text-white mt-1">Water</div>
         </div>
       </div>
     </motion.div>
