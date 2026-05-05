@@ -102,7 +102,7 @@ function PhaseCard({ phase, i, isAdmin }) {
   return (
     <div className="flex flex-col md:flex-row">
       {/* Left */}
-      <div className="relative md:w-64 flex flex-col justify-between overflow-hidden">
+      <div className="relative md:w-80 flex flex-col justify-between overflow-hidden">
         <img src={imageUrl} alt="Phase background" className="absolute inset-0 w-full h-full object-cover" />
         <div className={`absolute inset-0 ${i === 0 ? 'bg-teal/75' : 'bg-foreground/70'}`} />
         {isAdmin && (
