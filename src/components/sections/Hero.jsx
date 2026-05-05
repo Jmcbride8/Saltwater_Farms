@@ -102,9 +102,7 @@ export default function Hero() {
           </h1>
 
           <p className="font-inter text-lg md:text-xl text-white/80 font-light leading-relaxed max-w-2xl mx-auto mb-12">
-            A century ago, the world faced mass starvation — until Fritz Haber literally turned air into fertilizer.
-            Today, the arid Southwest faces collapse. We're doing it again: turning worthless underground brine
-            into water, cooling, and abundance.
+            Haber turned air into food. We're turning desert brine into water.
           </p>
 
           <ElementCards />
