@@ -96,32 +96,16 @@ export default function Hero() {
             The Next Green Revolution
           </p>
 
-          <h1 className="font-playfair text-6xl md:text-8xl font-bold text-white leading-[0.95] mb-6 tracking-tight drop-shadow-2xl">
-            Water is Locked<br />
-            <span className="text-white">in the Desert.</span><br />
-            <span className="italic text-white/80">We're unlocking it.</span>
+          <h1 className="font-playfair text-6xl md:text-8xl font-bold text-white leading-[0.95] mb-8 tracking-tight drop-shadow-2xl">
+            The Green Revolution<br />
+            <span className="text-white/90">2.0</span>
           </h1>
 
-          <p className="font-inter text-lg md:text-xl text-white/80 font-light leading-relaxed max-w-2xl mx-auto mb-10">
+          <p className="font-inter text-lg md:text-xl text-white/80 font-light leading-relaxed max-w-2xl mx-auto mb-12">
             A century ago, the world faced mass starvation — until Fritz Haber literally turned air into fertilizer.
             Today, the arid Southwest faces collapse. We're doing it again: turning worthless underground brine
             into water, cooling, and abundance.
           </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => document.querySelector('#insight')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-10 py-4 bg-teal text-white font-inter font-semibold rounded-sm hover:bg-teal/90 transition-all text-sm tracking-wide uppercase"
-            >
-              See How It Works
-            </button>
-            <button
-              onClick={() => document.querySelector('#presale')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-10 py-4 border border-white/50 text-white font-inter font-semibold rounded-sm hover:bg-white/10 transition-all text-sm tracking-wide uppercase"
-            >
-              Join the Movement →
-            </button>
-          </div>
 
           <ElementCards />
         </motion.div>
