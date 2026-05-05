@@ -2,12 +2,17 @@
   "name": "RoadmapImage",
   "type": "object",
   "properties": {
+    "phaseId": {
+      "type": "string",
+      "description": "Identifier for the phase card: 'phase1', 'phase2', or 'phase3'"
+    },
     "imageUrl": {
       "type": "string",
-      "description": "URL of the background image used across all roadmap phase cards"
+      "description": "URL of the background image for this phase card"
     }
   },
   "required": [
+    "phaseId",
     "imageUrl"
   ]
 }
