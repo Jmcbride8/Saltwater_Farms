@@ -1,5 +1,8 @@
 import { motion } from 'framer-motion';
-import { FlaskConical, Factory, Globe, CheckCircle2, Clock } from 'lucide-react';
+import { FlaskConical, Factory, Globe, CheckCircle2, Clock, Pencil, Loader2 } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { base44 } from '@/api/base44Client';
+import { useAuth } from '@/lib/AuthContext';
 
 const phases = [
   {
@@ -55,7 +58,41 @@ const phases = [
   },
 ];
 
+const DEFAULT_IMG = 'https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/fd5f8f8e2_image.png';
+
 export default function RoadmapSection() {
+  const { user } = useAuth();
+  const isAdmin = user?.role === 'admin';
+  const [bgImage, setBgImage] = useState(DEFAULT_IMG);
+  const [recordId, setRecordId] = useState(null);
+  const [uploading, setUploading] = useState(false);
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    base44.entities.RoadmapImage.list().then((records) => {
+      if (records.length > 0) {
+        setBgImage(records[0].imageUrl);
+        setRecordId(records[0].id);
+      }
+    });
+  }, []);
+
+  const handleFileChange = async (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploading(true);
+    const { file_url } = await base44.integrations.Core.UploadFile({ file });
+    if (recordId) {
+      await base44.entities.RoadmapImage.update(recordId, { imageUrl: file_url });
+    } else {
+      const rec = await base44.entities.RoadmapImage.create({ imageUrl: file_url });
+      setRecordId(rec.id);
+    }
+    setBgImage(file_url);
+    setUploading(false);
+    e.target.value = '';
+  };
+
   return (
     <section id="roadmap" className="py-28 bg-white">
       <div className="max-w-6xl mx-auto px-6">
@@ -92,11 +129,24 @@ export default function RoadmapSection() {
                   {/* Left */}
                   <div className="relative md:w-64 flex flex-col justify-between overflow-hidden">
                     <img
-                      src="https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/fd5f8f8e2_image.png"
+                      src={bgImage}
                       alt="Phase background"
                       className="absolute inset-0 w-full h-full object-cover"
                     />
                     <div className={`absolute inset-0 ${i === 0 ? 'bg-teal/75' : 'bg-foreground/70'}`} />
+                    {isAdmin && i === 0 && (
+                      <>
+                        <input ref={inputRef} type="file" accept="image/*" className="hidden" onChange={handleFileChange} />
+                        <button
+                          onClick={() => inputRef.current?.click()}
+                          disabled={uploading}
+                          className="absolute bottom-3 right-3 z-20 flex items-center gap-1.5 px-2.5 py-1.5 bg-black/60 hover:bg-black/80 text-white text-xs font-inter font-medium rounded transition-all"
+                        >
+                          {uploading ? <Loader2 className="w-3 h-3 animate-spin" /> : <Pencil className="w-3 h-3" />}
+                          {uploading ? 'Uploading…' : 'Replace Image'}
+                        </button>
+                      </>
+                    )}
                     <div className="relative z-10 p-8 flex flex-col justify-between h-full">
                       <div>
                         <div className={`inline-flex items-center gap-1.5 text-xs font-inter font-semibold px-3 py-1 rounded-full mb-4 ${i === 0 ? 'bg-white text-teal' : 'bg-white/20 text-white'}`}>

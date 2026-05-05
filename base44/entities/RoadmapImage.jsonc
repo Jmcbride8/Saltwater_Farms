@@ -1,0 +1,13 @@
+{
+  "name": "RoadmapImage",
+  "type": "object",
+  "properties": {
+    "imageUrl": {
+      "type": "string",
+      "description": "URL of the background image used across all roadmap phase cards"
+    }
+  },
+  "required": [
+    "imageUrl"
+  ]
+}
