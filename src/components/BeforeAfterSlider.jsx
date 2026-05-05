@@ -48,16 +48,21 @@ export default function BeforeAfterSlider({
   return (
     <div
       ref={containerRef}
-      className={`relative overflow-hidden select-none cursor-col-resize ${className}`}
+      className={`relative overflow-hidden select-none cursor-col-resize w-full ${className}`}
       onMouseMove={onMouseMove}
       onMouseUp={onMouseUp}
       onMouseLeave={onMouseUp}
       onTouchMove={onTouchMove}
     >
-      {/* Before image (full width, behind) */}
-      <img src={beforeSrc} alt={beforeLabel} className="w-full h-full object-cover absolute inset-0" draggable={false} />
+      {/* Before image — always full size, sits behind */}
+      <img
+        src={beforeSrc}
+        alt={beforeLabel}
+        className="absolute inset-0 w-full h-full object-cover"
+        draggable={false}
+      />
 
-      {/* After image (clipped to left side) */}
+      {/* After image — always full size, clipped by overflow-hidden wrapper */}
       <div
         className="absolute inset-0 overflow-hidden"
         style={{ width: `${position}%` }}
@@ -65,8 +70,8 @@ export default function BeforeAfterSlider({
         <img
           src={afterSrc}
           alt={afterLabel}
-          className="absolute inset-0 h-full object-cover"
-          style={{ width: containerRef.current ? `${containerRef.current.offsetWidth}px` : '100%' }}
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ width: containerRef.current ? `${containerRef.current.offsetWidth}px` : '100vw' }}
           draggable={false}
         />
       </div>
