@@ -240,8 +240,12 @@ export default function RegionalTransformationSection() {
           transition={{ duration: 0.7 }}
           className="mb-10"
         >
-          <p className="font-inter text-xs font-semibold tracking-[0.2em] uppercase text-teal mb-2">The Fork in the Road</p>
-          <h3 className="font-playfair text-3xl font-bold text-foreground">Three Possible Futures</h3>
+          <p className="font-inter text-xs font-semibold tracking-[0.2em] uppercase text-teal mb-2">The Stakes</p>
+          <h3 className="font-playfair text-3xl font-bold text-foreground mb-4">The Region Saltwater Farms Could Save</h3>
+          <p className="font-inter text-lg text-muted-foreground max-w-2xl leading-relaxed">
+            Without intervention, the Southwest's collapse continues — dust storms, fallowed farmland, dead rivers. 
+            With widespread adoption, the same region becomes something else entirely.
+          </p>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-6">
