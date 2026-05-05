@@ -152,7 +152,7 @@ export default function InsightSection() {
                           alt="NH3 Ammonia — for hungry crops"
                           className="w-full h-full object-cover"
                         />
-                        <div className="absolute top-3 left-3">
+                        <div className="absolute top-3 right-3">
                           <span className="font-inter text-xs font-bold text-white/80 uppercase tracking-widest">Solved ✓</span>
                         </div>
                       </div>
@@ -164,7 +164,7 @@ export default function InsightSection() {
                           alt="H2O Water — for thirsty crops"
                           className="w-full h-full object-cover"
                         />
-                        <div className="absolute top-3 left-3">
+                        <div className="absolute top-3 right-3">
                           <span className="font-inter text-xs font-bold text-white/80 uppercase tracking-widest">Next →</span>
                         </div>
                       </div>
