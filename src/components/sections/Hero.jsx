@@ -27,7 +27,7 @@ export default function Hero() {
 
           <h1 className="font-playfair text-6xl md:text-8xl font-bold text-white leading-[1.0] mb-8 tracking-tight">
             Unlocking<br />
-            <span className="text-teal">Abundance.</span>
+            <span className="text-white">Abundance.</span>
           </h1>
 
           <p className="font-inter text-lg md:text-xl text-white/85 font-light leading-relaxed max-w-xl mx-auto mb-12">
