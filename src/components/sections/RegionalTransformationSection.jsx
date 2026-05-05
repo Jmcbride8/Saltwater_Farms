@@ -108,8 +108,7 @@ export default function RegionalTransformationSection() {
             Regional Transformation<br />at Scale
           </h2>
           <p className="font-inter text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
-            When enough farms adopt evaporative brine cooling, the effects compound — 
-            changing the microclimate, recharging the watershed, and reversing the crisis at a regional level.
+            The effects of evaporative brine cooling don't stop at the farm fence. At scale, they compound — transforming the regional climate.
           </p>
         </motion.div>
 
@@ -133,22 +132,14 @@ export default function RegionalTransformationSection() {
             transition={{ duration: 0.7 }}
           >
             <p className="font-inter text-muted-foreground leading-relaxed mb-4">
-              A single brine evaporation wall cools a farm. But when dozens of farms across a valley adopt the system, 
-              something larger emerges: a persistent cool, moist air mass — an engineered oasis. Cooler surface 
-              temperatures reduce the heat island effect, crops require less irrigation, soil retains moisture longer, 
-              and the microclimate begins to self-reinforce.
+              One farm cools its air. Dozens of farms across a valley create something larger — a persistent, moist air mass that self-reinforces. Crops need less water. Soil holds moisture. The microclimate shifts.
             </p>
             <p className="font-inter text-muted-foreground leading-relaxed mb-4">
-              During early trials in Oman, nobody planted the grass — <em>it just appeared.</em> Wild grasses and low 
-              vegetation began spontaneously sprouting in surrounding desert soil that had seen no rain, no irrigation, 
-              and no human intervention. The moisture thrown off by the evaporative system was quietly changing the 
-              local microclimate. Humidity levels rose enough to sustain germination. The desert, given just a fraction 
-              more moisture in the air, responded with an explosion of growth.
+              In Oman, nobody planted the grass — <em>it just appeared.</em> Wild vegetation spontaneously sprouted in surrounding desert that had seen no rain and no irrigation. The system's moisture output alone was enough to trigger growth.
             </p>
             <blockquote className="border-l-4 border-teal pl-5 mt-2">
               <p className="font-inter text-sm italic text-slate-500 leading-relaxed">
-                "At scale across a valley, these effects don't add — they multiply. A region written off as 
-                permanently arid becomes a candidate for genuine agricultural restoration."
+                "These effects don't add — they multiply. A region written off as permanently arid becomes a candidate for genuine agricultural restoration."
               </p>
             </blockquote>
           </motion.div>
@@ -212,21 +203,14 @@ export default function RegionalTransformationSection() {
             className="order-1 md:order-2"
           >
             <p className="font-inter text-muted-foreground leading-relaxed mb-5">
-              Increased atmospheric moisture from widespread brine evaporation doesn't just cool the valley — 
-              it feeds the regional water cycle. Moisture-laden air moves inland and upward, seeding precipitation 
-              over the mountains that feed the Colorado River.
+              Widespread brine evaporation adds moisture to the atmosphere — moisture that moves inland, rises over surrounding mountains, and seeds precipitation back into the region. The Sahel and Arabian Peninsula have already shown this: large-scale surface moisture changes measurably shift regional rainfall within 5–10 years.
             </p>
-            <p className="font-inter text-muted-foreground leading-relaxed mb-5">
-              This is not theoretical. Desert greening projects in the Sahel and Arabian Peninsula have demonstrated 
-              that large-scale surface moisture changes measurably alter regional precipitation patterns within 5–10 years.
-            </p>
-            <blockquote className="border-l-4 border-teal pl-5 mt-6">
+            <blockquote className="border-l-4 border-teal pl-5 mt-4">
               <p className="font-inter text-sm italic text-slate-500 leading-relaxed">
-                "Large-scale land surface changes that increase evapotranspiration can initiate a positive feedback 
-                loop — more moisture, more clouds, more rain — reversing desertification at the regional scale."
+                "More evapotranspiration initiates a positive feedback loop — more moisture, more clouds, more rain — reversing desertification at the regional scale."
               </p>
               <cite className="font-inter text-xs text-teal font-medium mt-2 block not-italic">
-                — Synthesized from IPCC AR6 & Brovkin et al., vegetation-climate feedback literature
+                — Synthesized from IPCC AR6 & Brovkin et al.
               </cite>
             </blockquote>
           </motion.div>
