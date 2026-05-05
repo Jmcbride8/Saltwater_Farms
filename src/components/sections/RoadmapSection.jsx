@@ -90,21 +90,29 @@ export default function RoadmapSection() {
               >
                 <div className="flex flex-col md:flex-row">
                   {/* Left */}
-                  <div className={`md:w-64 p-8 flex flex-col justify-between ${i === 0 ? 'bg-teal-light' : 'bg-muted'}`}>
-                    <div>
-                      <div className={`inline-flex items-center gap-1.5 text-xs font-inter font-semibold px-3 py-1 rounded-full mb-4 ${phase.statusColor}`}>
-                        {phase.status === 'Active' ? <CheckCircle2 className="w-3 h-3" /> : <Clock className="w-3 h-3" />}
-                        {phase.status}
+                  <div className="relative md:w-64 flex flex-col justify-between overflow-hidden">
+                    <img
+                      src="https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/fd5f8f8e2_image.png"
+                      alt="Phase background"
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                    <div className={`absolute inset-0 ${i === 0 ? 'bg-teal/75' : 'bg-foreground/70'}`} />
+                    <div className="relative z-10 p-8 flex flex-col justify-between h-full">
+                      <div>
+                        <div className={`inline-flex items-center gap-1.5 text-xs font-inter font-semibold px-3 py-1 rounded-full mb-4 ${i === 0 ? 'bg-white text-teal' : 'bg-white/20 text-white'}`}>
+                          {phase.status === 'Active' ? <CheckCircle2 className="w-3 h-3" /> : <Clock className="w-3 h-3" />}
+                          {phase.status}
+                        </div>
+                        <div className="w-12 h-12 rounded-xl bg-white/15 flex items-center justify-center mb-4">
+                          <Icon className="w-6 h-6 text-white" />
+                        </div>
+                        <p className="font-inter text-xs font-medium text-white/70 uppercase tracking-widest mb-1">{phase.phase}</p>
+                        <h3 className="font-playfair text-2xl font-bold text-white">{phase.title}</h3>
                       </div>
-                      <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center mb-4 shadow-sm">
-                        <Icon className="w-6 h-6 text-teal" />
+                      <div className="mt-6">
+                        <p className="font-inter text-sm text-white/60 uppercase tracking-wide">Timeline</p>
+                        <p className="font-playfair text-xl font-semibold text-white">{phase.timeline}</p>
                       </div>
-                      <p className="font-inter text-xs font-medium text-teal uppercase tracking-widest mb-1">{phase.phase}</p>
-                      <h3 className="font-playfair text-2xl font-bold text-foreground">{phase.title}</h3>
-                    </div>
-                    <div className="mt-6">
-                      <p className="font-inter text-sm text-muted-foreground uppercase tracking-wide">Timeline</p>
-                      <p className="font-playfair text-xl font-semibold text-foreground">{phase.timeline}</p>
                     </div>
                   </div>
 
