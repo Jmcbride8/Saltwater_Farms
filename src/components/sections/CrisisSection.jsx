@@ -5,9 +5,7 @@ import AdminImageCard from '@/components/AdminImageCard';
 import { usePersistedImages } from '@/hooks/usePersistedImages';
 
 const stats = [
-  { value: '1,083', unit: 'ft', label: 'Lake Mead water level in 2022', note: 'vs. 1,229 ft full pool', crisis: true },
   { value: '40M', unit: '+', label: 'People depend on the Colorado River', note: 'across 7 states + Mexico', crisis: false },
-  { value: '895 ft', unit: '', label: '"Dead Pool" threshold', note: 'No water flows past Hoover Dam', crisis: true },
   { value: '$1.5T', unit: '+', label: 'Economic output at risk', note: 'Agriculture, cities, industry', crisis: false },
 ];
 
@@ -70,7 +68,15 @@ function StatCard({ value, unit, label, note, crisis, i }) {
 export default function CrisisSection() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-100px' });
-  const [cardImgs, updateImg] = usePersistedImages('crisis', defaultCards.map(c => c.img), defaultCards.map(c => c.id));
+  const [cardImgs, updateImg] = usePersistedImages('crisis', [
+    ...defaultCards.map(c => c.img),
+    'https://images.unsplash.com/photo-1577720643272-265ef5a79f3b?w=800&q=80',
+    'https://images.unsplash.com/photo-1606070945920-f3cda9f69e5a?w=800&q=80',
+  ], [
+    ...defaultCards.map(c => c.id),
+    'hoover-then',
+    'hoover-now',
+  ]);
 
   return (
     <section id="crisis" className="py-28 bg-white">
@@ -101,13 +107,13 @@ export default function CrisisSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: stats.length * 0.1, duration: 0.6 }}
+            transition={{ delay: defaultCards.length * 0.1, duration: 0.6 }}
             className="lg:col-span-2 md:col-span-1"
           >
             <AdminImageCard
-              src="https://images.unsplash.com/photo-1577720643272-265ef5a79f3b?w=800&q=80"
+              src={cardImgs[defaultCards.length]}
               alt="Hoover Dam at full capacity"
-              onImageChange={(url) => updateImg(stats.length, url)}
+              onImageChange={(url) => updateImg(defaultCards.length, url)}
               className="relative rounded-lg overflow-hidden h-40 group"
               imgClassName="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             >
@@ -124,13 +130,13 @@ export default function CrisisSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: (stats.length + 1) * 0.1, duration: 0.6 }}
+            transition={{ delay: (defaultCards.length + 1) * 0.1, duration: 0.6 }}
             className="lg:col-span-2 md:col-span-1"
           >
             <AdminImageCard
-              src="https://images.unsplash.com/photo-1606070945920-f3cda9f69e5a?w=800&q=80"
+              src={cardImgs[defaultCards.length + 1]}
               alt="Hoover Dam near dead pool"
-              onImageChange={(url) => updateImg(stats.length + 1, url)}
+              onImageChange={(url) => updateImg(defaultCards.length + 1, url)}
               className="relative rounded-lg overflow-hidden h-40 group"
               imgClassName="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             >
