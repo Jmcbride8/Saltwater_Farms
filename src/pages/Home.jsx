@@ -20,12 +20,12 @@ export default function Home() {
       <CrisisSection />
       <DripSection />
       <HowItWorksSection />
-      <ProfitSection />
       <RegionalTransformationSection />
+      <ProfitSection />
       <InsightSection />
-      <GlobalSection />
       <FoundersSection />
       <RoadmapSection />
+      <GlobalSection />
       <PresaleSection />
       <Footer />
     </div>
