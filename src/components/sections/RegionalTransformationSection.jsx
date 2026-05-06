@@ -131,15 +131,18 @@ export default function RegionalTransformationSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <p className="font-inter text-muted-foreground leading-relaxed mb-4">
-              One farm cools its air. Dozens of farms across a valley create something larger — a persistent, moist air mass that self-reinforces. Crops need less water. Soil holds moisture. The microclimate shifts.
+            <p className="font-inter text-muted-foreground leading-relaxed mb-5">
+              One farm cools its air. Dozens of farms create something bigger — a persistent moisture mass that self-reinforces. Crops need less water. Soil holds moisture. The microclimate shifts.
             </p>
-            <p className="font-inter text-muted-foreground leading-relaxed mb-4">
-              In Oman, nobody planted the grass — <em>it just appeared.</em> Wild vegetation spontaneously sprouted in surrounding desert that had seen no rain and no irrigation. The system's moisture output alone was enough to trigger growth.
-            </p>
-            <blockquote className="border-l-4 border-teal pl-5 mt-2">
+            <div className="bg-teal-light/60 border border-teal/20 rounded-xl p-5 mb-5">
+              <p className="font-inter text-xs font-semibold tracking-[0.15em] uppercase text-teal mb-2">⚡ Oman Test Site — Unexpected Side Effect</p>
+              <p className="font-inter text-sm text-foreground leading-relaxed">
+                Our Oman site was built to test the cooling system. Nobody planted anything nearby. Then the grass appeared — spontaneously. Wild vegetation sprouted in bare desert that had seen <strong>zero rain, zero irrigation</strong>. Moisture output alone triggered growth.
+              </p>
+            </div>
+            <blockquote className="border-l-4 border-teal pl-5">
               <p className="font-inter text-sm italic text-slate-500 leading-relaxed">
-                "These effects don't add — they multiply. A region written off as permanently arid becomes a candidate for genuine agricultural restoration."
+                "These effects don't add — they multiply."
               </p>
             </blockquote>
           </motion.div>
