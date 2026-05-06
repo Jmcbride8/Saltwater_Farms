@@ -13,7 +13,7 @@ import { useAuth } from '@/lib/AuthContext';
  *  - className: extra classes for the outer wrapper
  *  - imgClassName: extra classes for the <img>
  */
-export default function AdminImageCard({ src, alt, onImageChange, children, className = '', imgClassName = '' }) {
+export default function AdminImageCard({ src, alt, fallbackSrc, onImageChange, children, className = '', imgClassName = '' }) {
   const { user } = useAuth();
   const [uploading, setUploading] = useState(false);
   const inputRef = useRef(null);
@@ -32,7 +32,7 @@ export default function AdminImageCard({ src, alt, onImageChange, children, clas
 
   return (
     <div className={`relative group ${className}`}>
-      <img src={src} alt={alt} className={imgClassName} />
+      <img src={src} alt={alt} className={imgClassName} onError={fallbackSrc ? (e) => { e.currentTarget.src = fallbackSrc; } : undefined} />
       {children}
 
       {isAdmin && (

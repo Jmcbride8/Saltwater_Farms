@@ -171,7 +171,8 @@ export default function CrisisSection() {
               transition={{ delay: i * 0.1, duration: 0.6 }}
             >
               <AdminImageCard
-                src={cardImgs[i]}
+                src={cardImgs[i] || item.img}
+                fallbackSrc={item.img}
                 alt={item.title}
                 onImageChange={(url) => updateImg(i, url)}
                 className="relative rounded-2xl overflow-hidden h-64 group"
