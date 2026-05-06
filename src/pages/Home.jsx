@@ -9,7 +9,7 @@ import RegionalTransformationSection from '@/components/sections/RegionalTransfo
 import GlobalSection from '@/components/sections/GlobalSection';
 import FoundersSection from '@/components/sections/FoundersSection';
 import RoadmapSection from '@/components/sections/RoadmapSection';
-import PresaleSection from '@/components/sections/PresaleSection';
+import ContactSection from '@/components/sections/ContactSection';
 import Footer from '@/components/sections/Footer';
 
 export default function Home() {
@@ -26,7 +26,7 @@ export default function Home() {
       <FoundersSection />
       <RoadmapSection />
       <GlobalSection />
-      <PresaleSection />
+      <ContactSection />
       <Footer />
     </div>
   );
