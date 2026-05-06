@@ -60,7 +60,7 @@ function StatCard({ value, unit, label, note, crisis, i }) {
         {value}<span className="text-2xl">{unit}</span>
       </div>
       <div className="font-inter text-base font-medium text-foreground mb-1">{label}</div>
-      <div className="font-inter text-sm text-muted-foreground">{note}</div>
+
     </motion.div>
   );
 }
@@ -90,12 +90,10 @@ export default function CrisisSection() {
         >
           <p className="text-sm font-inter font-medium tracking-[0.2em] uppercase text-crisis mb-4">The Crisis</p>
           <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Hoover Dam Is Running Dry
+            Hoover Dam Reaches Dead Pool by End of 2026
           </h2>
           <p className="font-inter text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            The Colorado River — lifeblood of the American Southwest — is approaching a point of no return. 
-            Lake Mead has dropped to levels not seen since the dam was first filled. If it reaches "dead pool," 
-            Hoover Dam stops generating power and stops delivering water entirely.
+            Lake Mead is on track to hit dead pool before the end of 2026. When it does, Hoover Dam stops generating power and stops delivering water — permanently. 40 million people across 7 states lose their primary water source overnight.
           </p>
         </motion.div>
 
