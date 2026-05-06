@@ -1,5 +1,6 @@
-import { motion } from 'framer-motion';
-import { XCircle } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { XCircle, ChevronDown } from 'lucide-react';
 import WaterUseDonut from '@/components/WaterUseDonut';
 
 const dripLimitations = [
@@ -18,6 +19,8 @@ const dripLimitations = [
 ];
 
 export default function DripSection() {
+  const [openIndex, setOpenIndex] = useState(null);
+
   return (
     <section id="drip-vs-wall" className="py-28 bg-white">
       <div className="max-w-6xl mx-auto px-6">
@@ -44,23 +47,41 @@ export default function DripSection() {
         <WaterUseDonut />
 
         {/* Limitations grid */}
-        <div className="grid md:grid-cols-3 gap-5 mb-16">
-          {dripLimitations.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08, duration: 0.6 }}
-              className="bg-muted rounded-xl p-7 border border-border"
-            >
-              <div className="flex items-start gap-3 mb-3">
-                <XCircle className="w-5 h-5 text-crisis shrink-0 mt-0.5" />
-                <h3 className="font-playfair text-lg font-bold text-foreground">{item.title}</h3>
-              </div>
-              <p className="font-inter text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-            </motion.div>
-          ))}
+        <div className="space-y-3 mb-16">
+          {dripLimitations.map((item, i) => {
+            const isOpen = openIndex === i;
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08, duration: 0.6 }}
+                className="bg-muted rounded-xl border border-border overflow-hidden"
+              >
+                <button
+                  onClick={() => setOpenIndex(isOpen ? null : i)}
+                  className="w-full flex items-center gap-3 px-6 py-5 text-left"
+                >
+                  <XCircle className="w-5 h-5 text-crisis shrink-0" />
+                  <h3 className="font-playfair text-lg font-bold text-foreground flex-1">{item.title}</h3>
+                  <ChevronDown className={`w-4 h-4 text-muted-foreground shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+                </button>
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25 }}
+                    >
+                      <p className="font-inter text-sm text-muted-foreground leading-relaxed px-6 pb-5">{item.desc}</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
         </div>
 
 
