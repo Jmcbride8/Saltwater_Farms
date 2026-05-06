@@ -246,26 +246,7 @@ export default function InsightSection() {
           </div>
         </div>
 
-        {/* Bottom stats */}
-        <div className="grid md:grid-cols-3 gap-4 mt-10">
-          {[
-            { value: '85%', label: 'of Southwest freshwater goes to agriculture', accent: 'text-crisis' },
-            { value: '10×', label: 'more water lost to desert heat vs. temperate farms', accent: 'text-crisis' },
-            { value: '40–80%', label: 'freshwater savings with evaporative cooling', accent: 'text-teal' },
-          ].map((s, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
-              className="bg-white rounded-xl p-6 border border-border text-center"
-            >
-              <div className={`font-playfair text-4xl font-bold mb-2 ${s.accent}`}>{s.value}</div>
-              <p className="font-inter text-sm text-slate-500 leading-snug">{s.label}</p>
-            </motion.div>
-          ))}
-        </div>
+
 
       </div>
     </section>
