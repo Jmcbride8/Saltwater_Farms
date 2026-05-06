@@ -131,9 +131,6 @@ export default function RegionalTransformationSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <p className="font-inter text-muted-foreground leading-relaxed mb-5">
-              One farm cools its air. Dozens of farms create something bigger — a persistent moisture mass that self-reinforces. Crops need less water. Soil holds moisture. The microclimate shifts.
-            </p>
             <div className="bg-teal-light/60 border border-teal/20 rounded-xl p-5 mb-5">
               <p className="font-inter text-xs font-semibold tracking-[0.15em] uppercase text-teal mb-2">⚡ Oman Test Site — Unexpected Side Effect</p>
               <p className="font-inter text-sm text-foreground leading-relaxed">
