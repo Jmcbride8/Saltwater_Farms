@@ -7,7 +7,6 @@ const links = [
   { label: 'The Insight', href: '#insight' },
   { label: 'Global Impact', href: '#global' },
   { label: 'Roadmap', href: '#roadmap' },
-  { label: 'Early Access', href: '#presale' },
 ];
 
 export default function Nav() {
