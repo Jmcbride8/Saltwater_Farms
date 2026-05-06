@@ -31,13 +31,13 @@ export default function DripSection() {
         >
           <p className="text-sm font-inter font-medium tracking-[0.2em] uppercase text-teal mb-4">Why Not Drip?</p>
           <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Drip Irrigation Has Been Tried.<br />
-            <span className="text-crisis">It Doesn't Work Here.</span>
+            85% of Water Goes to Farms.<br />
+            <span className="text-crisis">Drip Can't Save It.</span>
           </h2>
           <p className="font-inter text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Drip is the obvious answer everyone asks about. After decades of subsidies and trials, 
-            fewer than <strong className="text-foreground">5% of Imperial Valley acres</strong> use it. 
-            Three structural reasons explain why — and why the Saltwater Wall is a fundamentally different solution to a different problem.
+            Agriculture is the entire problem — and drip irrigation is the obvious answer everyone gets wrong. 
+            After decades of subsidies and trials, fewer than <strong className="text-foreground">5% of Imperial Valley acres</strong> use it. 
+            Three structural reasons explain why drip fails here — and why we need a fundamentally different approach.
           </p>
         </motion.div>
 
