@@ -131,10 +131,10 @@ export default function RegionalTransformationSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <div className="bg-teal-light/60 border border-teal/20 rounded-xl p-5 mb-5">
-              <p className="font-inter text-xs font-semibold tracking-[0.15em] uppercase text-teal mb-2">⚡ Oman Test Site — Unexpected Side Effect</p>
-              <p className="font-inter text-sm text-foreground leading-relaxed">
-                Our Oman site was built to test the cooling system. Nobody planted anything nearby. Then the grass appeared — spontaneously. Wild vegetation sprouted in bare desert that had seen <strong>zero rain, zero irrigation</strong>. Moisture output alone triggered growth.
+            <div className="mb-5">
+              <p className="font-inter text-xs font-semibold tracking-[0.15em] uppercase text-teal mb-3">⚡ Oman Test Site — Unexpected Side Effect</p>
+              <p className="font-inter text-base text-muted-foreground leading-relaxed">
+                Our Oman site was built to test the cooling system. Nobody planted anything nearby. Then the grass appeared — spontaneously. Wild vegetation sprouted in bare desert that had seen <strong className="text-foreground">zero rain, zero irrigation</strong>. Moisture output alone triggered growth.
               </p>
             </div>
             <blockquote className="border-l-4 border-teal pl-5">
