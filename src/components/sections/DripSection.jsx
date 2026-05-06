@@ -3,28 +3,16 @@ import { XCircle, CheckCircle2, ArrowRight } from 'lucide-react';
 
 const dripLimitations = [
   {
-    title: 'Wrong Crop Mix',
-    desc: 'Alfalfa and forage crops dominate Imperial Valley — low-value, high-water crops optimized for flood irrigation. Switching crops and systems simultaneously is too risky for most growers.',
-  },
-  {
-    title: 'Salinity Buildup',
-    desc: 'Colorado River water runs 700–850 ppm. Precise drip application concentrates salt in the root zone. Farmers must periodically flood-irrigate to leach it — defeating the purpose.',
-  },
-  {
-    title: 'Clogged Emitters',
-    desc: 'Clay and silty soils plus sediment-laden canal water clog drip emitters constantly. Maintenance costs are high, and alfalfa harvest equipment damages subsurface lines.',
-  },
-  {
-    title: 'Canal Delivery Mismatch',
-    desc: 'IID delivers water in large, continuous 12-hour canal sets. Drip needs precise on-demand control. Farmers would need expensive on-farm reservoirs — a separate infrastructure project.',
-  },
-  {
     title: 'Solves the Wrong Problem',
-    desc: 'Drip cuts runoff and deep percolation — not evaporation and transpiration. In desert heat, 80–90% of water loss happens above ground as crops try to cool themselves. Drip doesn\'t touch that.',
+    desc: 'Drip cuts runoff and deep percolation — not evaporation. In desert heat, 80–90% of water loss happens above ground as crops try to cool themselves. Drip doesn\'t touch that.',
   },
   {
-    title: 'Weak Economics',
-    desc: 'Water has historically been cheap under senior Colorado River rights. At $1,500–$5,000/acre upfront with 3–6 year payback on forage crops, drip adoption has remained below 5% across the valley.',
+    title: 'Salt Destroys the Soil',
+    desc: 'Colorado River water runs 700–850 ppm. Precise drip application concentrates salt in the root zone. Farmers must periodically flood-irrigate to leach it — defeating the entire purpose.',
+  },
+  {
+    title: 'The Economics Never Work',
+    desc: 'At $1,500–$5,000/acre upfront with no water-rights monetization, adoption has stayed below 5% for decades. Drip saves on the water bill. It doesn\'t generate new revenue.',
   },
 ];
 
@@ -48,12 +36,12 @@ export default function DripSection() {
           <p className="font-inter text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Drip is the obvious answer everyone asks about. After decades of subsidies and trials, 
             fewer than <strong className="text-foreground">5% of Imperial Valley acres</strong> use it. 
-            There are six structural reasons why — and they explain exactly why the Saltwater Wall is a different solution to a different problem.
+            Three structural reasons explain why — and why the Saltwater Wall is a fundamentally different solution to a different problem.
           </p>
         </motion.div>
 
         {/* Limitations grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
+        <div className="grid md:grid-cols-3 gap-5 mb-16">
           {dripLimitations.map((item, i) => (
             <motion.div
               key={i}
