@@ -140,9 +140,7 @@ export default function FoundersSection() {
         >
           <p className="font-inter text-sm text-muted-foreground uppercase tracking-widest mb-3">The Mission</p>
           <p className="font-playfair text-2xl font-bold text-foreground max-w-3xl mx-auto leading-relaxed">
-            "Like BASF turned an innovation into an industry at nation-state scale, we bring the Silicon Valley 
-            mindset to convert problems into profitable and thus investable solutions — attracting and deploying 
-            capital for change."
+            "To creatively connect, combine and deploy non-speculative technologies and innovations to engineer our way to water abundance, revolutionizing agriculture and rescuing cities across the US Southwest and one day — the world"
           </p>
           <p className="font-inter text-teal text-sm font-medium mt-4">— E2Eden Mission Statement</p>
         </motion.div>
