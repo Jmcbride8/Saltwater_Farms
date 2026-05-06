@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { XCircle, CheckCircle2, ArrowRight } from 'lucide-react';
+import { XCircle } from 'lucide-react';
 import WaterUseDonut from '@/components/WaterUseDonut';
 
 const dripLimitations = [
@@ -63,36 +63,7 @@ export default function DripSection() {
           ))}
         </div>
 
-        {/* Head-to-head comparison */}
-        {/* Bottom callout */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="bg-teal-light border border-teal/20 rounded-xl p-8 flex flex-col md:flex-row items-start md:items-center gap-6"
-        >
-          <CheckCircle2 className="w-8 h-8 text-teal shrink-0" />
-          <div className="flex-1">
-            <h4 className="font-playfair text-xl font-bold text-foreground mb-2">
-              The Wall Fits the Valley's Existing Reality
-            </h4>
-            <p className="font-inter text-sm text-muted-foreground leading-relaxed">
-              Passive, low-pressure, no emitters to clog. Works with existing flood-friendly crops, IID canal delivery, and local soils. 
-              Higher upfront — but the payback comes through <strong className="text-foreground">water-rights monetization</strong>, 
-              not just reduced water bills. When water can be sold back to the IID for $300–$800/acre-foot, 
-              the economics flip entirely.
-            </p>
-          </div>
-          <div className="shrink-0">
-            <button
-              onClick={() => document.querySelector('#how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
-              className="flex items-center gap-2 px-6 py-3 bg-teal text-white font-inter font-semibold text-sm rounded-sm hover:bg-teal/90 transition-all"
-            >
-              See How It Works <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
-        </motion.div>
+
 
       </div>
     </section>
