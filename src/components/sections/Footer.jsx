@@ -21,11 +21,18 @@ export default function Footer() {
           <div>
             <p className="font-inter text-xs font-medium uppercase tracking-widest text-white/40 mb-4">Navigate</p>
             <div className="space-y-2">
-              {['The Crisis', 'The Insight', 'How It Works', 'Global Opportunity', 'Roadmap', 'Early Access'].map(item => (
-                <button key={item}
-                  onClick={() => document.querySelector(`#${item.toLowerCase().replace(/\s+/g, '-').replace("'", '')}`)?.scrollIntoView({ behavior: 'smooth' })}
+              {[
+                { label: 'The Crisis', href: '#crisis' },
+                { label: 'How It Works', href: '#how-it-works' },
+                { label: 'The Insight', href: '#insight' },
+                { label: 'Global Impact', href: '#global' },
+                { label: 'Roadmap', href: '#roadmap' },
+                { label: 'Early Access', href: '#presale' },
+              ].map(item => (
+                <button key={item.href}
+                  onClick={() => document.querySelector(item.href)?.scrollIntoView({ behavior: 'smooth' })}
                   className="block font-inter text-sm text-white/60 hover:text-white transition-colors">
-                  {item}
+                  {item.label}
                 </button>
               ))}
             </div>
