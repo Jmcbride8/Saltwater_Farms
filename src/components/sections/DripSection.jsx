@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { XCircle, CheckCircle2, ArrowRight } from 'lucide-react';
+import WaterUseDonut from '@/components/WaterUseDonut';
 
 const dripLimitations = [
   {
@@ -39,6 +40,8 @@ export default function DripSection() {
             Three structural reasons explain why — and why the Saltwater Wall is a fundamentally different solution to a different problem.
           </p>
         </motion.div>
+
+        <WaterUseDonut />
 
         {/* Limitations grid */}
         <div className="grid md:grid-cols-3 gap-5 mb-16">
