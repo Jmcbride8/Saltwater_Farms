@@ -109,11 +109,11 @@ export default function InsightSection() {
         >
           <p className="text-sm font-inter font-medium tracking-[0.2em] uppercase text-teal mb-4">The Precedent</p>
           <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-6">
-            History Unlocks the Impossible.
+            It's Been Done Before.<br />
+            <span className="text-teal">Can We Repeat the Feat?</span>
           </h2>
           <p className="font-inter text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
-            A hidden, abundant resource — written off as worthless — unlocked to change the world.
-            History is repeating itself.
+            In 1909, a "worthless" gas saved the world from starvation. Today, a "worthless" brine sits beneath the most water-stressed farmland on earth. The pattern is identical. The question is whether we act.
           </p>
         </motion.div>
 
