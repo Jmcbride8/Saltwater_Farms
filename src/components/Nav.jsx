@@ -41,9 +41,9 @@ export default function Nav() {
               {l.label}
             </button>
           ))}
-          <button onClick={() => handleNav('#presale')}
+          <button onClick={() => handleNav('#contact')}
             className="ml-2 px-4 py-2 bg-teal text-white text-sm font-medium rounded hover:bg-teal/90 transition-colors">
-            Reserve Early Access
+            Contact Us
           </button>
         </div>
 
@@ -60,9 +60,9 @@ export default function Nav() {
               {l.label}
             </button>
           ))}
-          <button onClick={() => handleNav('#presale')}
+          <button onClick={() => handleNav('#contact')}
             className="px-4 py-2 bg-teal text-white text-sm font-medium rounded">
-            Reserve Early Access
+            Contact Us
           </button>
         </div>
       )}
