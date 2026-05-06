@@ -112,9 +112,7 @@ export default function InsightSection() {
             It's Been Done Before.<br />
             <span className="text-teal">Can We Repeat the Feat?</span>
           </h2>
-          <p className="font-inter text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
-            In 1909, a "worthless" gas saved the world from starvation. Today, a "worthless" brine sits beneath the most water-stressed farmland on earth. The pattern is identical. The question is whether we act.
-          </p>
+
         </motion.div>
 
         {/* Unified timeline */}
