@@ -54,7 +54,7 @@ export default function ContactSection() {
                 <p className="font-inter text-white/70 text-xs uppercase tracking-widest mb-6">Why Now</p>
                 <div className="space-y-6">
                   {[
-                    { label: 'Proven Technology', desc: 'Field-validated at our Oman test site. Not a concept — a working system.' },
+                    { label: 'Proven Technology', desc: 'Field-validated by our partners Seawater Greenhouse Ltd. at multiple sites globally. Not a concept — a working system.' },
                     { label: 'Massive Market', desc: '$1.5T+ in economic output at risk across the US Southwest alone.' },
                     { label: 'Near 99% Margins', desc: 'Water rights trading creates a recurring, high-margin revenue stream.' },
                     { label: 'Urgent Timeline', desc: 'Lake Mead reaches dead pool by end of 2026. The window is now.' },
