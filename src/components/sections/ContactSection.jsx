@@ -14,7 +14,7 @@ export default function ContactSection() {
     if (!form.name || !form.email) return;
     setStatus('loading');
     await base44.integrations.Core.SendEmail({
-      to: 'jason@e2eden.com',
+      to: 'jasonmcbride@e2eden.com',
       subject: `Investor Inquiry from ${form.name}`,
       body: `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`,
     });
@@ -71,8 +71,8 @@ export default function ContactSection() {
               </div>
               <div className="mt-10 pt-8 border-t border-white/20">
                 <p className="font-inter text-white/60 text-xs">Direct inquiries</p>
-                <a href="mailto:jason@e2eden.com" className="font-inter text-white text-sm font-medium mt-1 block hover:underline">
-                  jason@e2eden.com
+                <a href="mailto:jasonmcbride@e2eden.com" className="font-inter text-white text-sm font-medium mt-1 block hover:underline">
+                  jasonmcbride@e2eden.com
                 </a>
               </div>
             </div>
