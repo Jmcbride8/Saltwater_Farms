@@ -112,14 +112,13 @@ export default function CrisisSection() {
               className="relative rounded-lg overflow-hidden h-64 group"
               imgClassName="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             >
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/40" />
               <div className="absolute top-0 left-0 right-0 p-5">
-                <div className="font-playfair text-6xl font-bold text-white leading-none">40M<span className="text-3xl">+</span></div>
-                <div className="font-inter text-xs text-white/80 mt-1">People depend on the Colorado River</div>
+                <div className="font-playfair text-6xl font-bold text-white leading-none" style={{textShadow:'0 2px 8px rgba(0,0,0,0.7)'}}>40M<span className="text-3xl">+</span></div>
+                <div className="font-inter text-xs text-white/90 mt-1" style={{textShadow:'0 1px 4px rgba(0,0,0,0.8)'}}>People depend on the Colorado River</div>
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-4">
-                <h4 className="font-playfair text-sm font-bold text-white">1994–2010</h4>
-                <p className="font-inter text-xs text-white/70">At full capacity</p>
+                <h4 className="font-playfair text-sm font-bold text-white" style={{textShadow:'0 1px 4px rgba(0,0,0,0.8)'}}>1994–2010</h4>
+                <p className="font-inter text-xs text-white/90" style={{textShadow:'0 1px 4px rgba(0,0,0,0.8)'}}>At full capacity</p>
               </div>
             </AdminImageCard>
           </motion.div>
@@ -138,14 +137,13 @@ export default function CrisisSection() {
               className="relative rounded-lg overflow-hidden h-64 group"
               imgClassName="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             >
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/40" />
               <div className="absolute top-0 left-0 right-0 p-5">
-                <div className="font-playfair text-6xl font-bold text-white leading-none">$1.5T<span className="text-3xl">+</span></div>
-                <div className="font-inter text-xs text-white/80 mt-1">Economic output at risk</div>
+                <div className="font-playfair text-6xl font-bold text-white leading-none" style={{textShadow:'0 2px 8px rgba(0,0,0,0.7)'}}>$1.5T<span className="text-3xl">+</span></div>
+                <div className="font-inter text-xs text-white/90 mt-1" style={{textShadow:'0 1px 4px rgba(0,0,0,0.8)'}}>Economic output at risk</div>
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-4">
-                <h4 className="font-playfair text-sm font-bold text-white">2023–2024</h4>
-                <p className="font-inter text-xs text-white/70">Near dead pool</p>
+                <h4 className="font-playfair text-sm font-bold text-white" style={{textShadow:'0 1px 4px rgba(0,0,0,0.8)'}}>2023–2024</h4>
+                <p className="font-inter text-xs text-white/90" style={{textShadow:'0 1px 4px rgba(0,0,0,0.8)'}}>Near dead pool</p>
               </div>
             </AdminImageCard>
           </motion.div>
