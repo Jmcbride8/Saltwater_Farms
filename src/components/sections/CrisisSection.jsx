@@ -98,24 +98,25 @@ export default function CrisisSection() {
         </motion.div>
 
         <div className="grid grid-cols-2 gap-4 mb-16">
-          {/* KPI Cards */}
-          {stats.map((s, i) => <StatCard key={i} {...s} i={i} />)}
-          
-          {/* Then */}
+          {/* Then — with KPI overlay */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: stats.length * 0.1, duration: 0.6 }}
+            transition={{ duration: 0.6 }}
           >
             <AdminImageCard
               src={cardImgs[defaultCards.length]}
               alt="Hoover Dam at full capacity"
               onImageChange={(url) => updateImg(defaultCards.length, url)}
-              className="relative rounded-lg overflow-hidden h-48 group"
+              className="relative rounded-lg overflow-hidden h-64 group"
               imgClassName="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             >
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/40" />
+              <div className="absolute top-0 left-0 right-0 p-5">
+                <div className="font-playfair text-4xl font-bold text-white leading-none">40M<span className="text-2xl">+</span></div>
+                <div className="font-inter text-xs text-white/80 mt-1">People depend on the Colorado River</div>
+              </div>
               <div className="absolute bottom-0 left-0 right-0 p-4">
                 <h4 className="font-playfair text-sm font-bold text-white">1994–2010</h4>
                 <p className="font-inter text-xs text-white/70">At full capacity</p>
@@ -123,23 +124,27 @@ export default function CrisisSection() {
             </AdminImageCard>
           </motion.div>
 
-          {/* Now */}
+          {/* Now — with KPI overlay */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: (stats.length + 1) * 0.1, duration: 0.6 }}
+            transition={{ delay: 0.1, duration: 0.6 }}
           >
             <AdminImageCard
               src={cardImgs[defaultCards.length + 1]}
               alt="Hoover Dam near dead pool"
               onImageChange={(url) => updateImg(defaultCards.length + 1, url)}
-              className="relative rounded-lg overflow-hidden h-48 group"
+              className="relative rounded-lg overflow-hidden h-64 group"
               imgClassName="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             >
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/40" />
+              <div className="absolute top-0 left-0 right-0 p-5">
+                <div className="font-playfair text-4xl font-bold text-white leading-none">$1.5T<span className="text-2xl">+</span></div>
+                <div className="font-inter text-xs text-white/80 mt-1">Economic output at risk</div>
+              </div>
               <div className="absolute bottom-0 left-0 right-0 p-4">
-                <h4 className="font-playfair text-sm font-bold text-white text-crisis">2023–2024</h4>
+                <h4 className="font-playfair text-sm font-bold text-white">2023–2024</h4>
                 <p className="font-inter text-xs text-white/70">Near dead pool</p>
               </div>
             </AdminImageCard>
