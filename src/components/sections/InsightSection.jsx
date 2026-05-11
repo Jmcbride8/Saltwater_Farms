@@ -191,7 +191,7 @@ export default function InsightSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.1, duration: 0.7 }}
-                  className="md:grid md:grid-cols-2 md:gap-0 items-stretch md:h-80"
+                  className="md:grid md:grid-cols-2 md:gap-0 items-stretch h-96 md:h-80"
                 >
                   {isEven ? (
                     <>
