@@ -120,7 +120,7 @@ export default function InsightSection() {
           {/* Vertical spine */}
           <div className="hidden md:block absolute left-1/2 -translate-x-px top-0 bottom-0 w-px bg-border" />
 
-          <div className="space-y-10">
+          <div className="space-y-8">
             {chapters.map((ch, i) => {
               if (ch.elementDivider) {
                 return (
