@@ -185,8 +185,8 @@ export default function CrisisSection() {
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/10" />
                 <div className="absolute inset-0 p-6 flex flex-col justify-between pointer-events-none">
-                  <div className="text-white text-2xl">☠️</div>
                   <div className="self-end text-right">
+                    <div className="text-2xl mb-1">☠️</div>
                     <div className="font-playfair text-4xl md:text-5xl font-bold text-white leading-none">{item.stat}</div>
                     <div className="font-inter text-xs text-white/60 mt-1">{item.label}</div>
                   </div>
