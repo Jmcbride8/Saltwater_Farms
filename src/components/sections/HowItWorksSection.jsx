@@ -112,6 +112,27 @@ export default function HowItWorksSection() {
           </p>
         </motion.div>
 
+        {/* Outcome KPI cards */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="mb-10 grid md:grid-cols-3 gap-4"
+        >
+          {[
+            { metric: '40–80%', label: 'Freshwater savings', sub: 'Per irrigated acre' },
+            { metric: '20–40°F', label: 'Air temperature reduction', sub: 'Downwind microclimate' },
+            { metric: '+1 Month', label: 'Extended cool crop window', sub: 'High-value leafy crops' },
+          ].map((item, i) => (
+            <div key={i} className="bg-teal text-white rounded-xl p-7 text-center">
+              <div className="font-playfair text-4xl font-bold mb-1">{item.metric}</div>
+              <div className="font-inter font-medium text-white/90 mb-1">{item.label}</div>
+              <div className="font-inter text-sm text-white/60">{item.sub}</div>
+            </div>
+          ))}
+        </motion.div>
+
         {/* Visual schematic image */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -129,27 +150,6 @@ export default function HowItWorksSection() {
 
         {/* Steps */}
         <StepsList />
-
-        {/* Outcome callout */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="mt-16 grid md:grid-cols-3 gap-4"
-        >
-          {[
-            { metric: '40–80%', label: 'Freshwater savings', sub: 'Per irrigated acre' },
-            { metric: '20–40°F', label: 'Air temperature reduction', sub: 'Downwind microclimate' },
-            { metric: '+1 Month', label: 'Extended cool crop window', sub: 'High-value leafy crops' },
-          ].map((item, i) => (
-            <div key={i} className="bg-teal text-white rounded-xl p-7 text-center">
-              <div className="font-playfair text-4xl font-bold mb-1">{item.metric}</div>
-              <div className="font-inter font-medium text-white/90 mb-1">{item.label}</div>
-              <div className="font-inter text-sm text-white/60">{item.sub}</div>
-            </div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );
