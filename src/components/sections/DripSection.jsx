@@ -5,8 +5,8 @@ import WaterUseDonut from '@/components/WaterUseDonut';
 
 const dripLimitations = [
   {
-    title: 'Solves the Wrong Problem',
-    desc: 'Drip cuts runoff and deep percolation — not evaporation. In desert heat, 80–90% of water loss happens above ground as crops try to cool themselves. Drip doesn\'t touch that.',
+    title: 'Wrong Crops, Wrong Equipment',
+    desc: 'Drip was engineered for row crops — tomatoes, strawberries, peppers — where plants are small, spaced wide, and hand- or gently-harvested. The Imperial Valley and Yuma grow field crops: wheat, alfalfa, cotton, lettuce at scale. These are planted with broadcast seeders, harvested with combines and mechanical cutters that run directly over the soil. Buried drip tape gets shredded in a single pass. Surface lines tangle in equipment and rip out. Farmers aren\'t being stubborn — drip is physically incompatible with mechanized field crop production.',
   },
   {
     title: 'Salt Destroys the Soil',
