@@ -114,7 +114,7 @@ export default function CrisisSection() {
             >
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/40" />
               <div className="absolute top-0 left-0 right-0 p-5">
-                <div className="font-playfair text-4xl font-bold text-white leading-none">40M<span className="text-2xl">+</span></div>
+                <div className="font-playfair text-6xl font-bold text-white leading-none">40M<span className="text-3xl">+</span></div>
                 <div className="font-inter text-xs text-white/80 mt-1">People depend on the Colorado River</div>
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-4">
@@ -140,7 +140,7 @@ export default function CrisisSection() {
             >
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/40" />
               <div className="absolute top-0 left-0 right-0 p-5">
-                <div className="font-playfair text-4xl font-bold text-white leading-none">$1.5T<span className="text-2xl">+</span></div>
+                <div className="font-playfair text-6xl font-bold text-white leading-none">$1.5T<span className="text-3xl">+</span></div>
                 <div className="font-inter text-xs text-white/80 mt-1">Economic output at risk</div>
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-4">
