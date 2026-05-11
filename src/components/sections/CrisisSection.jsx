@@ -180,7 +180,7 @@ export default function CrisisSection() {
                 fallbackSrc={item.img}
                 alt={item.title}
                 onImageChange={(url) => updateImg(i, url)}
-                className="relative rounded-2xl overflow-hidden h-64 group"
+                className="relative rounded-2xl overflow-hidden h-64 md:h-[308px] group"
                 imgClassName="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale"
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/10" />
