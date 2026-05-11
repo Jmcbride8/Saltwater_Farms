@@ -191,7 +191,7 @@ export default function InsightSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.1, duration: 0.7 }}
-                  className="md:grid md:grid-cols-2 md:gap-0 items-stretch"
+                  className="md:grid md:grid-cols-2 md:gap-0 items-stretch md:h-80"
                 >
                   {isEven ? (
                     <>
@@ -209,12 +209,12 @@ export default function InsightSection() {
                       <div className="hidden md:block relative">
                         <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-white border-2 border-teal z-10" />
                           <AdminImageCard
-                            src={chapterImgs[localIdx]}
-                            alt={ch.imageAlt}
-                            onImageChange={(url) => updateChapterImg(localIdx, url)}
-                            className="rounded-tr-2xl rounded-br-2xl overflow-hidden h-full min-h-[280px]"
-                                                     imgClassName="w-full h-full object-cover"
-                                                   />
+                                  src={chapterImgs[localIdx]}
+                                  alt={ch.imageAlt}
+                                  onImageChange={(url) => updateChapterImg(localIdx, url)}
+                                  className="rounded-tr-2xl rounded-br-2xl overflow-hidden h-full"
+                                  imgClassName="w-full h-full object-cover"
+                                />
                                                </div>
                                              </>
                                            ) : (
@@ -222,12 +222,12 @@ export default function InsightSection() {
                                                <div className="hidden md:block relative">
                                                  <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-4 h-4 rounded-full bg-white border-2 border-teal z-10" />
                                                    <AdminImageCard
-                                                     src={chapterImgs[localIdx]}
-                                                     alt={ch.imageAlt}
-                                                     onImageChange={(url) => updateChapterImg(localIdx, url)}
-                                                     className="rounded-tl-2xl rounded-bl-2xl overflow-hidden h-full min-h-[280px]"
-                            imgClassName="w-full h-full object-cover"
-                          />
+                                                                     src={chapterImgs[localIdx]}
+                                                                     alt={ch.imageAlt}
+                                                                     onImageChange={(url) => updateChapterImg(localIdx, url)}
+                                                                     className="rounded-tl-2xl rounded-bl-2xl overflow-hidden h-full"
+                                                           imgClassName="w-full h-full object-cover"
+                                                         />
                       </div>
                       <div className={`rounded-tr-2xl rounded-br-2xl border ${ch.color} ${ch.bg} p-8 flex flex-col justify-center`}>
                         <p className={`font-inter text-xs font-semibold tracking-[0.2em] uppercase ${ch.accent} mb-2`}>{ch.year} — {ch.crisis}</p>
