@@ -94,7 +94,7 @@ export default function Hero() {
           </h1>
 
           <p className="font-inter text-lg md:text-xl text-white/80 font-light leading-relaxed max-w-2xl mx-auto mb-12">
-            Solving water abundance to feed the next 6 billion
+            Solving water to green the desert and feed the next 6 billion people
           </p>
 
           <ElementCards />
