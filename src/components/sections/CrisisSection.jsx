@@ -186,12 +186,12 @@ export default function CrisisSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/10" />
                 <div className="absolute inset-0 p-6 flex flex-col justify-between pointer-events-none">
                   <div className="self-end text-right">
-                    <div className="font-playfair text-3xl font-bold text-white leading-none">{item.stat}</div>
+                    <div className="font-playfair text-4xl md:text-5xl font-bold text-white leading-none">{item.stat}</div>
                     <div className="font-inter text-xs text-white/60 mt-1">{item.label}</div>
                   </div>
                   <div>
-                    <h4 className="font-playfair text-xl font-bold text-white mb-1">{item.title}</h4>
-                    <p className="font-inter text-xs text-white/70 leading-relaxed">{item.text}</p>
+                    <h4 className="font-playfair text-2xl md:text-3xl font-bold text-white mb-2">{item.title}</h4>
+                    <p className="font-inter text-sm text-white/70 leading-relaxed">{item.text}</p>
                   </div>
                 </div>
               </AdminImageCard>
