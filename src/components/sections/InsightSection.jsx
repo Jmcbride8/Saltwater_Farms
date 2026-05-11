@@ -146,7 +146,7 @@ export default function InsightSection() {
                       {/* NH₃ — Solved */}
                       <div className="relative rounded-2xl overflow-hidden shadow-md aspect-video">
                         <img
-                          src="https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/ab7925960_Ammonia.png"
+                          src="https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/390fd6e63_generated_image.png"
                           alt="NH3 Ammonia — for hungry crops"
                           className="w-full h-full object-cover"
                         />
@@ -158,7 +158,7 @@ export default function InsightSection() {
                       {/* H₂O — Next */}
                       <div className="relative rounded-2xl overflow-hidden shadow-md aspect-video">
                         <img
-                          src="https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/dd39e7aae_Water.png"
+                          src="https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/13b0c7e7a_generated_image.png"
                           alt="H2O Water — for thirsty crops"
                           className="w-full h-full object-cover"
                         />
