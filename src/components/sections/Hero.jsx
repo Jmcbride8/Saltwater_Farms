@@ -31,7 +31,7 @@ function ElementCards() {
           <div className="font-playfair text-5xl font-bold text-white leading-none">
             NH<sub className="text-2xl">3</sub>
           </div>
-          <div className="font-inter text-sm font-semibold text-white mt-2">Ammonia</div>
+          <div className="font-inter text-sm font-semibold text-white mt-2">Fertilizer</div>
         </div>
       </div>
 
@@ -94,7 +94,7 @@ export default function Hero() {
           </h1>
 
           <p className="font-inter text-lg md:text-xl text-white/80 font-light leading-relaxed max-w-2xl mx-auto mb-12">
-            Haber turned air into food. We're turning desert brine into water.
+            Solving water abundance to feed the next 6 billion
           </p>
 
           <ElementCards />
