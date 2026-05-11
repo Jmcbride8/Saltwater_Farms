@@ -144,7 +144,7 @@ export default function InsightSection() {
                     {/* Element cards side-by-side */}
                     <div className="grid grid-cols-2 gap-6 max-w-2xl mx-auto">
                       {/* NH₃ — Solved */}
-                      <div className="rounded-2xl overflow-hidden shadow-md h-32 md:h-40 bg-[#22c55e] flex flex-col items-center justify-center relative">
+                      <div className="rounded-2xl overflow-hidden shadow-md min-h-[280px] bg-[#22c55e] flex flex-col items-center justify-center relative">
                         <div className="absolute top-3 right-4">
                           <span className="font-inter text-xs font-bold text-white uppercase tracking-widest">Solved ✓</span>
                         </div>
@@ -157,7 +157,7 @@ export default function InsightSection() {
                       </div>
 
                       {/* H₂O — Next */}
-                      <div className="rounded-2xl overflow-hidden shadow-md h-32 md:h-40 bg-[#0ea5e9] flex flex-col items-center justify-center relative">
+                      <div className="rounded-2xl overflow-hidden shadow-md min-h-[280px] bg-[#0ea5e9] flex flex-col items-center justify-center relative">
                         <div className="absolute top-3 right-4">
                           <span className="font-inter text-xs font-bold text-white uppercase tracking-widest">Next →</span>
                         </div>
