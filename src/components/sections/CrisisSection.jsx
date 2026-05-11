@@ -186,7 +186,7 @@ export default function CrisisSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/10" />
                 <div className="absolute inset-0 p-6 flex flex-col justify-between pointer-events-none">
                   <div className="flex justify-between items-start w-full">
-                    <img src="https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/5ce9ea184_ChatGPTImageMay11202603_57_52PM.png" alt="skull" className="w-10 h-10 opacity-90" />
+                    <img src="https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/5ce9ea184_ChatGPTImageMay11202603_57_52PM.png" alt="skull" className="w-20 h-20 opacity-90" />
                     <div className="text-right">
                       <div className="font-playfair text-4xl md:text-5xl font-bold text-white leading-none">{item.stat}</div>
                       <div className="font-inter text-xs text-white/60 mt-1">{item.label}</div>
