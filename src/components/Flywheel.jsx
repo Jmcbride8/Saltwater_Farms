@@ -47,7 +47,7 @@ export default function Flywheel() {
   const sliceDeg = 360 / N;
 
   return (
-    <div ref={ref} className="w-full flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16">
+    <div ref={ref} className="w-full flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16 text-left">
 
       {/* SVG wheel */}
       <div className="relative shrink-0">
@@ -126,7 +126,7 @@ export default function Flywheel() {
       </div>
 
       {/* Legend — numbers match the wheel */}
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-5 items-start">
         {steps.map((step, i) => (
           <motion.div
             key={i}
