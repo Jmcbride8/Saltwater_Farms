@@ -142,11 +142,11 @@ export default function InsightSection() {
                     </div>
 
                     {/* Element cards side-by-side */}
-                    <div className="grid grid-cols-2 gap-4 max-w-xl mx-auto">
+                    <div className="grid grid-cols-2 gap-4 max-w-2xl mx-auto">
                       {/* NH₃ — Solved */}
-                      <div className="relative rounded-2xl overflow-hidden shadow-md aspect-video">
+                      <div className="relative rounded-2xl overflow-hidden shadow-md" style={{ aspectRatio: '2 / 1' }}>
                         <img
-                          src="https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/390fd6e63_generated_image.png"
+                          src="https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/45d4ab30b_generated_image.png"
                           alt="NH3 Ammonia — for hungry crops"
                           className="w-full h-full object-cover"
                         />
@@ -156,9 +156,9 @@ export default function InsightSection() {
                       </div>
 
                       {/* H₂O — Next */}
-                      <div className="relative rounded-2xl overflow-hidden shadow-md aspect-video">
+                      <div className="relative rounded-2xl overflow-hidden shadow-md" style={{ aspectRatio: '2 / 1' }}>
                         <img
-                          src="https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/13b0c7e7a_generated_image.png"
+                          src="https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/e8d35f285_generated_image.png"
                           alt="H2O Water — for thirsty crops"
                           className="w-full h-full object-cover"
                         />
@@ -169,7 +169,7 @@ export default function InsightSection() {
                     </div>
 
                     <p className="font-inter text-sm text-center text-muted-foreground mt-5 max-w-sm mx-auto">
-                      Haber solved nitrogen in 1909. The water crisis is today's equivalent — waiting for its breakthrough.
+                      Two individuals solved world hunger. What if two people could do the same for water?
                     </p>
                   </motion.div>
                 );
