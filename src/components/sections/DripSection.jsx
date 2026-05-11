@@ -18,8 +18,73 @@ const dripLimitations = [
   },
 ];
 
-export default function DripSection() {
+const desalLimitations = [
+  {
+    title: 'The Math Is Brutal',
+    desc: 'Industrial desalination costs $800–$2,000 per acre-foot of water. Farmers in the Imperial Valley generate roughly $500–$800 per acre-foot in crop revenue. Even before energy, labor, or land costs — desal puts you underwater before you plant a seed.',
+  },
+  {
+    title: 'Energy Costs Kill the Margin',
+    desc: 'Reverse osmosis desalination consumes 3–10 kWh per cubic meter of water. Delivering enough water for a single 500-acre farm requires the energy equivalent of powering hundreds of homes — permanently. There\'s no crop in the world with that margin.',
+  },
+  {
+    title: 'It Ignores the Real Problem',
+    desc: 'Desalination adds new supply to a broken system. It doesn\'t reduce the 85% of Colorado River water lost to agricultural evaporation. You\'d need to desalinate an ocean to compensate — while the original problem keeps draining the river.',
+  },
+];
+
+function LimitationList({ items }) {
   const [openIndex, setOpenIndex] = useState(null);
+
+  return (
+    <div className="space-y-3 mb-16">
+      {items.map((item, i) => {
+        const isOpen = openIndex === i;
+        return (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.08, duration: 0.6 }}
+            className="bg-muted rounded-xl border border-border overflow-hidden"
+          >
+            <button
+              onClick={() => setOpenIndex(isOpen ? null : i)}
+              className="w-full flex items-center gap-3 px-6 py-5 text-left"
+            >
+              <XCircle className="w-5 h-5 text-crisis shrink-0" />
+              <h3 className="font-playfair text-lg font-bold text-foreground flex-1">{item.title}</h3>
+              <ChevronDown className={`w-4 h-4 text-muted-foreground shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+            </button>
+            <AnimatePresence initial={false}>
+              {isOpen && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.25 }}
+                >
+                  <p className="font-inter text-sm text-muted-foreground leading-relaxed px-6 pb-5">{item.desc}</p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
+        );
+      })}
+    </div>
+  );
+}
+
+const tabs = [
+  { id: 'drip', label: 'Why Not Drip?' },
+  { id: 'desal', label: 'Why Not Desalination?' },
+];
+
+export default function DripSection() {
+  const [activeTab, setActiveTab] = useState('drip');
+
+  const isDrip = activeTab === 'drip';
 
   return (
     <section id="drip-vs-wall" className="py-28 bg-white">
@@ -30,61 +95,72 @@ export default function DripSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <p className="text-sm font-inter font-medium tracking-[0.2em] uppercase text-teal mb-4">Why Not Drip?</p>
+          <p className="text-sm font-inter font-medium tracking-[0.2em] uppercase text-teal mb-4">The Obvious Answers That Don't Work</p>
           <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-6">
             85% of Water Goes to Farms.<br />
-            <span className="text-crisis">Drip Can't Save It.</span>
+            <span className="text-crisis">The Obvious Fixes Are Broken.</span>
           </h2>
           <p className="font-inter text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Agriculture is the entire problem — and drip irrigation is the obvious answer everyone gets wrong. 
-            After decades of subsidies and trials, fewer than <strong className="text-foreground">5% of Imperial Valley acres</strong> use it. 
-            Three structural reasons explain why drip fails here — and why we need a fundamentally different approach.
+            Two solutions dominate every conversation about the water crisis. Both have fatal structural flaws that explain why the crisis keeps getting worse despite decades of investment.
           </p>
         </motion.div>
 
-        <WaterUseDonut />
-
-        {/* Limitations grid */}
-        <div className="space-y-3 mb-16">
-          {dripLimitations.map((item, i) => {
-            const isOpen = openIndex === i;
-            return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08, duration: 0.6 }}
-                className="bg-muted rounded-xl border border-border overflow-hidden"
+        {/* Tab switcher */}
+        <div className="flex justify-center mb-12">
+          <div className="inline-flex bg-muted rounded-xl p-1 border border-border">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`px-6 py-2.5 rounded-lg font-inter text-sm font-medium transition-all duration-200 ${
+                  activeTab === tab.id
+                    ? 'bg-white text-foreground shadow-sm border border-border'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
               >
-                <button
-                  onClick={() => setOpenIndex(isOpen ? null : i)}
-                  className="w-full flex items-center gap-3 px-6 py-5 text-left"
-                >
-                  <XCircle className="w-5 h-5 text-crisis shrink-0" />
-                  <h3 className="font-playfair text-lg font-bold text-foreground flex-1">{item.title}</h3>
-                  <ChevronDown className={`w-4 h-4 text-muted-foreground shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
-                </button>
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.25 }}
-                    >
-                      <p className="font-inter text-sm text-muted-foreground leading-relaxed px-6 pb-5">{item.desc}</p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            );
-          })}
+                {tab.label}
+              </button>
+            ))}
+          </div>
         </div>
 
+        <WaterUseDonut />
 
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.3 }}
+          >
+            {isDrip ? (
+              <LimitationList items={dripLimitations} />
+            ) : (
+              <>
+                {/* Desal cost callout */}
+                <div className="bg-crisis/5 border border-crisis/20 rounded-2xl p-6 mb-8 flex flex-col md:flex-row gap-6 items-center">
+                  <div className="text-center md:text-left">
+                    <div className="font-playfair text-5xl font-bold text-crisis leading-none">$2,000</div>
+                    <div className="font-inter text-sm text-crisis/80 mt-1">per acre-foot — desalination cost</div>
+                  </div>
+                  <div className="w-px bg-crisis/20 self-stretch hidden md:block" />
+                  <div className="text-center md:text-left">
+                    <div className="font-playfair text-5xl font-bold text-foreground leading-none">$700</div>
+                    <div className="font-inter text-sm text-muted-foreground mt-1">per acre-foot — max crop revenue</div>
+                  </div>
+                  <div className="w-px bg-crisis/20 self-stretch hidden md:block" />
+                  <div className="flex-1 font-inter text-sm text-muted-foreground leading-relaxed">
+                    The gap is unbridgeable. No crop — not almonds, not lettuce, not anything — generates enough revenue to pay for desalinated water at scale. The math is fatal before you add labor, land, or energy costs.
+                  </div>
+                </div>
+                <LimitationList items={desalLimitations} />
+              </>
+            )}
+          </motion.div>
+        </AnimatePresence>
 
       </div>
     </section>
