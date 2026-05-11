@@ -142,28 +142,30 @@ export default function InsightSection() {
                     </div>
 
                     {/* Element cards side-by-side */}
-                    <div className="grid grid-cols-2 gap-4 max-w-2xl mx-auto">
+                    <div className="grid grid-cols-2 gap-6 max-w-2xl mx-auto">
                       {/* NH₃ — Solved */}
-                      <div className="relative rounded-2xl overflow-hidden shadow-md" style={{ aspectRatio: '2 / 1' }}>
-                        <img
-                          src="https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/ae2e64a60_generated_image.png"
-                          alt="NH3 Ammonia — for hungry crops"
-                          className="w-full h-full object-cover"
-                        />
-                        <div className="absolute top-3 right-3">
-                          <span className="font-inter text-xs font-bold text-white/80 uppercase tracking-widest">Solved ✓</span>
+                      <div className="rounded-2xl overflow-hidden shadow-md h-32 md:h-40 bg-[#22c55e] flex flex-col items-center justify-center relative">
+                        <div className="absolute top-3 right-4">
+                          <span className="font-inter text-xs font-bold text-white uppercase tracking-widest">Solved ✓</span>
+                        </div>
+                        <div className="text-center">
+                          <div className="font-playfair text-5xl md:text-6xl font-bold text-white leading-none">
+                            NH<sub className="text-2xl md:text-3xl">3</sub>
+                          </div>
+                          <div className="font-inter text-sm md:text-base font-semibold text-white mt-2">Ammonia</div>
                         </div>
                       </div>
 
                       {/* H₂O — Next */}
-                      <div className="relative rounded-2xl overflow-hidden shadow-md" style={{ aspectRatio: '2 / 1' }}>
-                        <img
-                          src="https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/6433c555f_generated_image.png"
-                          alt="H2O Water — for thirsty crops"
-                          className="w-full h-full object-cover"
-                        />
-                        <div className="absolute top-3 right-3">
-                          <span className="font-inter text-xs font-bold text-white/80 uppercase tracking-widest">Next →</span>
+                      <div className="rounded-2xl overflow-hidden shadow-md h-32 md:h-40 bg-[#0ea5e9] flex flex-col items-center justify-center relative">
+                        <div className="absolute top-3 right-4">
+                          <span className="font-inter text-xs font-bold text-white uppercase tracking-widest">Next →</span>
+                        </div>
+                        <div className="text-center">
+                          <div className="font-playfair text-5xl md:text-6xl font-bold text-white leading-none">
+                            H<sub className="text-2xl md:text-3xl">2</sub>O
+                          </div>
+                          <div className="font-inter text-sm md:text-base font-semibold text-white mt-2">Water</div>
                         </div>
                       </div>
                     </div>
