@@ -185,10 +185,12 @@ export default function CrisisSection() {
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/10" />
                 <div className="absolute inset-0 p-6 flex flex-col justify-between pointer-events-none">
-                  <div className="self-end text-right">
-                    <div className="text-2xl mb-1">☠️</div>
-                    <div className="font-playfair text-4xl md:text-5xl font-bold text-white leading-none">{item.stat}</div>
-                    <div className="font-inter text-xs text-white/60 mt-1">{item.label}</div>
+                  <div className="flex justify-between items-start w-full">
+                    <img src="https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/5ce9ea184_ChatGPTImageMay11202603_57_52PM.png" alt="skull" className="w-10 h-10 opacity-90" />
+                    <div className="text-right">
+                      <div className="font-playfair text-4xl md:text-5xl font-bold text-white leading-none">{item.stat}</div>
+                      <div className="font-inter text-xs text-white/60 mt-1">{item.label}</div>
+                    </div>
                   </div>
                   <div>
                     <h4 className="font-playfair text-2xl md:text-3xl font-bold text-white mb-2">{item.title}</h4>
