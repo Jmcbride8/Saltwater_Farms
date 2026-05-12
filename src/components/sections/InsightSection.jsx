@@ -191,11 +191,11 @@ export default function InsightSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.1, duration: 0.7 }}
-                  className="md:grid md:grid-cols-2 md:gap-0 items-stretch h-96 md:h-80"
+                  className="grid grid-cols-1 md:grid-cols-2 h-80"
                 >
                   {isEven ? (
                     <>
-                      <div className={`rounded-tl-2xl rounded-bl-2xl border ${ch.color} ${ch.bg} p-8 md:text-right flex flex-col justify-center`}>
+                      <div className={`rounded-tl-2xl rounded-bl-2xl border ${ch.color} ${ch.bg} p-8 md:text-right flex flex-col justify-center overflow-hidden`}>
                         <p className={`font-inter text-xs font-semibold tracking-[0.2em] uppercase ${ch.accent} mb-2`}>{ch.year} — {ch.crisis}</p>
                         <h3 className="font-playfair text-2xl font-bold text-foreground mb-4 leading-snug">{ch.headline}</h3>
                         {ch.quote ? (
@@ -206,30 +206,30 @@ export default function InsightSection() {
                           <p className="font-inter text-sm text-slate-500 leading-relaxed">{ch.body}</p>
                         )}
                       </div>
-                      <div className="hidden md:block relative">
+                      <div className="relative overflow-hidden rounded-tr-2xl rounded-br-2xl">
                         <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-white border-2 border-teal z-10" />
-                          <AdminImageCard
-                                  src={chapterImgs[localIdx]}
-                                  alt={ch.imageAlt}
-                                  onImageChange={(url) => updateChapterImg(localIdx, url)}
-                                  className="rounded-tr-2xl rounded-br-2xl overflow-hidden h-full"
-                                  imgClassName="w-full h-full object-cover"
-                                />
-                                               </div>
-                                             </>
-                                           ) : (
-                                             <>
-                                               <div className="hidden md:block relative">
-                                                 <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-4 h-4 rounded-full bg-white border-2 border-teal z-10" />
-                                                   <AdminImageCard
-                                                                     src={chapterImgs[localIdx]}
-                                                                     alt={ch.imageAlt}
-                                                                     onImageChange={(url) => updateChapterImg(localIdx, url)}
-                                                                     className="rounded-tl-2xl rounded-bl-2xl overflow-hidden h-full"
-                                                           imgClassName="w-full h-full object-cover"
-                                                         />
+                        <AdminImageCard
+                          src={chapterImgs[localIdx]}
+                          alt={ch.imageAlt}
+                          onImageChange={(url) => updateChapterImg(localIdx, url)}
+                          className="h-full w-full"
+                          imgClassName="w-full h-full object-cover"
+                        />
                       </div>
-                      <div className={`rounded-tr-2xl rounded-br-2xl border ${ch.color} ${ch.bg} p-8 flex flex-col justify-center`}>
+                    </>
+                  ) : (
+                    <>
+                      <div className="relative overflow-hidden rounded-tl-2xl rounded-bl-2xl">
+                        <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-4 h-4 rounded-full bg-white border-2 border-teal z-10" />
+                        <AdminImageCard
+                          src={chapterImgs[localIdx]}
+                          alt={ch.imageAlt}
+                          onImageChange={(url) => updateChapterImg(localIdx, url)}
+                          className="h-full w-full"
+                          imgClassName="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className={`rounded-tr-2xl rounded-br-2xl border ${ch.color} ${ch.bg} p-8 flex flex-col justify-center overflow-hidden`}>
                         <p className={`font-inter text-xs font-semibold tracking-[0.2em] uppercase ${ch.accent} mb-2`}>{ch.year} — {ch.crisis}</p>
                         <h3 className="font-playfair text-2xl font-bold text-foreground mb-4 leading-snug">{ch.headline}</h3>
                         {ch.quote ? (
