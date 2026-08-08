@@ -22,8 +22,8 @@ export default function Home() {
           <CrisisNews />
         </div>
       </section>
-      <DripSection />
       <HowItWorksSection />
+      <DripSection />
       <RegionalTransformationSection />
       <ProfitSection />
       <InsightSection />
