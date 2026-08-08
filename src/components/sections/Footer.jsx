@@ -1,6 +1,11 @@
 import { Droplets } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { useAuth } from '@/lib/AuthContext';
 
 export default function Footer() {
+  const { user } = useAuth();
+  const isAdmin = user?.role === 'admin';
+
   return (
     <footer className="bg-foreground text-white py-16">
       <div className="max-w-6xl mx-auto px-6">
@@ -51,9 +56,16 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="font-inter text-xs text-white/40">
-            © 2026 Saltwater Farms. All rights reserved.
-          </p>
+          <div className="flex items-center gap-4">
+            <p className="font-inter text-xs text-white/40">
+              © 2026 Saltwater Farms. All rights reserved.
+            </p>
+            {isAdmin && (
+              <Link to="/archive" className="font-inter text-xs text-white/30 hover:text-white/70 transition-colors">
+                Archive
+              </Link>
+            )}
+          </div>
           <p className="font-inter text-xs text-white/40">
             Imperial Valley · Yuma · Phoenix · Jordan Valley · Australia
           </p>
