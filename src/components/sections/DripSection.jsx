@@ -97,13 +97,13 @@ export default function DripSection() {
           transition={{ duration: 0.7 }}
           className="text-center mb-12"
         >
-          <p className="text-sm font-inter font-medium tracking-[0.2em] uppercase text-teal mb-4">The Obvious Answers That Don't Work</p>
+          <p className="text-sm font-inter font-medium tracking-[0.2em] uppercase text-teal mb-4">A Difference That Makes a Difference</p>
           <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-6">
             85% of Water Goes to Farms.<br />
-            <span className="text-crisis">The Obvious Fixes Are Broken.</span>
+            <span className="text-teal">That's Where the Answer Lives.</span>
           </h2>
           <p className="font-inter text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Two solutions dominate every conversation about the water crisis. Both have fatal structural flaws that explain why the crisis keeps getting worse despite decades of investment.
+            Agriculture is the overwhelming majority of Southwest water use — which is exactly why a solution that reclaims farm water moves the needle, and why drip irrigation and desalination, despite decades of investment, never have. They treat the symptoms. We treat the 85%.
           </p>
         </motion.div>
 
