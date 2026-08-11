@@ -1,6 +1,5 @@
 import Nav from '@/components/Nav';
 import Hero from '@/components/sections/Hero';
-import CrisisNews from '@/components/sections/CrisisNews';
 import InsightSection from '@/components/sections/InsightSection';
 import DripSection from '@/components/sections/DripSection';
 import HowItWorksSection from '@/components/sections/HowItWorksSection';
@@ -17,11 +16,6 @@ export default function Home() {
     <div className="min-h-screen font-inter">
       <Nav />
       <Hero />
-      <section id="crisis" className="bg-white pb-28">
-        <div className="max-w-6xl mx-auto px-6">
-          <CrisisNews />
-        </div>
-      </section>
       <HowItWorksSection />
       <DripSection />
       <RegionalTransformationSection />

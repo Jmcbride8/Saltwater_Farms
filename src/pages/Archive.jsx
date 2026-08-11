@@ -4,6 +4,7 @@ import { useAuth } from '@/lib/AuthContext';
 import Nav from '@/components/Nav';
 import Footer from '@/components/sections/Footer';
 import CrisisSection from '@/components/sections/CrisisSection';
+import CrisisNews from '@/components/sections/CrisisNews';
 
 export default function Archive() {
   const { user } = useAuth();
@@ -41,6 +42,11 @@ export default function Archive() {
         </div>
       </div>
       <CrisisSection />
+      <section id="crisis-headlines" className="bg-white pb-28">
+        <div className="max-w-6xl mx-auto px-6">
+          <CrisisNews />
+        </div>
+      </section>
       <Footer />
     </div>
   );
