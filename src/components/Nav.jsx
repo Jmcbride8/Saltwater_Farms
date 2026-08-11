@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { Menu, X, Droplets } from 'lucide-react';
 
 const links = [
-  { label: 'The Crisis', href: '#crisis' },
   { label: 'How It Works', href: '#how-it-works' },
   { label: 'The Insight', href: '#insight' },
   { label: 'Global Impact', href: '#global' },
