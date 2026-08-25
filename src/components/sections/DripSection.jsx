@@ -33,6 +33,36 @@ const desalLimitations = [
   },
 ];
 
+const pivotLimitations = [
+  {
+    title: 'It Still Burns Freshwater',
+    desc: 'Pivot changes how water is delivered, not where it comes from. You\'re still drawing the same depleted Colorado River allocations. The river keeps draining at the same rate — you\'ve just built a more efficient way to empty it.',
+  },
+  {
+    title: 'Desert Air Steals It Mid-Air',
+    desc: 'Overhead spray arcs throw water into 110°F+ air with single-digit humidity. 20–30% evaporates before it ever touches the soil — the exact problem we\'re trying to solve. The heat that steals the water wins twice: once in the air, once in the soil.',
+  },
+  {
+    title: 'Built for the Wrong Ground',
+    desc: 'Center pivots need large, flat, contiguous fields and circle-friendly layouts. Much of the Southwest\'s productive acreage is fragmented, terraced, or oddly shaped. At $400–$800/acre upfront with no new revenue stream, adoption only makes sense where the geometry does — and it rarely does here.',
+  },
+];
+
+const seedingLimitations = [
+  {
+    title: 'You Can\'t Seed Empty Skies',
+    desc: 'Cloud seeding only enhances existing storms — it can\'t manufacture rain. The Southwest drought is structural: fewer storms reaching the basin, not weaker ones. Decades of seeding have produced marginal, hotly disputed gains.',
+  },
+  {
+    title: 'It Doesn\'t Touch the 85%',
+    desc: 'Even in the most optimistic studies, seeding adds a few percent to winter snowpack. It does nothing about the 85% of river water lost to agricultural evaporation. You\'d need to roughly double regional rainfall to offset that — and seeding has never come close.',
+  },
+  {
+    title: 'Decades In, Still Unproven',
+    desc: 'The Bureau of Reclamation has seeded Colorado clouds since the 1970s. After 50+ years and hundreds of millions spent, there is still no scientific consensus that it meaningfully increases river flows. It\'s a prayer dressed up as infrastructure.',
+  },
+];
+
 function LimitationList({ items }) {
   const [openIndex, setOpenIndex] = useState(null);
 
@@ -78,13 +108,17 @@ function LimitationList({ items }) {
 
 const tabs = [
   { id: 'drip', label: 'Why Not Drip?' },
+  { id: 'pivot', label: 'Why Not Pivot Irrigation?' },
   { id: 'desal', label: 'Why Not Desalination?' },
+  { id: 'seeding', label: 'Why Not Cloud Seeding?' },
 ];
 
 export default function DripSection() {
   const [activeTab, setActiveTab] = useState('drip');
 
   const isDrip = activeTab === 'drip';
+  const isPivot = activeTab === 'pivot';
+  const isSeeding = activeTab === 'seeding';
 
   return (
     <section id="drip-vs-wall" className="py-28 bg-white">
@@ -138,6 +172,46 @@ export default function DripSection() {
           >
             {isDrip ? (
               <LimitationList items={dripLimitations} />
+            ) : isPivot ? (
+              <>
+                {/* Pivot evaporation callout */}
+                <div className="bg-crisis/5 border border-crisis/20 rounded-2xl p-6 mb-8 flex flex-col md:flex-row gap-6 items-center">
+                  <div className="text-center md:text-left">
+                    <div className="font-playfair text-5xl font-bold text-crisis leading-none">30%</div>
+                    <div className="font-inter text-sm text-crisis/80 mt-1">of sprayed water lost to desert air</div>
+                  </div>
+                  <div className="w-px bg-crisis/20 self-stretch hidden md:block" />
+                  <div className="text-center md:text-left">
+                    <div className="font-playfair text-5xl font-bold text-foreground leading-none">0%</div>
+                    <div className="font-inter text-sm text-muted-foreground mt-1">new water created</div>
+                  </div>
+                  <div className="w-px bg-crisis/20 self-stretch hidden md:block" />
+                  <div className="flex-1 font-inter text-sm text-muted-foreground leading-relaxed">
+                    Pivot is a delivery upgrade, not a water solution. It still draws the same depleted freshwater — and in desert heat, a third of it evaporates before reaching the soil. You've built a more efficient way to empty the river.
+                  </div>
+                </div>
+                <LimitationList items={pivotLimitations} />
+              </>
+            ) : isSeeding ? (
+              <>
+                {/* Seeding callout */}
+                <div className="bg-crisis/5 border border-crisis/20 rounded-2xl p-6 mb-8 flex flex-col md:flex-row gap-6 items-center">
+                  <div className="text-center md:text-left">
+                    <div className="font-playfair text-5xl font-bold text-crisis leading-none">50+</div>
+                    <div className="font-inter text-sm text-crisis/80 mt-1">years of seeding Colorado clouds</div>
+                  </div>
+                  <div className="w-px bg-crisis/20 self-stretch hidden md:block" />
+                  <div className="text-center md:text-left">
+                    <div className="font-playfair text-5xl font-bold text-foreground leading-none">~5%</div>
+                    <div className="font-inter text-sm text-muted-foreground mt-1">optimistic snowpack gain — disputed</div>
+                  </div>
+                  <div className="w-px bg-crisis/20 self-stretch hidden md:block" />
+                  <div className="flex-1 font-inter text-sm text-muted-foreground leading-relaxed">
+                    Half a century and hundreds of millions spent, and the science is still unsettled. Even the best-case result is a rounding error against the 85% of river water agriculture evaporates. You can't seed your way out of a structural shortage.
+                  </div>
+                </div>
+                <LimitationList items={seedingLimitations} />
+              </>
             ) : (
               <>
                 {/* Desal cost callout */}
