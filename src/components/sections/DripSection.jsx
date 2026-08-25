@@ -48,21 +48,6 @@ const pivotLimitations = [
   },
 ];
 
-const importLimitations = [
-  {
-    title: 'The Distances Are Continental',
-    desc: 'Moving water from the Mississippi or Pacific Northwest to the Colorado basin means crossing 1,000+ miles of mountains and desert. The pipeline alone would rank among the most ambitious infrastructure projects in human history — a multi-decade, multi-trillion-dollar undertaking before a single drop arrives.',
-  },
-  {
-    title: 'Energy Costs Dwarf Desal',
-    desc: 'Pumping billions of gallons uphill over the Continental Divide requires staggering energy — more per acre-foot than desalination itself. You\'d be paying desal-level costs to move someone else\'s water across a continent, then losing more of it to evaporation in open canals along the way.',
-  },
-  {
-    title: 'You\'re Stealing Someone Else\'s Shortage',
-    desc: 'The Mississippi and Columbia basins aren\'t surplus — every region faces its own droughts, allocations, and legal compacts. Importing water just relocates the crisis and triggers decades of interstate water-rights litigation. There is no spare continent to draw from.',
-  },
-];
-
 function LimitationList({ items }) {
   const [openIndex, setOpenIndex] = useState(null);
 
@@ -110,7 +95,6 @@ const tabs = [
   { id: 'drip', label: 'Why Not Drip?' },
   { id: 'pivot', label: 'Why Not Pivot Irrigation?' },
   { id: 'desal', label: 'Why Not Desalination?' },
-  { id: 'import', label: 'Why Not Import Water?' },
 ];
 
 export default function DripSection() {
@@ -118,7 +102,6 @@ export default function DripSection() {
 
   const isDrip = activeTab === 'drip';
   const isPivot = activeTab === 'pivot';
-  const isImport = activeTab === 'import';
 
   return (
     <section id="drip-vs-wall" className="py-28 bg-white">
@@ -191,26 +174,6 @@ export default function DripSection() {
                   </div>
                 </div>
                 <LimitationList items={pivotLimitations} />
-              </>
-            ) : isImport ? (
-              <>
-                {/* Import callout */}
-                <div className="bg-crisis/5 border border-crisis/20 rounded-2xl p-6 mb-8 flex flex-col md:flex-row gap-6 items-center">
-                  <div className="text-center md:text-left">
-                    <div className="font-playfair text-5xl font-bold text-crisis leading-none">1,000+</div>
-                    <div className="font-inter text-sm text-crisis/80 mt-1">miles of pipeline over mountains</div>
-                  </div>
-                  <div className="w-px bg-crisis/20 self-stretch hidden md:block" />
-                  <div className="text-center md:text-left">
-                    <div className="font-playfair text-5xl font-bold text-foreground leading-none">$1T+</div>
-                    <div className="font-inter text-sm text-muted-foreground mt-1">estimated build cost</div>
-                  </div>
-                  <div className="w-px bg-crisis/20 self-stretch hidden md:block" />
-                  <div className="flex-1 font-inter text-sm text-muted-foreground leading-relaxed">
-                    Importing water means crossing a continent and the Continental Divide — a multi-decade, multi-trillion-dollar project before a single drop arrives. And you'd still be relocating someone else's shortage, not solving your own.
-                  </div>
-                </div>
-                <LimitationList items={importLimitations} />
               </>
             ) : (
               <>
