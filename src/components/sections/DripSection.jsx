@@ -48,18 +48,18 @@ const pivotLimitations = [
   },
 ];
 
-const seedingLimitations = [
+const importLimitations = [
   {
-    title: 'You Can\'t Seed Empty Skies',
-    desc: 'Cloud seeding only enhances existing storms — it can\'t manufacture rain. The Southwest drought is structural: fewer storms reaching the basin, not weaker ones. Decades of seeding have produced marginal, hotly disputed gains.',
+    title: 'The Distances Are Continental',
+    desc: 'Moving water from the Mississippi or Pacific Northwest to the Colorado basin means crossing 1,000+ miles of mountains and desert. The pipeline alone would rank among the most ambitious infrastructure projects in human history — a multi-decade, multi-trillion-dollar undertaking before a single drop arrives.',
   },
   {
-    title: 'It Doesn\'t Touch the 85%',
-    desc: 'Even in the most optimistic studies, seeding adds a few percent to winter snowpack. It does nothing about the 85% of river water lost to agricultural evaporation. You\'d need to roughly double regional rainfall to offset that — and seeding has never come close.',
+    title: 'Energy Costs Dwarf Desal',
+    desc: 'Pumping billions of gallons uphill over the Continental Divide requires staggering energy — more per acre-foot than desalination itself. You\'d be paying desal-level costs to move someone else\'s water across a continent, then losing more of it to evaporation in open canals along the way.',
   },
   {
-    title: 'Decades In, Still Unproven',
-    desc: 'The Bureau of Reclamation has seeded Colorado clouds since the 1970s. After 50+ years and hundreds of millions spent, there is still no scientific consensus that it meaningfully increases river flows. It\'s a prayer dressed up as infrastructure.',
+    title: 'You\'re Stealing Someone Else\'s Shortage',
+    desc: 'The Mississippi and Columbia basins aren\'t surplus — every region faces its own droughts, allocations, and legal compacts. Importing water just relocates the crisis and triggers decades of interstate water-rights litigation. There is no spare continent to draw from.',
   },
 ];
 
@@ -110,7 +110,7 @@ const tabs = [
   { id: 'drip', label: 'Why Not Drip?' },
   { id: 'pivot', label: 'Why Not Pivot Irrigation?' },
   { id: 'desal', label: 'Why Not Desalination?' },
-  { id: 'seeding', label: 'Why Not Cloud Seeding?' },
+  { id: 'import', label: 'Why Not Import Water?' },
 ];
 
 export default function DripSection() {
@@ -118,7 +118,7 @@ export default function DripSection() {
 
   const isDrip = activeTab === 'drip';
   const isPivot = activeTab === 'pivot';
-  const isSeeding = activeTab === 'seeding';
+  const isImport = activeTab === 'import';
 
   return (
     <section id="drip-vs-wall" className="py-28 bg-white">
@@ -192,25 +192,25 @@ export default function DripSection() {
                 </div>
                 <LimitationList items={pivotLimitations} />
               </>
-            ) : isSeeding ? (
+            ) : isImport ? (
               <>
-                {/* Seeding callout */}
+                {/* Import callout */}
                 <div className="bg-crisis/5 border border-crisis/20 rounded-2xl p-6 mb-8 flex flex-col md:flex-row gap-6 items-center">
                   <div className="text-center md:text-left">
-                    <div className="font-playfair text-5xl font-bold text-crisis leading-none">50+</div>
-                    <div className="font-inter text-sm text-crisis/80 mt-1">years of seeding Colorado clouds</div>
+                    <div className="font-playfair text-5xl font-bold text-crisis leading-none">1,000+</div>
+                    <div className="font-inter text-sm text-crisis/80 mt-1">miles of pipeline over mountains</div>
                   </div>
                   <div className="w-px bg-crisis/20 self-stretch hidden md:block" />
                   <div className="text-center md:text-left">
-                    <div className="font-playfair text-5xl font-bold text-foreground leading-none">~5%</div>
-                    <div className="font-inter text-sm text-muted-foreground mt-1">optimistic snowpack gain — disputed</div>
+                    <div className="font-playfair text-5xl font-bold text-foreground leading-none">$1T+</div>
+                    <div className="font-inter text-sm text-muted-foreground mt-1">estimated build cost</div>
                   </div>
                   <div className="w-px bg-crisis/20 self-stretch hidden md:block" />
                   <div className="flex-1 font-inter text-sm text-muted-foreground leading-relaxed">
-                    Half a century and hundreds of millions spent, and the science is still unsettled. Even the best-case result is a rounding error against the 85% of river water agriculture evaporates. You can't seed your way out of a structural shortage.
+                    Importing water means crossing a continent and the Continental Divide — a multi-decade, multi-trillion-dollar project before a single drop arrives. And you'd still be relocating someone else's shortage, not solving your own.
                   </div>
                 </div>
-                <LimitationList items={seedingLimitations} />
+                <LimitationList items={importLimitations} />
               </>
             ) : (
               <>
