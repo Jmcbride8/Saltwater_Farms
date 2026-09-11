@@ -1,5 +1,21 @@
-import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
+
+const PHASES = [
+  {
+    src: 'https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/ab882e40a_generated_image.png',
+    label: 'Barren Desert',
+  },
+  {
+    src: 'https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/bcd6716c1a_generated_image.png',
+    label: 'Construction',
+  },
+  {
+    src: 'https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/aa0303617_generated_image.png',
+    label: 'Operational',
+  },
+];
 
 function Dot({ delay }) {
   return (
@@ -68,48 +84,100 @@ function ElementCards() {
 }
 
 export default function Hero() {
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end start'],
+  });
+
+  // Three-phase crossfade across the scroll range.
+  // Phase 0 (barren): visible 0 → 0.33, fades out by 0.40
+  // Phase 1 (construction): fades in 0.27 → 0.40, fades out 0.60 → 0.73
+  // Phase 2 (operational): fades in 0.60 → 0.73, visible to end
+  const opacity0 = useTransform(scrollYProgress, [0, 0.33, 0.40], [1, 1, 0]);
+  const opacity1 = useTransform(scrollYProgress, [0.27, 0.40, 0.60, 0.73], [0, 1, 1, 0]);
+  const opacity2 = useTransform(scrollYProgress, [0.60, 0.73], [0, 1]);
+  const imgOpacities = [opacity0, opacity1, opacity2];
+
+  // Phase indicator pill opacities (dim when not the active phase)
+  const label0 = useTransform(scrollYProgress, [0, 0.33, 0.40], [1, 1, 0.3]);
+  const label1 = useTransform(scrollYProgress, [0.27, 0.40, 0.60, 0.73], [0.3, 1, 1, 0.3]);
+  const label2 = useTransform(scrollYProgress, [0.60, 0.73, 1], [0.3, 1, 1]);
+  const labelOpacities = [label0, label1, label2];
+
+  const indicatorOpacity = useTransform(scrollYProgress, [0, 0.05], [0, 1]);
+
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
-      <div className="absolute inset-0">
-        <img
-          src="https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/aa0303617_generated_image.png"
-          alt="Seawater greenhouse facility in the desert"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/65 to-black/95" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
-      </div>
+    <section
+      id="hero"
+      ref={sectionRef}
+      className="relative h-[300vh]"
+    >
+      <div className="sticky top-0 h-screen flex flex-col items-center justify-center overflow-hidden">
+        {/* Scroll-scrubbed image stack */}
+        <div className="absolute inset-0">
+          {PHASES.map((phase, i) => (
+            <motion.img
+              key={i}
+              src={phase.src}
+              alt={`Seawater greenhouse progression — ${phase.label}`}
+              className="w-full h-full object-cover absolute inset-0"
+              style={{
+                opacity: imgOpacities[i],
+              }}
+            />
+          ))}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/65 to-black/95" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
+        </div>
 
-      <div className="absolute top-0 left-0 right-0 h-1 bg-teal z-20" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-teal z-20" />
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+        {/* Phase indicator */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: 'easeOut' }}
+          style={{ opacity: indicatorOpacity }}
+          className="absolute top-24 left-1/2 -translate-x-1/2 z-20 flex gap-2"
         >
-          <h1 className="font-playfair text-6xl md:text-8xl font-bold text-white leading-[0.95] mb-8 tracking-tight drop-shadow-2xl">
-            The Green Revolution<br />
-            <span className="text-white/90">2.0</span>
-          </h1>
+          {PHASES.map((phase, i) => (
+            <motion.span
+              key={i}
+              style={{ opacity: labelOpacities[i] }}
+              className="font-inter text-xs font-medium tracking-[0.2em] uppercase text-white/90 px-3 py-1.5 rounded-full bg-black/40 border border-white/20 backdrop-blur-sm"
+            >
+              {phase.label}
+            </motion.span>
+          ))}
+        </motion.div>
 
-          <p className="font-inter text-lg md:text-xl text-white/80 font-light leading-relaxed max-w-2xl mx-auto mb-12">
-            Solving water to green the desert and feed the next 6 billion people
-          </p>
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: 'easeOut' }}
+          >
+            <h1 className="font-playfair text-6xl md:text-8xl font-bold text-white leading-[0.95] mb-8 tracking-tight drop-shadow-2xl">
+              The Green Revolution<br />
+              <span className="text-white/90">2.0</span>
+            </h1>
 
-          <ElementCards />
+            <p className="font-inter text-lg md:text-xl text-white/80 font-light leading-relaxed max-w-2xl mx-auto mb-12">
+              Solving water to green the desert and feed the next 6 billion people
+            </p>
+
+            <ElementCards />
+          </motion.div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.8, duration: 0.5 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/60 z-20"
+        >
+          <span className="text-xs font-inter tracking-widest uppercase">Scroll</span>
+          <ArrowDown className="w-4 h-4 animate-bounce" />
         </motion.div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.8, duration: 0.5 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/60"
-      >
-        <span className="text-xs font-inter tracking-widest uppercase">Scroll</span>
-        <ArrowDown className="w-4 h-4 animate-bounce" />
-      </motion.div>
     </section>
   );
 }
