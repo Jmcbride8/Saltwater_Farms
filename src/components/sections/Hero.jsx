@@ -72,12 +72,12 @@ export default function Hero() {
     <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
         <img
-          src="https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/a5410601f_ChatGPTImageMay5202602_21_40PM.png"
-          alt="Lake Mead aerial view"
+          src="https://media.base44.com/images/public/69e878868e7a6c3fe098adbd/aa0303617_generated_image.png"
+          alt="Seawater greenhouse facility in the desert"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/65 to-black/95" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/65 to-black/95" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
       </div>
 
       <div className="absolute top-0 left-0 right-0 h-1 bg-teal z-20" />
@@ -88,13 +88,16 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: 'easeOut' }}
         >
+          <p className="font-inter text-sm md:text-base font-medium tracking-[0.25em] uppercase text-teal-light mb-6">
+            The Technology Revolution
+          </p>
           <h1 className="font-playfair text-6xl md:text-8xl font-bold text-white leading-[0.95] mb-8 tracking-tight drop-shadow-2xl">
-            The Green Revolution<br />
-            <span className="text-white/90">2.0</span>
+            Seawater<br />
+            <span className="text-white/90">Greenhouses</span>
           </h1>
 
           <p className="font-inter text-lg md:text-xl text-white/80 font-light leading-relaxed max-w-2xl mx-auto mb-12">
-            Solving water to green the desert and feed the next 6 billion people
+            Turning seawater and desert heat into freshwater-cooled agriculture — growing food where nothing else can grow
           </p>
 
           <ElementCards />
