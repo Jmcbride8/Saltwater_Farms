@@ -88,16 +88,13 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: 'easeOut' }}
         >
-          <p className="font-inter text-sm md:text-base font-medium tracking-[0.25em] uppercase text-teal-light mb-6">
-            The Technology Revolution
-          </p>
           <h1 className="font-playfair text-6xl md:text-8xl font-bold text-white leading-[0.95] mb-8 tracking-tight drop-shadow-2xl">
-            Seawater<br />
-            <span className="text-white/90">Greenhouses</span>
+            The Green Revolution<br />
+            <span className="text-white/90">2.0</span>
           </h1>
 
           <p className="font-inter text-lg md:text-xl text-white/80 font-light leading-relaxed max-w-2xl mx-auto mb-12">
-            Turning seawater and desert heat into freshwater-cooled agriculture — growing food where nothing else can grow
+            Solving water to green the desert and feed the next 6 billion people
           </p>
 
           <ElementCards />
